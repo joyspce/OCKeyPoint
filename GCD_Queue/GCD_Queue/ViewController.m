@@ -248,35 +248,62 @@
 //    dispatch_resume(queue3);
     
     
-    dispatch_queue_t queue = dispatch_queue_create("me.tutuge.test.gcd", DISPATCH_QUEUE_SERIAL);
+//    dispatch_queue_t queue = dispatch_queue_create("me.tutuge.test.gcd", DISPATCH_QUEUE_SERIAL);
+//
+//    //提交第一个block，延时5秒打印。
+//    dispatch_async(queue, ^{
+//        [NSThread sleepForTimeInterval:5];
+//        NSLog(@"After 5 seconds...");
+//    });
+//
+//    //提交第二个block，也是延时5秒打印
+//    dispatch_async(queue, ^{
+//        [NSThread sleepForTimeInterval:5];
+//        NSLog(@"After 5 seconds again...");
+//    });
+//
+//    //延时一秒
+//    NSLog(@"sleep 1 second...");
+//    [NSThread sleepForTimeInterval:1];
+//
+//    //挂起队列
+//    NSLog(@"suspend...");
+//    dispatch_suspend(queue);
+//
+//    //延时10秒
+//    NSLog(@"sleep 10 second...");
+//    [NSThread sleepForTimeInterval:10];
+//
+//    //恢复队列
+//    NSLog(@"resume...");
+//    dispatch_resume(queue);
     
-    //提交第一个block，延时5秒打印。
-    dispatch_async(queue, ^{
-        [NSThread sleepForTimeInterval:5];
-        NSLog(@"After 5 seconds...");
+#pragma mark - dispatch_semaphore_t 信号量
+    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        sleep(2);
+        NSLog(@"任务1完成---- %@", [NSThread currentThread]);
+        dispatch_semaphore_signal(semaphore);
     });
     
-    //提交第二个block，也是延时5秒打印
-    dispatch_async(queue, ^{
-        [NSThread sleepForTimeInterval:5];
-        NSLog(@"After 5 seconds again...");
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        sleep(2);
+        NSLog(@"任务2完成---- %@", [NSThread currentThread]);
+        dispatch_semaphore_signal(semaphore);
     });
     
-    //延时一秒
-    NSLog(@"sleep 1 second...");
-    [NSThread sleepForTimeInterval:1];
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        sleep(2);
+        NSLog(@"任务3完成---- %@", [NSThread currentThread]);
+        dispatch_semaphore_signal(semaphore);
+    });
     
-    //挂起队列
-    NSLog(@"suspend...");
-    dispatch_suspend(queue);
     
-    //延时10秒
-    NSLog(@"sleep 10 second...");
-    [NSThread sleepForTimeInterval:10];
     
-    //恢复队列
-    NSLog(@"resume...");
-    dispatch_resume(queue);
 }
 
 
