@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Student : NSObject
+#import "StudentProtocol.h"
+
+@interface Student : NSObject<StudentProtocol>
 
 @property (nonatomic, copy) NSString *name;
 
