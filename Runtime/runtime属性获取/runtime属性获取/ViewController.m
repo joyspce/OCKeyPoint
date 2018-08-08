@@ -19,10 +19,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+   
+    
+    
+    
     /*
-     获取类中的属性
+        获取协议中的属性
      */
     
+//    id studProtocol = objc_getProtocol("StudentProtocol");
+//
+//    unsigned int protocolCount = 0;
+//    objc_property_t *protocolPropertyList = protocol_copyPropertyList(studProtocol, &protocolCount);
+//
+//    for (NSInteger i = 0; i < protocolCount; i++) {
+//        //property_getName(objc_property_t _Nonnull property)  获取属性名称
+//        const char *propertyName = property_getName(protocolPropertyList[i]);
+//        NSLog(@"studProtocol---->%@", [NSString stringWithUTF8String:propertyName]);
+//    }
+}
+/*
+ 获取类中的属性
+ */
+
+- (void)getClassPropertyList{
+ 
     id studentClass = objc_getClass("Student");
     unsigned int outCount = 0;
     //Returns an array of properties declared by a protocol
@@ -33,23 +54,28 @@
         NSLog(@"property---->%@", [NSString stringWithUTF8String:propertyName]);
     }
     
-    
-    
     /*
-        获取协议中的属性
+     property---->name
+     property---->age
+     property---->heigh
      */
     
-    id studProtocol = objc_getProtocol("StudentProtocol");
-    
-    unsigned int protocolCount = 0;
-    objc_property_t *protocolPropertyList = protocol_copyPropertyList(studProtocol, &protocolCount);
-    
-    for (NSInteger i = 0; i < protocolCount; i++) {
-        //property_getName(objc_property_t _Nonnull property)  获取属性名称
-        const char *propertyName = property_getName(protocolPropertyList[i]);
-        NSLog(@"studProtocol---->%@", [NSString stringWithUTF8String:propertyName]);
-    }
 }
+
+/*
+ 获取类中的属性
+ */
+- (void)getClassMethodList {
+    id student = objc_getClass("Student");
+    unsigned int outCount = 0;
+//    Method *prppertiesList = class_copyMethodList(student, &outCount);
+//    for (NSInteger i = 0; i < outCount ; i++) {
+//        
+//    }
+    
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {
