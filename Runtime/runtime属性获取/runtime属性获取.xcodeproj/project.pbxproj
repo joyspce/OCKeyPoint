@@ -29,6 +29,7 @@
 		04738D98211AFE1F0091CF44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04738D9F211AFE7A0091CF44 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		04738DA0211AFE7A0091CF44 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		04738DA4211B06C60091CF44 /* StudentProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +62,8 @@
 		04738D88211AFE1A0091CF44 /* runtime属性获取 */ = {
 			isa = PBXGroup;
 			children = (
-				04738D9F211AFE7A0091CF44 /* Student.h */,
-				04738DA0211AFE7A0091CF44 /* Student.m */,
+				04738DA3211B06B10091CF44 /* Protocol */,
+				04738DA2211B06A40091CF44 /* Class */,
 				04738D89211AFE1A0091CF44 /* AppDelegate.h */,
 				04738D8A211AFE1A0091CF44 /* AppDelegate.m */,
 				04738D8C211AFE1A0091CF44 /* ViewController.h */,
@@ -74,6 +75,23 @@
 				04738D98211AFE1F0091CF44 /* main.m */,
 			);
 			path = "runtime属性获取";
+			sourceTree = "<group>";
+		};
+		04738DA2211B06A40091CF44 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				04738D9F211AFE7A0091CF44 /* Student.h */,
+				04738DA0211AFE7A0091CF44 /* Student.m */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		04738DA3211B06B10091CF44 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				04738DA4211B06C60091CF44 /* StudentProtocol.h */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

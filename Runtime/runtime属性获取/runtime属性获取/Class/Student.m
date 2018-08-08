@@ -10,4 +10,13 @@
 
 @implementation Student
 
+- (void)gotoSchool {
+    NSLog(@"去上学");
+}
+
+
+- (void)byBus {
+    NSLog(@"坐公交车");
+}
+
 @end
