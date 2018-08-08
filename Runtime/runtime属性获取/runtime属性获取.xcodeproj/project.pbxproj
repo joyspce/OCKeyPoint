@@ -13,6 +13,7 @@
 		04738D93211AFE1F0091CF44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04738D92211AFE1F0091CF44 /* Assets.xcassets */; };
 		04738D96211AFE1F0091CF44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04738D94211AFE1F0091CF44 /* LaunchScreen.storyboard */; };
 		04738D99211AFE1F0091CF44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04738D98211AFE1F0091CF44 /* main.m */; };
+		04738DA1211AFE7A0091CF44 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 04738DA0211AFE7A0091CF44 /* Student.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		04738D95211AFE1F0091CF44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04738D97211AFE1F0091CF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04738D98211AFE1F0091CF44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04738D9F211AFE7A0091CF44 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		04738DA0211AFE7A0091CF44 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 		04738D88211AFE1A0091CF44 /* runtime属性获取 */ = {
 			isa = PBXGroup;
 			children = (
+				04738D9F211AFE7A0091CF44 /* Student.h */,
+				04738DA0211AFE7A0091CF44 /* Student.m */,
 				04738D89211AFE1A0091CF44 /* AppDelegate.h */,
 				04738D8A211AFE1A0091CF44 /* AppDelegate.m */,
 				04738D8C211AFE1A0091CF44 /* ViewController.h */,
@@ -144,6 +149,7 @@
 				04738D8E211AFE1A0091CF44 /* ViewController.m in Sources */,
 				04738D99211AFE1F0091CF44 /* main.m in Sources */,
 				04738D8B211AFE1A0091CF44 /* AppDelegate.m in Sources */,
+				04738DA1211AFE7A0091CF44 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
