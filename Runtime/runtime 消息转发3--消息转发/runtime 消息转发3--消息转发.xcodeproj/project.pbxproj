@@ -13,6 +13,9 @@
 		043991CE2120358D00B812CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043991CD2120358D00B812CB /* Assets.xcassets */; };
 		043991D12120358D00B812CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043991CF2120358D00B812CB /* LaunchScreen.storyboard */; };
 		043991D42120358D00B812CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991D32120358D00B812CB /* main.m */; };
+		043991F121203D9600B812CB /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991F021203D9600B812CB /* Father.m */; };
+		043991F421203D9F00B812CB /* Grandfather.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991F321203D9F00B812CB /* Grandfather.m */; };
+		043991F721203DA600B812CB /* Mother.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991F521203DA600B812CB /* Mother.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		043991D02120358D00B812CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		043991D22120358D00B812CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043991D32120358D00B812CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		043991EF21203D9500B812CB /* Father.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Father.h; sourceTree = "<group>"; };
+		043991F021203D9600B812CB /* Father.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
+		043991F221203D9F00B812CB /* Grandfather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grandfather.h; sourceTree = "<group>"; };
+		043991F321203D9F00B812CB /* Grandfather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grandfather.m; sourceTree = "<group>"; };
+		043991F521203DA600B812CB /* Mother.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mother.m; sourceTree = "<group>"; };
+		043991F621203DA600B812CB /* Mother.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mother.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,12 @@
 		043991C32120358C00B812CB /* runtime 消息转发3--消息转发 */ = {
 			isa = PBXGroup;
 			children = (
+				043991F621203DA600B812CB /* Mother.h */,
+				043991F521203DA600B812CB /* Mother.m */,
+				043991F221203D9F00B812CB /* Grandfather.h */,
+				043991F321203D9F00B812CB /* Grandfather.m */,
+				043991EF21203D9500B812CB /* Father.h */,
+				043991F021203D9600B812CB /* Father.m */,
 				043991C42120358C00B812CB /* AppDelegate.h */,
 				043991C52120358C00B812CB /* AppDelegate.m */,
 				043991C72120358C00B812CB /* ViewController.h */,
@@ -142,7 +157,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				043991C92120358C00B812CB /* ViewController.m in Sources */,
+				043991F121203D9600B812CB /* Father.m in Sources */,
 				043991D42120358D00B812CB /* main.m in Sources */,
+				043991F421203D9F00B812CB /* Grandfather.m in Sources */,
+				043991F721203DA600B812CB /* Mother.m in Sources */,
 				043991C62120358C00B812CB /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
