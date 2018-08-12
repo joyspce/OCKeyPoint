@@ -46,7 +46,8 @@
         Mother *m = [[Mother alloc]init];
         return m;
     }
-    return nil;
+    //如果本类没有做快速转发则向父类查找
+    return [super forwardingTargetForSelector:aSelector];
 }
 
 
