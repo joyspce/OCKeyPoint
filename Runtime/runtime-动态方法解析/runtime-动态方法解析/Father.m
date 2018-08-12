@@ -27,13 +27,13 @@
     if (sel == @selector(gotoWork)) {//如果是gotoWork 方法则向父类查找
         return [super resolveInstanceMethod:sel];
     }
-    //如果是gotoWork 以外的方法 则不动态添加，则会进入下一步 消息快速转发流程
+    //如果是gotoWork 以外的方法 则不动态添加，则会进入下一步 消息重定向（注意：重定向还没有进入消息转发流程）
     return NO;
 }
 
 
 /**
- 快速转发 ：
+ 快速转发：重定向 ：此时还没有进入消息转发流程
  *注意*：千万不能返回 self ，假如返回 self 则会进入死循环
 
  @param aSelector <#aSelector description#>
