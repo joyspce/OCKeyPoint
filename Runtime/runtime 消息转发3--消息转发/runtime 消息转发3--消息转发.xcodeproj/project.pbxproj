@@ -16,6 +16,7 @@
 		043991F121203D9600B812CB /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991F021203D9600B812CB /* Father.m */; };
 		043991F421203D9F00B812CB /* Grandfather.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991F321203D9F00B812CB /* Grandfather.m */; };
 		043991F721203DA600B812CB /* Mother.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991F521203DA600B812CB /* Mother.m */; };
+		043991FA2120413300B812CB /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991F92120413300B812CB /* Son.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		043991F321203D9F00B812CB /* Grandfather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grandfather.m; sourceTree = "<group>"; };
 		043991F521203DA600B812CB /* Mother.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mother.m; sourceTree = "<group>"; };
 		043991F621203DA600B812CB /* Mother.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mother.h; sourceTree = "<group>"; };
+		043991F82120413300B812CB /* Son.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Son.h; sourceTree = "<group>"; };
+		043991F92120413300B812CB /* Son.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Son.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				043991F321203D9F00B812CB /* Grandfather.m */,
 				043991EF21203D9500B812CB /* Father.h */,
 				043991F021203D9600B812CB /* Father.m */,
+				043991F82120413300B812CB /* Son.h */,
+				043991F92120413300B812CB /* Son.m */,
 				043991C42120358C00B812CB /* AppDelegate.h */,
 				043991C52120358C00B812CB /* AppDelegate.m */,
 				043991C72120358C00B812CB /* ViewController.h */,
@@ -156,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043991FA2120413300B812CB /* Son.m in Sources */,
 				043991C92120358C00B812CB /* ViewController.m in Sources */,
 				043991F121203D9600B812CB /* Father.m in Sources */,
 				043991D42120358D00B812CB /* main.m in Sources */,
