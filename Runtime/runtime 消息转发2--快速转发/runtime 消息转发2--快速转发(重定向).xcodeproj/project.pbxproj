@@ -15,7 +15,7 @@
 		043991A6212028EF00B812CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991A5212028EF00B812CB /* main.m */; };
 		043991B121202A2900B812CB /* Grandfather.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991B021202A2900B812CB /* Grandfather.m */; };
 		043991B721202CA600B812CB /* Mother.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991B621202CA600B812CB /* Mother.m */; };
-		043991DF2120360300B812CB /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991DE2120360300B812CB /* Father.m */; };
+		043991E22120367D00B812CB /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991E12120367D00B812CB /* Father.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +33,8 @@
 		043991B021202A2900B812CB /* Grandfather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Grandfather.m; sourceTree = "<group>"; };
 		043991B521202CA600B812CB /* Mother.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mother.h; sourceTree = "<group>"; };
 		043991B621202CA600B812CB /* Mother.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mother.m; sourceTree = "<group>"; };
-		043991DD2120360300B812CB /* Father.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Father.h; path = "../../runtime-动态方法解析/runtime-动态方法解析/Father.h"; sourceTree = "<group>"; };
-		043991DE2120360300B812CB /* Father.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Father.m; path = "../../runtime-动态方法解析/runtime-动态方法解析/Father.m"; sourceTree = "<group>"; };
+		043991E02120367D00B812CB /* Father.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Father.h; sourceTree = "<group>"; };
+		043991E12120367D00B812CB /* Father.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +67,8 @@
 		04399195212028EE00B812CB /* runtime 消息转发2--快速转发(重定向) */ = {
 			isa = PBXGroup;
 			children = (
-				043991DD2120360300B812CB /* Father.h */,
-				043991DE2120360300B812CB /* Father.m */,
+				043991E02120367D00B812CB /* Father.h */,
+				043991E12120367D00B812CB /* Father.m */,
 				043991AF21202A2900B812CB /* Grandfather.h */,
 				043991B021202A2900B812CB /* Grandfather.m */,
 				043991B521202CA600B812CB /* Mother.h */,
@@ -157,7 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0439919B212028EE00B812CB /* ViewController.m in Sources */,
-				043991DF2120360300B812CB /* Father.m in Sources */,
+				043991E22120367D00B812CB /* Father.m in Sources */,
 				043991A6212028EF00B812CB /* main.m in Sources */,
 				043991B121202A2900B812CB /* Grandfather.m in Sources */,
 				04399198212028EE00B812CB /* AppDelegate.m in Sources */,
