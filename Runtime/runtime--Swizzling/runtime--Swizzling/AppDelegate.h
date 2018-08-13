@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
-//  重定向
+//  runtime--Swizzling
 //
-//  Created by JiWuChao on 2018/8/9.
+//  Created by JiWuChao on 2018/8/13.
 //  Copyright © 2018年 JiWuChao. All rights reserved.
 //
 
