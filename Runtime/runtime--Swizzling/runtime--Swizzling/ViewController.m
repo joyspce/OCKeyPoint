@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //https://www.jianshu.com/p/a6b675f4d073
     //第一swizzing 方法
     Method oriMethod =   class_getInstanceMethod([Person class], @selector(whoImI));
     Method studMethod =   class_getInstanceMethod([Student class], @selector(myIdentity));
