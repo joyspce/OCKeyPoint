@@ -14,9 +14,9 @@
 
 @interface JWCProperty : NSObject
 //属性的名字
-@property (nonatomic, copy) NSString *name;
+@property (nonatomic, readonly) NSString *name;
 //成员属性的类型
-@property (nonatomic, strong) JWCPropertyType *type;
+@property (nonatomic, readonly) JWCPropertyType *type;
 
 + (instancetype)propertyWithProperty:(objc_property_t)property;
 

@@ -2,7 +2,7 @@
 //  ViewController.m
 //  runtime-字典转模型
 //
-//  Created by JiWuChao on 2018/8/17.
+//  Created by JiWuChao on 2018/8/18.
 //  Copyright © 2018年 JiWuChao. All rights reserved.
 //
 
@@ -10,7 +10,8 @@
 
 #import "PeopleModel.h"
 
-#import "NSObject+Property.h"
+#import "NSObject+JWCKeyValueObject.h"
+
 
 @interface ViewController ()
 
@@ -20,14 +21,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    PeopleModel *model = [[PeopleModel alloc] init];
-    NSArray <JWCProperty *>*property = [PeopleModel propertyList];
+
+    PeopleModel *model = [PeopleModel objectWithKeyValues:[self modelInfo]];
     
-    [property enumerateObjectsUsingBlock:^(JWCProperty * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSLog(@"obj.name = %@\n",obj.name);
-//        NSLog(@"objc.type.name = %@\n",obj.type.name);
-    }];
+     NSLog(@"model.name = %@",model.name);
+     NSLog(@"model.hight = %ld",model.hight);
+     NSLog(@"model.wight = %@",model.wight);
+     NSLog(@"model.age = %ld",model.age);
+     NSLog(@"model.address = %@",model.address);
     
+}
+
+/*
+ 
+ @property (nonatomic, copy) NSString *name;
+ 
+ @property (nonatomic, assign) NSInteger hight;
+ 
+ @property (nonatomic, strong) NSNumber *wight;
+ 
+ @property (nonatomic, assign) NSInteger age;
+ 
+ @property (nonatomic, copy) NSString *address;
+ */
+
+
+
+- (NSDictionary *)modelInfo {
+    
+    return @{@"name":@"张三",
+             @"hight":@"190",
+             @"wight":@"55",
+             @"age":@"110",
+             @"address":@"中国上海市闸北区"
+             };
 }
 
 
@@ -35,6 +62,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end

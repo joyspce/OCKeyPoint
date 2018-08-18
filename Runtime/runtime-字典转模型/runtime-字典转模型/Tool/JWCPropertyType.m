@@ -31,7 +31,12 @@ static NSMutableDictionary *cachedTypes_;
 - (instancetype)initWithTypeString:(NSString *)string {
     
     NSUInteger loc = 1;
-    NSUInteger len = [string rangeOfString:@","].location - 1;
+    
+    if ([string rangeOfString:@","].location == NSNotFound) {
+        return self;
+    }
+    
+    NSUInteger len = [string rangeOfString:@","].location - loc;
     NSString *typeCode = [string substringWithRange:NSMakeRange(loc, len)];
     
     if (!cachedTypes_[typeCode]) {

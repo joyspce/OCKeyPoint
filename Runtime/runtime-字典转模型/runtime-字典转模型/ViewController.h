@@ -2,7 +2,7 @@
 //  ViewController.h
 //  runtime-字典转模型
 //
-//  Created by JiWuChao on 2018/8/17.
+//  Created by JiWuChao on 2018/8/18.
 //  Copyright © 2018年 JiWuChao. All rights reserved.
 //
 
@@ -10,6 +10,4 @@
 
 @interface ViewController : UIViewController
 
-
 @end
-

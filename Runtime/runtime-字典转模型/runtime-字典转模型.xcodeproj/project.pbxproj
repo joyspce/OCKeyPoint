@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		040DF5B32126E3A70017DBDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DF5B22126E3A70017DBDA /* AppDelegate.m */; };
-		040DF5B62126E3A70017DBDA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DF5B52126E3A70017DBDA /* ViewController.m */; };
 		040DF5B92126E3A70017DBDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040DF5B72126E3A70017DBDA /* Main.storyboard */; };
 		040DF5BB2126E3AA0017DBDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040DF5BA2126E3AA0017DBDA /* Assets.xcassets */; };
 		040DF5BE2126E3AA0017DBDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040DF5BC2126E3AA0017DBDA /* LaunchScreen.storyboard */; };
@@ -18,14 +17,14 @@
 		040DF5D42126F5B40017DBDA /* JWCProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DF5D32126F5B40017DBDA /* JWCProperty.m */; };
 		040DF5D72126F9D40017DBDA /* JWCPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DF5D62126F9D40017DBDA /* JWCPropertyType.m */; };
 		040DF5DA2126FCCE0017DBDA /* JWCExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DF5D92126FCCE0017DBDA /* JWCExtensionConst.m */; };
+		0458A91121280C8200CEF3A6 /* NSObject+JWCKeyValueObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A91021280C8200CEF3A6 /* NSObject+JWCKeyValueObject.m */; };
+		0458A91421281BA000CEF3A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A91321281BA000CEF3A6 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		040DF5AE2126E3A70017DBDA /* runtime-字典转模型.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "runtime-字典转模型.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		040DF5B12126E3A70017DBDA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		040DF5B22126E3A70017DBDA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		040DF5B42126E3A70017DBDA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		040DF5B52126E3A70017DBDA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		040DF5B82126E3A70017DBDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		040DF5BA2126E3AA0017DBDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		040DF5BD2126E3AA0017DBDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +40,10 @@
 		040DF5D62126F9D40017DBDA /* JWCPropertyType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JWCPropertyType.m; sourceTree = "<group>"; };
 		040DF5D82126FCCE0017DBDA /* JWCExtensionConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JWCExtensionConst.h; sourceTree = "<group>"; };
 		040DF5D92126FCCE0017DBDA /* JWCExtensionConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JWCExtensionConst.m; sourceTree = "<group>"; };
+		0458A90F21280C8200CEF3A6 /* NSObject+JWCKeyValueObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+JWCKeyValueObject.h"; sourceTree = "<group>"; };
+		0458A91021280C8200CEF3A6 /* NSObject+JWCKeyValueObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JWCKeyValueObject.m"; sourceTree = "<group>"; };
+		0458A91221281BA000CEF3A6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0458A91321281BA000CEF3A6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +80,8 @@
 				040DF5CD2126EFE50017DBDA /* Tool */,
 				040DF5B12126E3A70017DBDA /* AppDelegate.h */,
 				040DF5B22126E3A70017DBDA /* AppDelegate.m */,
-				040DF5B42126E3A70017DBDA /* ViewController.h */,
-				040DF5B52126E3A70017DBDA /* ViewController.m */,
+				0458A91221281BA000CEF3A6 /* ViewController.h */,
+				0458A91321281BA000CEF3A6 /* ViewController.m */,
 				040DF5B72126E3A70017DBDA /* Main.storyboard */,
 				040DF5BA2126E3AA0017DBDA /* Assets.xcassets */,
 				040DF5BC2126E3AA0017DBDA /* LaunchScreen.storyboard */,
@@ -99,6 +102,8 @@
 				040DF5D62126F9D40017DBDA /* JWCPropertyType.m */,
 				040DF5D82126FCCE0017DBDA /* JWCExtensionConst.h */,
 				040DF5D92126FCCE0017DBDA /* JWCExtensionConst.m */,
+				0458A90F21280C8200CEF3A6 /* NSObject+JWCKeyValueObject.h */,
+				0458A91021280C8200CEF3A6 /* NSObject+JWCKeyValueObject.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -182,11 +187,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040DF5B62126E3A70017DBDA /* ViewController.m in Sources */,
+				0458A91421281BA000CEF3A6 /* ViewController.m in Sources */,
 				040DF5C12126E3AA0017DBDA /* main.m in Sources */,
 				040DF5C92126E6E20017DBDA /* PeopleModel.m in Sources */,
 				040DF5D42126F5B40017DBDA /* JWCProperty.m in Sources */,
 				040DF5CC2126E7120017DBDA /* NSObject+Property.m in Sources */,
+				0458A91121280C8200CEF3A6 /* NSObject+JWCKeyValueObject.m in Sources */,
 				040DF5B32126E3A70017DBDA /* AppDelegate.m in Sources */,
 				040DF5DA2126FCCE0017DBDA /* JWCExtensionConst.m in Sources */,
 				040DF5D72126F9D40017DBDA /* JWCPropertyType.m in Sources */,
