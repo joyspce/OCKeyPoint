@@ -19,6 +19,7 @@
 		040DF5DA2126FCCE0017DBDA /* JWCExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DF5D92126FCCE0017DBDA /* JWCExtensionConst.m */; };
 		0458A91121280C8200CEF3A6 /* NSObject+JWCKeyValueObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A91021280C8200CEF3A6 /* NSObject+JWCKeyValueObject.m */; };
 		0458A91421281BA000CEF3A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A91321281BA000CEF3A6 /* ViewController.m */; };
+		04867640212A969F00A44918 /* AnimalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0486763F212A969F00A44918 /* AnimalModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		0458A91021280C8200CEF3A6 /* NSObject+JWCKeyValueObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JWCKeyValueObject.m"; sourceTree = "<group>"; };
 		0458A91221281BA000CEF3A6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0458A91321281BA000CEF3A6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0486763E212A969F00A44918 /* AnimalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimalModel.h; sourceTree = "<group>"; };
+		0486763F212A969F00A44918 /* AnimalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimalModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 			children = (
 				040DF5C72126E6E20017DBDA /* PeopleModel.h */,
 				040DF5C82126E6E20017DBDA /* PeopleModel.m */,
+				0486763E212A969F00A44918 /* AnimalModel.h */,
+				0486763F212A969F00A44918 /* AnimalModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				040DF5C12126E3AA0017DBDA /* main.m in Sources */,
 				040DF5C92126E6E20017DBDA /* PeopleModel.m in Sources */,
 				040DF5D42126F5B40017DBDA /* JWCProperty.m in Sources */,
+				04867640212A969F00A44918 /* AnimalModel.m in Sources */,
 				040DF5CC2126E7120017DBDA /* NSObject+Property.m in Sources */,
 				0458A91121280C8200CEF3A6 /* NSObject+JWCKeyValueObject.m in Sources */,
 				040DF5B32126E3A70017DBDA /* AppDelegate.m in Sources */,

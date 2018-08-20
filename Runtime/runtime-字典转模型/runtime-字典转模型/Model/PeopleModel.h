@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AnimalModel.h"
+
 @interface PeopleModel : NSObject
 
 @property (nonatomic, copy) NSString *name;
@@ -20,6 +22,6 @@
 
 @property (nonatomic, copy) NSString *address;
 
-
+@property (nonatomic, strong) AnimalModel *ani;
 
 @end

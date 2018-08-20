@@ -24,11 +24,13 @@
 
     PeopleModel *model = [PeopleModel objectWithKeyValues:[self modelInfo]];
     
-     NSLog(@"model.name = %@",model.name);
+    NSLog(@"model.name = %@",model.name);
     NSLog(@"model.hight = %f",model.hight);
-     NSLog(@"model.wight = %@",model.wight);
-     NSLog(@"model.age = %ld",model.age);
-     NSLog(@"model.address = %@",model.address);
+    NSLog(@"model.wight = %@",model.wight);
+    NSLog(@"model.age = %ld",model.age);
+    NSLog(@"model.address = %@",model.address);
+    NSLog(@"model.ani.name = %@",model.ani.name);
+    NSLog(@"model.ani.age = %ld ",(long)model.ani.age);
     
 }
 
@@ -53,7 +55,10 @@
              @"hight":@(190.22),
              @"wight":@(55.9),
              @"age":@"110",
-             @"address":@"中国上海市闸北区"
+             @"address":@"中国上海市闸北区",
+             @"ani": @{ @"name":@"cat",
+                       @"age": @(2)
+                       }
              };
 }
 

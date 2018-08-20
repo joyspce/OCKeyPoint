@@ -57,7 +57,7 @@
         }
         //如果不是来自foundation框架的类并且不是基本数据类型 ,则递归。因为在这种情况下只有可能是自定义的类。所以我们可以递归解析自定义的类
         if (!type.isFromFoundation && typeClass) {
-            value = [typeClass objectWithKeyValues:keyValues];
+            value = [typeClass objectWithKeyValues:value];
             // 看该类是否实现了objectClassInArray方法
         } else if ([self.class respondsToSelector:@selector(objectClassInArray)]) {
             id objectClass = nil ;
