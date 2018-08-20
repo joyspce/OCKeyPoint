@@ -25,7 +25,7 @@
     PeopleModel *model = [PeopleModel objectWithKeyValues:[self modelInfo]];
     
      NSLog(@"model.name = %@",model.name);
-     NSLog(@"model.hight = %ld",model.hight);
+    NSLog(@"model.hight = %f",model.hight);
      NSLog(@"model.wight = %@",model.wight);
      NSLog(@"model.age = %ld",model.age);
      NSLog(@"model.address = %@",model.address);
@@ -50,8 +50,8 @@
 - (NSDictionary *)modelInfo {
     
     return @{@"name":@"张三",
-             @"hight":@"190",
-             @"wight":@"55",
+             @"hight":@(190.22),
+             @"wight":@(55.9),
              @"age":@"110",
              @"address":@"中国上海市闸北区"
              };

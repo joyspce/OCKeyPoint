@@ -76,28 +76,7 @@ static NSMutableDictionary *cachedProperties_;
 
 
 + (NSArray *)propertyList {
-    
-//    NSMutableArray *cachedProperties = cachedProperties_[NSStringFromClass(self)];
-//    if (!cachedProperties) {//没有找到缓存、则初始化
-//        NSLog(@"%@调用了properties方法",[self class]);
-//        cachedProperties = [NSMutableArray array];
-//
-//        //获取所有属性
-//        unsigned int count = 0;
-//
-//        objc_property_t *prprtys = class_copyPropertyList([self class], &count);
-//
-//        for (NSInteger i = 0; i < count; i++) {
-//            objc_property_t property = prprtys[i];
-//             JWCProperty *propertyObj = [JWCProperty propertyWithProperty:property];
-//            [cachedProperties addObject:propertyObj];
-//            NSLog(@"pro.name = %@,pro.type.typeClass %@",propertyObj.name,propertyObj.type.typeClass);
-//        }
-//        free(prprtys);
-//        //把所在对象的属性列表缓存下来
-//        cachedProperties_[NSStringFromClass(self)] = cachedProperties;
-//    }
-    
+
     NSMutableArray *cachedProperties = cachedProperties_[NSStringFromClass(self)];
     if (!cachedProperties) {//没有找到缓存、则初始化
         NSLog(@"%@调用了properties方法",[self class]);
@@ -105,7 +84,6 @@ static NSMutableDictionary *cachedProperties_;
         //1 获取所有的属性
         unsigned int outCount = 0;
         objc_property_t *properties = class_copyPropertyList(self, &outCount);
-        
         for (int i = 0; i < outCount; i++) {
             objc_property_t property = properties[i];
             JWCProperty *propertyObj = [JWCProperty propertyWithProperty:property];

@@ -25,6 +25,12 @@
 /** 类型是否来自于Foundation框架，比如NSString、NSArray */
 @property (nonatomic, assign, readonly, getter=isFromFoundation) BOOL fromFoundation;
 
+/**
+ 缓存的对象 用于查找缓存的type类型
+
+ @param string <#string description#>
+ @return <#return value description#>
+ */
 + (instancetype)propertyTypeWithAttributeString:(NSString *)string;
 
 @end

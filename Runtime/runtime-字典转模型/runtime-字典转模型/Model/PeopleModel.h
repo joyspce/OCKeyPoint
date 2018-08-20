@@ -12,7 +12,7 @@
 
 @property (nonatomic, copy) NSString *name;
 
-@property (nonatomic, assign) NSInteger hight;
+@property (nonatomic, assign) float hight;
 
 @property (nonatomic, strong) NSNumber *wight;
 
