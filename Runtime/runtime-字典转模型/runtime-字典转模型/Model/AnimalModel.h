@@ -14,4 +14,6 @@
 
 @property (nonatomic, assign) NSInteger age;
 
+@property (nonatomic, assign) BOOL live;
+
 @end
