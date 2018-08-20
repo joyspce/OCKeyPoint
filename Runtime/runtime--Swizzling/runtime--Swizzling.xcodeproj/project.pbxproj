@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04867645212AB90C00A44918 /* UIViewController+SwizzlingMethodThird.m in Sources */ = {isa = PBXBuildFile; fileRef = 04867644212AB90C00A44918 /* UIViewController+SwizzlingMethodThird.m */; };
 		048D5C112121E18000F24857 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D5C102121E18000F24857 /* AppDelegate.m */; };
 		048D5C142121E18000F24857 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D5C132121E18000F24857 /* ViewController.m */; };
 		048D5C172121E18000F24857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048D5C152121E18000F24857 /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04867643212AB90C00A44918 /* UIViewController+SwizzlingMethodThird.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SwizzlingMethodThird.h"; sourceTree = "<group>"; };
+		04867644212AB90C00A44918 /* UIViewController+SwizzlingMethodThird.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SwizzlingMethodThird.m"; sourceTree = "<group>"; };
 		048D5C0C2121E18000F24857 /* runtime--Swizzling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "runtime--Swizzling.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		048D5C0F2121E18000F24857 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		048D5C102121E18000F24857 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +78,8 @@
 				048D5C102121E18000F24857 /* AppDelegate.m */,
 				048D5C122121E18000F24857 /* ViewController.h */,
 				048D5C132121E18000F24857 /* ViewController.m */,
+				04867643212AB90C00A44918 /* UIViewController+SwizzlingMethodThird.h */,
+				04867644212AB90C00A44918 /* UIViewController+SwizzlingMethodThird.m */,
 				048D5C252121E1A600F24857 /* UIViewController+Swizzling.h */,
 				048D5C262121E1A600F24857 /* UIViewController+Swizzling.m */,
 				048D5C152121E18000F24857 /* Main.storyboard */,
@@ -160,6 +165,7 @@
 				048D5C142121E18000F24857 /* ViewController.m in Sources */,
 				048D5C2B2121E9C500F24857 /* Person.m in Sources */,
 				048D5C1F2121E18200F24857 /* main.m in Sources */,
+				04867645212AB90C00A44918 /* UIViewController+SwizzlingMethodThird.m in Sources */,
 				048D5C112121E18000F24857 /* AppDelegate.m in Sources */,
 				048D5C2D2121E9E100F24857 /* Student.m in Sources */,
 			);

@@ -10,6 +10,8 @@
 
 #import "UIViewController+Swizzling.h"
 
+#import "UIViewController+SwizzlingMethodThird.h"
+
 #import "Student.h"
 
 #import "Person.h"
@@ -19,6 +21,14 @@
 @interface ViewController ()
 
 @end
+
+/*
+    Swizzling 方式一共有三种
+    1 第一种在本 ViewController
+    2 第二种在 UIViewController+Swizzling
+    3 第三种在 UIViewController+SwizzlingMethodThird
+ */
+
 
 @implementation ViewController
 
@@ -32,6 +42,8 @@
     
     Person *person = [[Person alloc] init];
     [person whoImI]; //方法已经被 student 的方法替换
+    
+    NSLog(@"原方法名: %s",__func__);
 }
 
 

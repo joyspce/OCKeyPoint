@@ -11,7 +11,9 @@
 #import <objc/runtime.h>
 
 
-//第二中 Swizzing 方法
+/*
+    第二中 Swizzing 方法
+ */
 @implementation UIViewController (Swizzling)
 
 
@@ -48,9 +50,9 @@
        /*
         如果类中不存在要替换的方法，那就先用class_addMethod和class_replaceMethod函数添加和替换两个方法的实现
         */
-        if (didAddMethod) {
+        if (didAddMethod) {//1
             class_replaceMethod(aClass, @selector(customeViewWillAppear:), method_getImplementation(oriMethod), method_getTypeEncoding(oriMethod));
-        } else {
+        } else {//2
             /*
              如果类中已经有了想要替换的方法，那么就调用method_exchangeImplementations函数交换了两个方法的 IMP，这是苹果提供给我们用于实现 Method Swizzling 的便捷方法
              */
