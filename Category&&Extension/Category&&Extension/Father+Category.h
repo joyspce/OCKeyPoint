@@ -10,4 +10,10 @@
 
 @interface Father (Category)
 
+@property (nonatomic,copy) NSString *idNumber;
+
+
+- (void)goShoping;
+
+
 @end

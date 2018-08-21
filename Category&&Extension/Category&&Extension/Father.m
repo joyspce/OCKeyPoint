@@ -8,6 +8,12 @@
 
 #import "Father.h"
 
+#import "Father+Ext.h"
+
 @implementation Father
+
+- (void)gotoWork {
+    NSLog(@"Extension中的方法：去工作");
+}
 
 @end

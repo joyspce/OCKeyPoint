@@ -32,7 +32,7 @@
 		04B41229212BC02A008F5981 /* Father.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
 		04B4122B212BC095008F5981 /* Father+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Father+Category.h"; sourceTree = "<group>"; };
 		04B4122C212BC095008F5981 /* Father+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Father+Category.m"; sourceTree = "<group>"; };
-		04B4122E212BC0A7008F5981 /* Father+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Father+Extension.h"; sourceTree = "<group>"; };
+		04B4122F212BE5A6008F5981 /* Father+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Father+Ext.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +67,9 @@
 			children = (
 				04B41228212BC02A008F5981 /* Father.h */,
 				04B41229212BC02A008F5981 /* Father.m */,
+				04B4122F212BE5A6008F5981 /* Father+Ext.h */,
 				04B4122B212BC095008F5981 /* Father+Category.h */,
 				04B4122C212BC095008F5981 /* Father+Category.m */,
-				04B4122E212BC0A7008F5981 /* Father+Extension.h */,
 				04B41212212BC001008F5981 /* AppDelegate.h */,
 				04B41213212BC001008F5981 /* AppDelegate.m */,
 				04B41215212BC001008F5981 /* ViewController.h */,
