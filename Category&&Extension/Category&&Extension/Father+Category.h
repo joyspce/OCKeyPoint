@@ -12,8 +12,8 @@
 
 @property (nonatomic,copy) NSString *idNumber;
 
-
 - (void)goShoping;
 
+- (void)goHome;
 
 @end

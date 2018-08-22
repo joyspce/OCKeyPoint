@@ -154,8 +154,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B41217212BC001008F5981 /* ViewController.m in Sources */,
-				04B4122D212BC095008F5981 /* Father+Category.m in Sources */,
 				04B4122A212BC02A008F5981 /* Father.m in Sources */,
+				04B4122D212BC095008F5981 /* Father+Category.m in Sources */,
 				04B41222212BC003008F5981 /* main.m in Sources */,
 				04B41214212BC001008F5981 /* AppDelegate.m in Sources */,
 			);

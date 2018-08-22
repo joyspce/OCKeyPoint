@@ -12,6 +12,9 @@
 
 @implementation Father (Category)
 
++ (void)load {
+    [[[Father alloc] init] goHome];
+}
 
 /**
  <#Description#>
@@ -30,5 +33,10 @@
 - (void)goShoping {
     NSLog(@"Category中的方法：去购物");
 }
+
+- (void)goHome {
+     NSLog(@"Category中的方法：回家");
+}
+
 
 @end
