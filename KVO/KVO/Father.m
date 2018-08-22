@@ -10,4 +10,12 @@
 
 @implementation Father
 
+
+
+//- (void)setName:(NSString *)name {
+//    [self willChangeValueForKey:@"name"];
+//    _name = name;
+//    [self didChangeValueForKey:@"name"];
+//}
+
 @end

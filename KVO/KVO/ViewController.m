@@ -14,6 +14,9 @@
 
 @property (nonatomic,strong) Father *fa;
 
+@property (nonatomic, assign) NSInteger age;
+
+
 @end
 
 @implementation ViewController
@@ -22,11 +25,29 @@
     [super viewDidLoad];
     self.fa = [[Father alloc] init];
     
+    [self manual];
     
     
+}
+//普通的触发
+- (void)normal {
     [self.fa addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:NULL];
     self.fa.name = @"张三";
 }
+
+
+/**
+ 手动触发kvo
+ */
+- (void)manual {
+    
+    [self addObserver:self forKeyPath:@"fa" options:NSKeyValueObservingOptionNew context:NULL];
+    
+    [self willChangeValueForKey:@"fa"];
+    
+    [self didChangeValueForKey:@"fa"];
+}
+
 
 /**
  调用此方法者 self.fa 是要被监听的对象
