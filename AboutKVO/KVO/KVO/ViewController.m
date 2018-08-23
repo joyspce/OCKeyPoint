@@ -24,15 +24,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.fa = [[Father alloc] init];
-    
-    [self manual];
-    
-    
+    [self normal];
 }
 //普通的触发
 - (void)normal {
+    
+    NSLog(@"before: --isa--%@",[self.fa valueForKey:@"isa"]);
+    NSLog(@"before: --class--%@",[self.fa class]);
     [self.fa addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:NULL];
     self.fa.name = @"张三";
+    
+    NSLog(@"after: --isa--%@",[self.fa valueForKey:@"isa"]);
+    NSLog(@"after: --class--%@",[self.fa class]);
+    
+    
+    /*
+     输出结果:
+     before: --isa--Father
+     before: --class--Father
+     father.name = 张三
+     after: --isa--NSKVONotifying_Father
+     after: --class--Father
+     
+     
+     after: --isa--NSKVONotifying_Father 添加观察者之后 iso 有值Father 被改为NSKVONotifying_Father
+     
+     
+     
+     */
 }
 
 
