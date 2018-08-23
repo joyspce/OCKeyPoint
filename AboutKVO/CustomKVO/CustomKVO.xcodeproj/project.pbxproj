@@ -14,6 +14,7 @@
 		04B70560212D91AE00CC7A25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B7055E212D91AE00CC7A25 /* LaunchScreen.storyboard */; };
 		04B70563212D91AE00CC7A25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B70562212D91AE00CC7A25 /* main.m */; };
 		04B7056B212D922200CC7A25 /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B7056A212D922200CC7A25 /* NSObject+KVO.m */; };
+		04B70571212EA60200CC7A25 /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B70570212EA60200CC7A25 /* Father.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		04B70562212D91AE00CC7A25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04B70569212D922200CC7A25 /* NSObject+KVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO.h"; sourceTree = "<group>"; };
 		04B7056A212D922200CC7A25 /* NSObject+KVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO.m"; sourceTree = "<group>"; };
+		04B7056F212EA60200CC7A25 /* Father.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Father.h; sourceTree = "<group>"; };
+		04B70570212EA60200CC7A25 /* Father.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 				04B70554212D91AD00CC7A25 /* AppDelegate.m */,
 				04B70556212D91AD00CC7A25 /* ViewController.h */,
 				04B70557212D91AD00CC7A25 /* ViewController.m */,
+				04B7056F212EA60200CC7A25 /* Father.h */,
+				04B70570212EA60200CC7A25 /* Father.m */,
 				04B70569212D922200CC7A25 /* NSObject+KVO.h */,
 				04B7056A212D922200CC7A25 /* NSObject+KVO.m */,
 				04B70559212D91AD00CC7A25 /* Main.storyboard */,
@@ -150,6 +155,7 @@
 				04B70558212D91AD00CC7A25 /* ViewController.m in Sources */,
 				04B70563212D91AE00CC7A25 /* main.m in Sources */,
 				04B70555212D91AD00CC7A25 /* AppDelegate.m in Sources */,
+				04B70571212EA60200CC7A25 /* Father.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

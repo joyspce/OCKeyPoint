@@ -8,7 +8,15 @@
 
 #import "ViewController.h"
 
+#import "Father.h"
+
+#import "NSObject+KVO.h"
+
 @interface ViewController ()
+
+// 参考：https://www.jianshu.com/p/bf053a28accb
+
+@property (nonatomic,strong) Father *father;
 
 @end
 
@@ -16,7 +24,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.father = [[Father alloc] init];
+    
+    [self.father jw_addObserver:self forKey:NSStringFromSelector(@selector(name)) withBlock:^(id observerObj, NSString *observerKey, id oldValue, id newValue) {
+        NSLog(@"oldValue: %@ | newValue: %@",oldValue,newValue);
+    }];
+    self.father.name = @"张三";
+    
+    self.father.name = @"李四";
+}
+
+
+- (void)dealloc {
+    [self.father jw_removeObserver:self forKey:@"name"];
 }
 
 
