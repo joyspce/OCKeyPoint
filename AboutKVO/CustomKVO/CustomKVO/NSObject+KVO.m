@@ -50,7 +50,7 @@ NSString *const kJWCKVOAssociatedObservers = @"JWCKVOAssociatedObservers";
 - (void)jw_addObserver:(NSObject *)observer forKey:(NSString *)key withBlock:(JWCObserverBlock)block {
     // 1 检查对象的类有没有相应的 setter方法。
     SEL setterSel = NSSelectorFromString([self setterMethodFromKey:key]);
-    NSPointerFunctionsOptions
+    
     Method setterMethod = class_getInstanceMethod([self class], setterSel);
     
     if (!setterMethod) {
