@@ -75,13 +75,14 @@ NSString *const kJWCKVOAssociatedObservers = @"JWCKVOAssociatedObservers";
         class = [self makeKvoClassWithOriginalClassName:className];
         object_setClass(self, class);//改变isa的指向
     }
-    
+    //判断当前kvoClass中有没有这个方法 如果没有则添加这个方法
     if (![self hasSelector:setterSel]) {
         const char *types = method_getTypeEncoding(setterMethod);
         class_addMethod(class, setterSel, (IMP)kvo_setter, types);
     }
     
     JWCObserverInfo *info = [[JWCObserverInfo alloc] initWithObserver:observer key:key blovk:block];
+    //相当于在分类中添加一个全局的属性 需要用到 关联方法 observers 作为被观察的属性的集合
     NSMutableArray *observers = objc_getAssociatedObject(self, (__bridge const void *)(kJWCKVOAssociatedObservers));
     if (!observers) {
         observers = [NSMutableArray array];
@@ -174,19 +175,31 @@ static void kvo_setter(id self,SEL _cmd, id newValue) {
  @return <#return value description#>
  */
 - (Class)makeKvoClassWithOriginalClassName:(NSString *)originalClazzName {
+    //生成一个 中间类的类名
     NSString *kvoClassName = [kJWCKVOClassPrefix stringByAppendingString:originalClazzName];
+   //如果这个类名已经存在 则返回
     Class class = NSClassFromString(kvoClassName);
     if (class) {
         return class;
     }
-    
+    // 如果不存在 则创建这个类
     Class originalClass = object_getClass(self);
+    
+    /**
+     运行时创建类 superclass 类是父类   name 类的名字  size_t 类占的空间
+     objc_allocateClassPair(Class _Nullable superclass, const char * _Nonnull name,
+     size_t extraBytes)
+     
+     */
     Class kvoClass = objc_allocateClassPair(originalClass, kvoClassName.UTF8String, 0);
     
+    //修改kvo class 方法的实现
     Method classMethod = class_getInstanceMethod(originalClass, @selector(class));
     
     const char *types = method_getTypeEncoding(classMethod);
+    //把kvoClass 作为 self的子类
     class_addMethod(kvoClass, @selector(class), (IMP)kvo_class, types);
+    //注册kvo的class
     objc_registerClassPair(kvoClass);
     
     return kvoClass;
@@ -196,6 +209,7 @@ static void kvo_setter(id self,SEL _cmd, id newValue) {
 
 static Class kvo_class(id self, SEL _cmd)
 {
+    // 把kvoClass 作为 self的子类
     return class_getSuperclass(object_getClass(self));
 }
 
