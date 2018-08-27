@@ -23,6 +23,7 @@
 
 @property (nonatomic, strong) UIButton *btn;
 
+@property (nonatomic, strong) Son *son2;
 
 @end
 
@@ -31,8 +32,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-   __block Father *father  = [[Father alloc] init];
-   __block Son *son = [[Son alloc] init];
+    Father *father  = [[Father alloc] init];
+    Son *son = [[Son alloc] init];
+    self.son2 = [[Son alloc] init];
     
     [self.KVOController observe:father keyPath:@"name" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSKeyValueChangeKey,id> * _Nonnull change) {
         NSLog(@"father.name == %@",father.name);
@@ -50,6 +52,9 @@
     [self.KVOController observe:son keyPath:@"age" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSKeyValueChangeKey,id> * _Nonnull change) {
         NSLog(@"son.age == %ld",(long)son.age);
     }];
+    [self.KVOController observe:_son2 keyPath:@"age" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSKeyValueChangeKey,id> * _Nonnull change) {
+//        NSLog(@"self.son2.age == %ld",(long)self.son2.age);//会导致强引用
+    }];
     
     
     father.name = @"father-李四";
@@ -58,6 +63,8 @@
     
     son.name = @"小明";
     son.age = 21;
+    
+    self.son2.age = 32;
     
     self.btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     [self.btn setTintColor:[UIColor redColor]];
