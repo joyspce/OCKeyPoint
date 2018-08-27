@@ -17,6 +17,7 @@
 		0400ED822133EE4C003CEAD5 /* FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400ED7F2133EE4C003CEAD5 /* FBKVOController.m */; };
 		0400ED872133EF13003CEAD5 /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400ED862133EF13003CEAD5 /* Father.m */; };
 		0400ED8A2133EF20003CEAD5 /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400ED892133EF20003CEAD5 /* Son.m */; };
+		0492CC1621342A54004039CC /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC1521342A54004039CC /* PushViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		0400ED862133EF13003CEAD5 /* Father.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
 		0400ED882133EF20003CEAD5 /* Son.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Son.h; sourceTree = "<group>"; };
 		0400ED892133EF20003CEAD5 /* Son.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Son.m; sourceTree = "<group>"; };
+		0492CC1421342A54004039CC /* PushViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
+		0492CC1521342A54004039CC /* PushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,8 @@
 				0400ED672133EE2E003CEAD5 /* AppDelegate.m */,
 				0400ED692133EE2E003CEAD5 /* ViewController.h */,
 				0400ED6A2133EE2E003CEAD5 /* ViewController.m */,
+				0492CC1421342A54004039CC /* PushViewController.h */,
+				0492CC1521342A54004039CC /* PushViewController.m */,
 				0400ED6C2133EE2E003CEAD5 /* Main.storyboard */,
 				0400ED6F2133EE31003CEAD5 /* Assets.xcassets */,
 				0400ED712133EE31003CEAD5 /* LaunchScreen.storyboard */,
@@ -183,6 +188,7 @@
 				0400ED6B2133EE2E003CEAD5 /* ViewController.m in Sources */,
 				0400ED762133EE31003CEAD5 /* main.m in Sources */,
 				0400ED682133EE2E003CEAD5 /* AppDelegate.m in Sources */,
+				0492CC1621342A54004039CC /* PushViewController.m in Sources */,
 				0400ED822133EE4C003CEAD5 /* FBKVOController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
