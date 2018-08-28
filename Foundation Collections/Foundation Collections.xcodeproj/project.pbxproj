@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0492CC2821354897004039CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC2721354897004039CC /* AppDelegate.m */; };
+		0492CC2B21354897004039CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC2A21354897004039CC /* ViewController.m */; };
+		0492CC2E21354897004039CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0492CC2C21354897004039CC /* Main.storyboard */; };
+		0492CC3021354899004039CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0492CC2F21354899004039CC /* Assets.xcassets */; };
+		0492CC3321354899004039CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0492CC3121354899004039CC /* LaunchScreen.storyboard */; };
+		0492CC3621354899004039CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC3521354899004039CC /* main.m */; };
+		0492CC3F21354D9A004039CC /* NSArrayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC3E21354D9A004039CC /* NSArrayVC.m */; };
+		0492CC4221354DB5004039CC /* NSDictionaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC4121354DB5004039CC /* NSDictionaryVC.m */; };
+		0492CC4521354DF7004039CC /* NSSet&&NSOrderedSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC4421354DF7004039CC /* NSSet&&NSOrderedSetVC.m */; };
+		0492CC4821354E0B004039CC /* NSHashTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC4721354E0B004039CC /* NSHashTableVC.m */; };
+		0492CC4B21354E2F004039CC /* NSMapTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC4A21354E2F004039CC /* NSMapTableVC.m */; };
+		0492CC4E21354E44004039CC /* NSPointerArrayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC4D21354E44004039CC /* NSPointerArrayVC.m */; };
+		0492CC5121354E53004039CC /* NSCacheVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC5021354E53004039CC /* NSCacheVC.m */; };
+		0492CC5421354E67004039CC /* NSindexSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC5321354E67004039CC /* NSindexSetVC.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0492CC2321354897004039CC /* Foundation Collections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Foundation Collections.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0492CC2621354897004039CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0492CC2721354897004039CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0492CC2921354897004039CC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0492CC2A21354897004039CC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0492CC2D21354897004039CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0492CC2F21354899004039CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0492CC3221354899004039CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0492CC3421354899004039CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0492CC3521354899004039CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0492CC3D21354D9A004039CC /* NSArrayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSArrayVC.h; sourceTree = "<group>"; };
+		0492CC3E21354D9A004039CC /* NSArrayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSArrayVC.m; sourceTree = "<group>"; };
+		0492CC4021354DB5004039CC /* NSDictionaryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDictionaryVC.h; sourceTree = "<group>"; };
+		0492CC4121354DB5004039CC /* NSDictionaryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryVC.m; sourceTree = "<group>"; };
+		0492CC4321354DF7004039CC /* NSSet&&NSOrderedSetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSSet&&NSOrderedSetVC.h"; sourceTree = "<group>"; };
+		0492CC4421354DF7004039CC /* NSSet&&NSOrderedSetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSSet&&NSOrderedSetVC.m"; sourceTree = "<group>"; };
+		0492CC4621354E0B004039CC /* NSHashTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSHashTableVC.h; sourceTree = "<group>"; };
+		0492CC4721354E0B004039CC /* NSHashTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSHashTableVC.m; sourceTree = "<group>"; };
+		0492CC4921354E2E004039CC /* NSMapTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSMapTableVC.h; sourceTree = "<group>"; };
+		0492CC4A21354E2F004039CC /* NSMapTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSMapTableVC.m; sourceTree = "<group>"; };
+		0492CC4C21354E44004039CC /* NSPointerArrayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSPointerArrayVC.h; sourceTree = "<group>"; };
+		0492CC4D21354E44004039CC /* NSPointerArrayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSPointerArrayVC.m; sourceTree = "<group>"; };
+		0492CC4F21354E53004039CC /* NSCacheVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSCacheVC.h; sourceTree = "<group>"; };
+		0492CC5021354E53004039CC /* NSCacheVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSCacheVC.m; sourceTree = "<group>"; };
+		0492CC5221354E67004039CC /* NSindexSetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSindexSetVC.h; sourceTree = "<group>"; };
+		0492CC5321354E67004039CC /* NSindexSetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSindexSetVC.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0492CC2021354897004039CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0492CC1A21354897004039CC = {
+			isa = PBXGroup;
+			children = (
+				0492CC2521354897004039CC /* Foundation Collections */,
+				0492CC2421354897004039CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0492CC2421354897004039CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0492CC2321354897004039CC /* Foundation Collections.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0492CC2521354897004039CC /* Foundation Collections */ = {
+			isa = PBXGroup;
+			children = (
+				0492CC3C21354D74004039CC /* Collections */,
+				0492CC2621354897004039CC /* AppDelegate.h */,
+				0492CC2721354897004039CC /* AppDelegate.m */,
+				0492CC2921354897004039CC /* ViewController.h */,
+				0492CC2A21354897004039CC /* ViewController.m */,
+				0492CC2C21354897004039CC /* Main.storyboard */,
+				0492CC2F21354899004039CC /* Assets.xcassets */,
+				0492CC3121354899004039CC /* LaunchScreen.storyboard */,
+				0492CC3421354899004039CC /* Info.plist */,
+				0492CC3521354899004039CC /* main.m */,
+			);
+			path = "Foundation Collections";
+			sourceTree = "<group>";
+		};
+		0492CC3C21354D74004039CC /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				0492CC3D21354D9A004039CC /* NSArrayVC.h */,
+				0492CC3E21354D9A004039CC /* NSArrayVC.m */,
+				0492CC4021354DB5004039CC /* NSDictionaryVC.h */,
+				0492CC4121354DB5004039CC /* NSDictionaryVC.m */,
+				0492CC4321354DF7004039CC /* NSSet&&NSOrderedSetVC.h */,
+				0492CC4421354DF7004039CC /* NSSet&&NSOrderedSetVC.m */,
+				0492CC4621354E0B004039CC /* NSHashTableVC.h */,
+				0492CC4721354E0B004039CC /* NSHashTableVC.m */,
+				0492CC4921354E2E004039CC /* NSMapTableVC.h */,
+				0492CC4A21354E2F004039CC /* NSMapTableVC.m */,
+				0492CC4C21354E44004039CC /* NSPointerArrayVC.h */,
+				0492CC4D21354E44004039CC /* NSPointerArrayVC.m */,
+				0492CC4F21354E53004039CC /* NSCacheVC.h */,
+				0492CC5021354E53004039CC /* NSCacheVC.m */,
+				0492CC5221354E67004039CC /* NSindexSetVC.h */,
+				0492CC5321354E67004039CC /* NSindexSetVC.m */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0492CC2221354897004039CC /* Foundation Collections */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0492CC3921354899004039CC /* Build configuration list for PBXNativeTarget "Foundation Collections" */;
+			buildPhases = (
+				0492CC1F21354897004039CC /* Sources */,
+				0492CC2021354897004039CC /* Frameworks */,
+				0492CC2121354897004039CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Foundation Collections";
+			productName = "Foundation Collections";
+			productReference = 0492CC2321354897004039CC /* Foundation Collections.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0492CC1B21354897004039CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = JiWuChao;
+				TargetAttributes = {
+					0492CC2221354897004039CC = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 0492CC1E21354897004039CC /* Build configuration list for PBXProject "Foundation Collections" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0492CC1A21354897004039CC;
+			productRefGroup = 0492CC2421354897004039CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0492CC2221354897004039CC /* Foundation Collections */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0492CC2121354897004039CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0492CC3321354899004039CC /* LaunchScreen.storyboard in Resources */,
+				0492CC3021354899004039CC /* Assets.xcassets in Resources */,
+				0492CC2E21354897004039CC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0492CC1F21354897004039CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0492CC4221354DB5004039CC /* NSDictionaryVC.m in Sources */,
+				0492CC4B21354E2F004039CC /* NSMapTableVC.m in Sources */,
+				0492CC5121354E53004039CC /* NSCacheVC.m in Sources */,
+				0492CC4821354E0B004039CC /* NSHashTableVC.m in Sources */,
+				0492CC2B21354897004039CC /* ViewController.m in Sources */,
+				0492CC3621354899004039CC /* main.m in Sources */,
+				0492CC2821354897004039CC /* AppDelegate.m in Sources */,
+				0492CC4521354DF7004039CC /* NSSet&&NSOrderedSetVC.m in Sources */,
+				0492CC4E21354E44004039CC /* NSPointerArrayVC.m in Sources */,
+				0492CC3F21354D9A004039CC /* NSArrayVC.m in Sources */,
+				0492CC5421354E67004039CC /* NSindexSetVC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0492CC2C21354897004039CC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0492CC2D21354897004039CC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0492CC3121354899004039CC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0492CC3221354899004039CC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0492CC3721354899004039CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0492CC3821354899004039CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0492CC3A21354899004039CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Foundation Collections/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jiwuchao.com.Foundation-Collections";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0492CC3B21354899004039CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Foundation Collections/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jiwuchao.com.Foundation-Collections";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0492CC1E21354897004039CC /* Build configuration list for PBXProject "Foundation Collections" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0492CC3721354899004039CC /* Debug */,
+				0492CC3821354899004039CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0492CC3921354899004039CC /* Build configuration list for PBXNativeTarget "Foundation Collections" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0492CC3A21354899004039CC /* Debug */,
+				0492CC3B21354899004039CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0492CC1B21354897004039CC /* Project object */;
+}
