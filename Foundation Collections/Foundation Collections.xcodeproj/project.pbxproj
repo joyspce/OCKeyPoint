@@ -21,6 +21,7 @@
 		0492CC4E21354E44004039CC /* NSPointerArrayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC4D21354E44004039CC /* NSPointerArrayVC.m */; };
 		0492CC5121354E53004039CC /* NSCacheVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC5021354E53004039CC /* NSCacheVC.m */; };
 		0492CC5421354E67004039CC /* NSindexSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC5321354E67004039CC /* NSindexSetVC.m */; };
+		0492CC58213556BC004039CC /* TTTRandomizedEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC56213556BC004039CC /* TTTRandomizedEnumerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		0492CC5021354E53004039CC /* NSCacheVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSCacheVC.m; sourceTree = "<group>"; };
 		0492CC5221354E67004039CC /* NSindexSetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSindexSetVC.h; sourceTree = "<group>"; };
 		0492CC5321354E67004039CC /* NSindexSetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSindexSetVC.m; sourceTree = "<group>"; };
+		0492CC56213556BC004039CC /* TTTRandomizedEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTRandomizedEnumerator.m; sourceTree = "<group>"; };
+		0492CC57213556BC004039CC /* TTTRandomizedEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTRandomizedEnumerator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,7 @@
 		0492CC2521354897004039CC /* Foundation Collections */ = {
 			isa = PBXGroup;
 			children = (
+				0492CC55213556AF004039CC /* 3rd */,
 				0492CC3C21354D74004039CC /* Collections */,
 				0492CC2621354897004039CC /* AppDelegate.h */,
 				0492CC2721354897004039CC /* AppDelegate.m */,
@@ -117,6 +121,15 @@
 				0492CC5321354E67004039CC /* NSindexSetVC.m */,
 			);
 			path = Collections;
+			sourceTree = "<group>";
+		};
+		0492CC55213556AF004039CC /* 3rd */ = {
+			isa = PBXGroup;
+			children = (
+				0492CC57213556BC004039CC /* TTTRandomizedEnumerator.h */,
+				0492CC56213556BC004039CC /* TTTRandomizedEnumerator.m */,
+			);
+			path = 3rd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +205,7 @@
 				0492CC4221354DB5004039CC /* NSDictionaryVC.m in Sources */,
 				0492CC4B21354E2F004039CC /* NSMapTableVC.m in Sources */,
 				0492CC5121354E53004039CC /* NSCacheVC.m in Sources */,
+				0492CC58213556BC004039CC /* TTTRandomizedEnumerator.m in Sources */,
 				0492CC4821354E0B004039CC /* NSHashTableVC.m in Sources */,
 				0492CC2B21354897004039CC /* ViewController.m in Sources */,
 				0492CC3621354899004039CC /* main.m in Sources */,
