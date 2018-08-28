@@ -25,6 +25,9 @@
 
 @property (nonatomic, strong) Son *son2;
 
+@property (nonatomic, copy) NSString *textString;
+
+
 @end
 
 @implementation PushViewController
@@ -35,6 +38,7 @@
     Father *father  = [[Father alloc] init];
     Son *son = [[Son alloc] init];
     self.son2 = [[Son alloc] init];
+    
     
     [self.KVOController observe:father keyPath:@"name" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSKeyValueChangeKey,id> * _Nonnull change) {
         NSLog(@"father.name == %@",father.name);
@@ -52,8 +56,25 @@
     [self.KVOController observe:son keyPath:@"age" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSKeyValueChangeKey,id> * _Nonnull change) {
         NSLog(@"son.age == %ld",(long)son.age);
     }];
+    
+    __weak typeof(self) weakself = self;
     [self.KVOController observe:_son2 keyPath:@"age" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSKeyValueChangeKey,id> * _Nonnull change) {
-//        NSLog(@"self.son2.age == %ld",(long)self.son2.age);//会导致强引用
+        NSLog(@"self.son2.age == %ld",(long)weakself.son2.age);//如果用self会导致强引用
+    }];
+    
+    /*
+         self 持有 KVOController 而 ‘self.KVOController observe:self keyPath:@"textString" ’ 导致 KVOController 持有self，形成循环引用
+     */
+    [self.KVOController observe:self keyPath:@"textString" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSKeyValueChangeKey,id> * _Nonnull change) {
+        NSLog(@"self.textString == %@",(long)weakself.textString);
+    }];
+    
+    /*
+        正确写法 self.KVOController 换成 self.KVOControllerNonRetaining
+        KVOControllerNonRetaining 对self 是弱引用
+     */
+    [self.KVOControllerNonRetaining observe:self keyPath:@"textString" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSKeyValueChangeKey,id> * _Nonnull change) {
+        NSLog(@"self.textString == %@",(long)weakself.textString);
     }];
     
     
@@ -65,6 +86,7 @@
     son.age = 21;
     
     self.son2.age = 32;
+    self.textString = @"test";
     
     self.btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     [self.btn setTintColor:[UIColor redColor]];
@@ -75,7 +97,14 @@
 }
 
 - (void)push {
-    //此时的当pop出去时 son 和 father 释放掉 那么kvoController 中
+    //此时的当pop出去时 son 和 father 释放掉 那么属性 kvoController 也被释放，就会走到FBKVOController 中的dealloc 在dealloc中调用
+    /*
+     - (void)dealloc
+     {
+        [self unobserveAll];
+        pthread_mutex_destroy(&_lock);
+     }
+     */
     [self.navigationController popViewControllerAnimated:true];
     
 }
