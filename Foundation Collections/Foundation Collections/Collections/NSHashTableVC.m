@@ -54,6 +54,15 @@
  
  如果你只是需要 NSSet 的特性，请坚持使用 NSSet。NSHashTable 在添加对象时花费了将近2倍的时间，但是其他方面的效率却非常相近。
  
+ NSHashTable 与 NSSet 的比较
+ 
+ NSHashTable 是 NSSet 的通用版本，和 NSSet / NSMutableSet 不同的是，NSHashTable 具有下面这些特性：
+ 
+ NSSet / NSMutableSet 持有成员的强引用，通过 hash 和 isEqual: 方法来检测成员的散列值和相等性。
+ NSHashTable 是可变的，没有不可变的对应版本。
+ NSHashTable 可以持有成员的弱引用。
+ NSHashTable 可以在加入成员时进行 copy 操作。
+ NSHashTable 可以存储任意的指针，通过指针来进行相等性和散列检查。
  
  */
 
