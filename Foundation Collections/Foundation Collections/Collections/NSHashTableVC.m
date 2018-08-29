@@ -8,7 +8,17 @@
 
 #import "NSHashTableVC.h"
 
+#import "Model.h"
+
+#import "Human.h"
+
+#import "HumanWeekReference.h"
+
 @interface NSHashTableVC ()
+
+@property(nonatomic,strong) Human *man;
+
+@property (nonatomic, strong) HumanWeekReference *human ;
 
 @end
 
@@ -71,13 +81,73 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self strongRefrence];
+//    [self weakReference];
 }
 
+
+
+
+/**
+ 
+ 问题：
+    NSArray/NSMutableArray,NSDictionary/NSMutableDictionary,NSSet/NSMutableSet 容器类有一个特性
+    将对象添加到上述容器时，会对该对象的引用技术+1
+ 
+ 证明：
+    举例：Human 类
+ 
+ @property (nonatomic, copy) NSString *name;
+ 
+ @property (nonatomic, assign) NSInteger age;
+ 
+ @property (nonatomic, strong) NSMutableArray <Human *>*family;
+ 
+ 其中Human 强引用 family ，而family 有包含Human类 （证明其强引用Human）
+ 
+ - (instancetype)initWithName:(NSString *)name withAge:(NSInteger)age {
+     Human *model = [[Human alloc] init];
+     model.name = name;
+     model.age = age;
+     model.family = [[NSMutableArray alloc] init];
+     //family 中包含 Human类
+     [model.family addObject:model];
+     return model;
+ }
+ 
+ 结果：
+    当NSHashTableVC pop出去 调用NSHashTableVC本类的dealloc ，按照正常情况下 会调用 Human的dealloc
+ 然而，由于Human类 强引用family 而family有强引用 human对象 导致循环引用，所以Human对象无法释放，造成内存泄漏
+ 
+ 解决方法：
+ 
+ 
+ 
+ */
+
+- (void)strongRefrence {
+    Human *man1 = [Human initWithName:@"张三"];
+    NSLog(@"man1.family = %@",man1.family);
+}
+
+
+- (void)weakReference {
+    self.human = [HumanWeekReference initWithName:@"张三"];
+    NSLog(@"human.name = %@",self.human.family);
+}
+
+
+
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)dealloc {
+    NSLog(@"over");
+}
+
 
 /*
 #pragma mark - Navigation

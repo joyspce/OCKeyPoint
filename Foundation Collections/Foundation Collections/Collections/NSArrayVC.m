@@ -10,6 +10,8 @@
 
 #import "TTTRandomizedEnumerator.h"
 
+#import "Model.h"
+
 @interface NSArrayVC ()
 
 @end
@@ -25,13 +27,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [self test1];
+    [self test2];
+}
+
+- (void)test2 {
+    
+    /*
+     将对象添加到容器时，会对该对象的引用技术+1
+     */
+    
+    Model *mode1 = [Model initWithName:@"张三"];
+    NSArray <Model*>* testArray = @[mode1];
+    NSLog(@"before name: %@",testArray.firstObject.name);
+    mode1.name = @"李四";
+    NSLog(@"after name: %@",testArray.firstObject.name);
+    // NSArray 对其存储的对象是强引用
+}
+
+
+
+- (void)test1 {
     NSArray *testArray = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10"];
     //倒叙
     NSLog(@"倒叙:%@",testArray.reverseObjectEnumerator.allObjects);
-//    //乱序
+    //    //乱序
     NSArray *rundom = testArray.randomizedObjectEnumerator.allObjects;
     NSLog(@"乱序:%@",rundom);
-
+    
     
     /* 排序：
      
@@ -66,20 +89,20 @@
     NSLog(@"数字排序:%@",sortedNumbers);
     /*
      (
-         1,
-         3,
-         5,
-         9,
-         11
+     1,
+     3,
+     5,
+     9,
+     11
      )
      
      */
     /*
      查找 二分查找 待查找的源数组必须有序的
      typedef NS_OPTIONS(NSUInteger, NSBinarySearchingOptions) {
-         NSBinarySearchingFirstEqual = (1UL << 8),  如果数组中有多个一样的值时 取第一个相等的
-         NSBinarySearchingLastEqual = (1UL << 9), 如果数组中有多个一样的值时 取最后一个相等的
-         NSBinarySearchingInsertionIndex = (1UL << 10), 你可以获得正确的插入索引，以确保在插入元素后仍然可以保证数组的顺序。
+     NSBinarySearchingFirstEqual = (1UL << 8),  如果数组中有多个一样的值时 取第一个相等的
+     NSBinarySearchingLastEqual = (1UL << 9), 如果数组中有多个一样的值时 取最后一个相等的
+     NSBinarySearchingInsertionIndex = (1UL << 10), 你可以获得正确的插入索引，以确保在插入元素后仍然可以保证数组的顺序。
      };
      
      */
@@ -91,7 +114,6 @@
     NSLog(@"查找 index =  %ld",index);
     // 查找 index =  2
 }
-
 
 
 - (void)didReceiveMemoryWarning {

@@ -22,6 +22,9 @@
 		0492CC5121354E53004039CC /* NSCacheVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC5021354E53004039CC /* NSCacheVC.m */; };
 		0492CC5421354E67004039CC /* NSindexSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC5321354E67004039CC /* NSindexSetVC.m */; };
 		0492CC58213556BC004039CC /* TTTRandomizedEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CC56213556BC004039CC /* TTTRandomizedEnumerator.m */; };
+		04FB98402136CF9D008A7055 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB983F2136CF9D008A7055 /* Model.m */; };
+		04FB98432136D4C6008A7055 /* Human.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB98422136D4C6008A7055 /* Human.m */; };
+		04FB98462136DB82008A7055 /* HumanWeekReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB98452136DB82008A7055 /* HumanWeekReference.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,12 @@
 		0492CC5321354E67004039CC /* NSindexSetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSindexSetVC.m; sourceTree = "<group>"; };
 		0492CC56213556BC004039CC /* TTTRandomizedEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTRandomizedEnumerator.m; sourceTree = "<group>"; };
 		0492CC57213556BC004039CC /* TTTRandomizedEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTRandomizedEnumerator.h; sourceTree = "<group>"; };
+		04FB983E2136CF9D008A7055 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		04FB983F2136CF9D008A7055 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		04FB98412136D4C6008A7055 /* Human.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Human.h; sourceTree = "<group>"; };
+		04FB98422136D4C6008A7055 /* Human.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Human.m; sourceTree = "<group>"; };
+		04FB98442136DB82008A7055 /* HumanWeekReference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HumanWeekReference.h; sourceTree = "<group>"; };
+		04FB98452136DB82008A7055 /* HumanWeekReference.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HumanWeekReference.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +94,7 @@
 		0492CC2521354897004039CC /* Foundation Collections */ = {
 			isa = PBXGroup;
 			children = (
+				04FB983D2136CF8E008A7055 /* Model */,
 				0492CC55213556AF004039CC /* 3rd */,
 				0492CC3C21354D74004039CC /* Collections */,
 				0492CC2621354897004039CC /* AppDelegate.h */,
@@ -130,6 +140,19 @@
 				0492CC56213556BC004039CC /* TTTRandomizedEnumerator.m */,
 			);
 			path = 3rd;
+			sourceTree = "<group>";
+		};
+		04FB983D2136CF8E008A7055 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04FB983E2136CF9D008A7055 /* Model.h */,
+				04FB983F2136CF9D008A7055 /* Model.m */,
+				04FB98412136D4C6008A7055 /* Human.h */,
+				04FB98422136D4C6008A7055 /* Human.m */,
+				04FB98442136DB82008A7055 /* HumanWeekReference.h */,
+				04FB98452136DB82008A7055 /* HumanWeekReference.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,11 +232,14 @@
 				0492CC4821354E0B004039CC /* NSHashTableVC.m in Sources */,
 				0492CC2B21354897004039CC /* ViewController.m in Sources */,
 				0492CC3621354899004039CC /* main.m in Sources */,
+				04FB98432136D4C6008A7055 /* Human.m in Sources */,
 				0492CC2821354897004039CC /* AppDelegate.m in Sources */,
 				0492CC4521354DF7004039CC /* NSSet&&NSOrderedSetVC.m in Sources */,
 				0492CC4E21354E44004039CC /* NSPointerArrayVC.m in Sources */,
 				0492CC3F21354D9A004039CC /* NSArrayVC.m in Sources */,
+				04FB98402136CF9D008A7055 /* Model.m in Sources */,
 				0492CC5421354E67004039CC /* NSindexSetVC.m in Sources */,
+				04FB98462136DB82008A7055 /* HumanWeekReference.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
