@@ -81,8 +81,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self strongRefrence];
-//    [self weakReference];
+//    [self strongRefrence];
+    [self weakReference];
 }
 
 
