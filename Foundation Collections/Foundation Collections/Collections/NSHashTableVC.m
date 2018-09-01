@@ -85,7 +85,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self strongRefrence];
-    [self weakReference];
+//    [self weakReference];
+    [self hashTable];
 }
 
 
@@ -137,9 +138,16 @@
 - (void)weakReference {
     self.human = [HumanWeekReference initWithName:@"张三"];
     NSLog(@"human.name = %@",self.human.family);
+ 
 }
 
-
+- (void)hashTable {
+    NSHashTable *tab = [[NSHashTable alloc] initWithOptions:NSPointerFunctionsObjectPersonality capacity:2];
+    [tab addObject:@"111"];
+    [tab addObject:@"222"];
+    
+    NSLog(@"tab-->%@",tab);
+}
 
 - (void)didReceiveMemoryWarning {
     
