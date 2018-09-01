@@ -8,6 +8,8 @@
 
 #import "NSMapTableVC.h"
 
+#import "Model.h"
+
 @interface NSMapTableVC ()
 
 @end
@@ -15,7 +17,7 @@
 @implementation NSMapTableVC
 
 /*
-    NSMapTable
+    NSMapTable 不是线程安全的
 
     NSMapTable 是 NSDictionary 的通用版本。和 NSDictionary / NSMutableDictionary 不同的是，NSMapTable 具有下面这些特性：
  
@@ -34,23 +36,57 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSMapTable *map = [[NSMapTable alloc] initWithKeyOptions:NSPointerFunctionsObjectPersonality valueOptions:NSPointerFunctionsStrongMemory capacity:10];
+    NSMapTable <id,NSMutableSet<Model*>*>*map = [[NSMapTable alloc] initWithKeyOptions:NSPointerFunctionsCopyIn valueOptions:NSPointerFunctionsWeakMemory capacity:10];
+    
+//    NSMutableDictionary <id,NSMutableSet <Model*>*> *dic = [[NSMutableDictionary alloc] init];
+    
+    Model *m1 = [[Model alloc] init];
+    
+    NSMutableSet *set = [self models];
+    
+    [map setObject:set forKey:m1];
+    
+//    [dic setObject:<#(nonnull NSMutableSet<Model *> *)#> forKey:<#(nonnull id<NSCopying>)#>]
+    
+    Model *m2 = [[Model alloc] init];
+    
+    NSMutableSet *set2 = [self models];
+    
+    [map setObject:set2 forKey:m2];
+    
+    Model *m3 = [[Model alloc] init];
+    
+    NSMutableSet *set3 = [self models];
+    
+    [map setObject:set3 forKey:m3];
+    
+    NSLog(@" map: --> %@",map);
+    
+    NSLog(@"set nil befroe:%@",[map objectForKey:m3]);
+    m3 = nil;
+    NSLog(@"set nil after:%@",[map objectForKey:m3]);
     
 }
+
+
+- (NSMutableSet *)models {
+    NSMutableSet *ms = [[NSMutableSet alloc] init];
+    for (NSInteger i = 0; i < 2; i++) {
+        Model *m = [[Model alloc] init];
+        m.age = i * 10 + i;
+        m.name = [NSString stringWithFormat:@"我是第%ld个",i];
+        [ms addObject:m];
+    }
+    return ms;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
