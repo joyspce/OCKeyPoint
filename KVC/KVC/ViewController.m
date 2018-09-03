@@ -1,0 +1,30 @@
+//
+//  ViewController.m
+//  KVC
+//
+//  Created by JiWuChao on 2018/9/3.
+//  Copyright © 2018年 JiWuChao. All rights reserved.
+//
+
+#import "ViewController.h"
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    NSKeyValueCoding
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+@end
