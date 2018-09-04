@@ -13,6 +13,7 @@
 		045D636D213CD73400816723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045D636C213CD73400816723 /* Assets.xcassets */; };
 		045D6370213CD73400816723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045D636E213CD73400816723 /* LaunchScreen.storyboard */; };
 		045D6373213CD73400816723 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 045D6372213CD73400816723 /* main.m */; };
+		04CE2EC8213E61E800063653 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE2EC7213E61E800063653 /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		045D636F213CD73400816723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		045D6371213CD73400816723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		045D6372213CD73400816723 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04CE2EC6213E61E800063653 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		04CE2EC7213E61E800063653 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		045D6362213CD73200816723 /* KVC */ = {
 			isa = PBXGroup;
 			children = (
+				04CE2EC5213E61C300063653 /* Model */,
 				045D6363213CD73200816723 /* AppDelegate.h */,
 				045D6364213CD73200816723 /* AppDelegate.m */,
 				045D6366213CD73200816723 /* ViewController.h */,
@@ -69,6 +73,15 @@
 				045D6372213CD73400816723 /* main.m */,
 			);
 			path = KVC;
+			sourceTree = "<group>";
+		};
+		04CE2EC5213E61C300063653 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04CE2EC6213E61E800063653 /* Person.h */,
+				04CE2EC7213E61E800063653 /* Person.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +156,7 @@
 			files = (
 				045D6368213CD73200816723 /* ViewController.m in Sources */,
 				045D6373213CD73400816723 /* main.m in Sources */,
+				04CE2EC8213E61E800063653 /* Person.m in Sources */,
 				045D6365213CD73200816723 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
