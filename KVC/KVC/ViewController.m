@@ -10,6 +10,8 @@
 
 #import "Person.h"
 
+#import "TimesModel.h"
+
 @interface ViewController ()
 
 @end
@@ -24,8 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self findKeySetValue];
-    
+//    [self findKeySetValue];
+    [self findKeyGetKey];
 }
 
 
@@ -78,6 +80,22 @@
  
  当调用valueForKey：@”name“的代码时，KVC对key的搜索方式不同于setValue：属性值 forKey：@”name“，其搜索方式如下：
  
+ 1 首先按get<Key>,<key>,is<Key>的顺序方法查找getter方法
+ ，找到的话会直接调用。如果是BOOL或者Int等值类型，会将其包装成一个NSNumber对象。
+ 
+ 2 如果上面的getter没有找到，KVC则会查找countOf<Key>,objectIn<Key>AtIndex或<Key>AtIndexes格式的方法。
+ 如果countOf<Key>方法和另外两个方法中的一个被找到，
+ 那么就会返回一个可以响应NSArray所�有方法的代理集合(它是NSKeyValueArray，是NSArray的子类)，
+ 调用这个代理集合的方法，或者说给这个代理集合发送属于
+ NSArray的方法，就会以countOf<Key>,objectIn<Key>AtIndex�或<Key>AtIndexes这几个方法组合的形式调用。
+ 还有一个可选的get<Key>:range:方法。所以你想重新定义KVC
+ 的一些功能，你可以添加这些方法
+ ，需要注意的是你的方法名要符合KVC的标准命名方法，包括方法签名。
+ 
+ 3 如果上面的方法没有找到，那么会同时查找countOf<Key>，enumeratorOf<Key>,memberOf<Key>格式的方法。如果这三个方法
+ 都找到，那么就返回一个可以响应NSSet所的方法的代理集合，
+ 和上面一样，给这个代理集合发NSSet的消息，
+ 就会以countOf<Key>，enumeratorOf<Key>,memberOf<Key>组合的形式调用。
 
  
  取值
@@ -86,6 +104,28 @@
  */
 
 - (void)findKeyGetKey {
+    TimesModel *model = [[TimesModel alloc] init];
+//    id nums = [model valueForKey:@"num"];
+//    NSLog(@"num = %@",nums);
+    
+    id numbers = [model valueForKey:@"num"];
+    NSLog(@"NSStringFromClass([numbers class]) = %@",NSStringFromClass([numbers class]));
+    NSLog(@"%@",numbers);
+//    NSLog(@"0:%@     1:%@     2:%@     3:%@",numbers[0],numbers[1],numbers[2],numbers[3]);
+    
+    
+    [model incrementCount];                                                                            //count加1
+    NSLog(@"%lu",(unsigned long)[numbers count]);                                                         //打印出1
+    [model incrementCount];                                                                            //count再加1
+    NSLog(@"%lu",(unsigned long)[numbers count]);                                                         //打印出2
+    
+    [model setValue:@"newName" forKey:@"arrName"];
+    NSString* name = [model valueForKey:@"arrName"];
+    NSLog(@"name==%@",name);
+    
+  
+    
+    
     
 }
 
