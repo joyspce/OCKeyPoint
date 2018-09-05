@@ -16,6 +16,8 @@
 
 #import "KVCSetNilValueModel.h"
 
+#import "KVCContainerModel.h"
+
 @interface ViewController ()
 
 @end
@@ -33,7 +35,8 @@
 //    [self findKeySetValue];
 //    [self findKeyGetKey];
 //    [self keyPathTest];
-    [self setNilValueTest];
+//    [self setNilValueTest];
+    [self kvcContainer];
 }
 
 
@@ -132,7 +135,7 @@
     
 }
 
-
+//在KVC中使用keyPath
 - (void)keyPathTest {
     KeyPathModel *model = [[KeyPathModel alloc] init];
     KeyPath *keyPath = [[KeyPath alloc] init];
@@ -150,6 +153,7 @@
     NSLog(@"keypath3 = %@",keypath3);
     NSLog(@"keypath4 = %@",keypath4);
 }
+//KVC如何处理异常
 
 - (void)setNilValueTest {
     
@@ -160,10 +164,31 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)kvcContainer {
+    KVCContainerModel *model = [[KVCContainerModel alloc] init];
+    NSArray *arr = @[@"1",@"2",@"3",@"4"];
+    model.array = arr;
+    
+    NSArray *arrw = [model mutableArrayValueForKey:@"array"];
+    NSLog(@"array = %@",arrw);
+    NSArray *arr2 = [model mutableArrayValueForKeyPath:@"array"];
+    NSLog(@"arr2 = %@",arr2);
+    NSArray *arr3 = [model mutableArrayValueForKeyPath:@"array"];
+    NSLog(@"arr3 = %@",arr3);
+    
+    
+    
+    [model addObj];
+     NSLog(@"model mArray 1 = %@",model.mArray);
+    [model addObjObserver];
+     NSLog(@"model mArray 2 = %@",model.mArray);
+    [model removeObj];
+    
+    NSLog(@"model mArray 3= %@",model.mArray);
+    
+    [model addErrorArray];
+    
+    NSLog(@"error array = %@",model.errorArray);
 }
-
 
 @end
