@@ -15,6 +15,8 @@
 		045D6373213CD73400816723 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 045D6372213CD73400816723 /* main.m */; };
 		04CE2EC8213E61E800063653 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE2EC7213E61E800063653 /* Person.m */; };
 		04CE2FD6213EB87D00063653 /* TimesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE2FD5213EB87D00063653 /* TimesModel.m */; };
+		04CE2FD9213FB04F00063653 /* KeyPathModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE2FD8213FB04F00063653 /* KeyPathModel.m */; };
+		04CE2FDC213FB3A100063653 /* KVCSetNilValueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE2FDB213FB3A100063653 /* KVCSetNilValueModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,10 @@
 		04CE2EC7213E61E800063653 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		04CE2FD4213EB87D00063653 /* TimesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimesModel.h; sourceTree = "<group>"; };
 		04CE2FD5213EB87D00063653 /* TimesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimesModel.m; sourceTree = "<group>"; };
+		04CE2FD7213FB04F00063653 /* KeyPathModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyPathModel.h; sourceTree = "<group>"; };
+		04CE2FD8213FB04F00063653 /* KeyPathModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyPathModel.m; sourceTree = "<group>"; };
+		04CE2FDA213FB3A100063653 /* KVCSetNilValueModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVCSetNilValueModel.h; sourceTree = "<group>"; };
+		04CE2FDB213FB3A100063653 /* KVCSetNilValueModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVCSetNilValueModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,10 @@
 				04CE2EC7213E61E800063653 /* Person.m */,
 				04CE2FD4213EB87D00063653 /* TimesModel.h */,
 				04CE2FD5213EB87D00063653 /* TimesModel.m */,
+				04CE2FD7213FB04F00063653 /* KeyPathModel.h */,
+				04CE2FD8213FB04F00063653 /* KeyPathModel.m */,
+				04CE2FDA213FB3A100063653 /* KVCSetNilValueModel.h */,
+				04CE2FDB213FB3A100063653 /* KVCSetNilValueModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,7 +170,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				045D6368213CD73200816723 /* ViewController.m in Sources */,
+				04CE2FDC213FB3A100063653 /* KVCSetNilValueModel.m in Sources */,
 				045D6373213CD73400816723 /* main.m in Sources */,
+				04CE2FD9213FB04F00063653 /* KeyPathModel.m in Sources */,
 				04CE2FD6213EB87D00063653 /* TimesModel.m in Sources */,
 				04CE2EC8213E61E800063653 /* Person.m in Sources */,
 				045D6365213CD73200816723 /* AppDelegate.m in Sources */,

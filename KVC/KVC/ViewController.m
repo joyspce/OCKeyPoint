@@ -12,6 +12,10 @@
 
 #import "TimesModel.h"
 
+#import "KeyPathModel.h"
+
+#import "KVCSetNilValueModel.h"
+
 @interface ViewController ()
 
 @end
@@ -27,7 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self findKeySetValue];
-    [self findKeyGetKey];
+//    [self findKeyGetKey];
+//    [self keyPathTest];
+    [self setNilValueTest];
 }
 
 
@@ -105,12 +111,12 @@
 
 - (void)findKeyGetKey {
     TimesModel *model = [[TimesModel alloc] init];
-//    id nums = [model valueForKey:@"num"];
-//    NSLog(@"num = %@",nums);
+    id nums = [model valueForKey:@"num"];
+    NSLog(@"num = %@",nums);
     
-    id numbers = [model valueForKey:@"num"];
+    id numbers = [model valueForKey:@"numbers"];
     NSLog(@"NSStringFromClass([numbers class]) = %@",NSStringFromClass([numbers class]));
-    NSLog(@"%@",numbers);
+//    NSLog(@"%@",numbers);
 //    NSLog(@"0:%@     1:%@     2:%@     3:%@",numbers[0],numbers[1],numbers[2],numbers[3]);
     
     
@@ -122,14 +128,36 @@
     [model setValue:@"newName" forKey:@"arrName"];
     NSString* name = [model valueForKey:@"arrName"];
     NSLog(@"name==%@",name);
-    
-  
-    
-    
+
     
 }
 
 
+- (void)keyPathTest {
+    KeyPathModel *model = [[KeyPathModel alloc] init];
+    KeyPath *keyPath = [[KeyPath alloc] init];
+    keyPath.testKeyPath = @"test";
+    model.keyPath = keyPath;
+    
+    NSString *keypath1 = model.keyPath.testKeyPath;
+    NSString *keypath2 = [model valueForKeyPath:@"keyPath.testKeyPath"];
+    NSLog(@"keypath1 = %@",keypath1);
+    NSLog(@"keypath2 = %@",keypath2);
+
+    [model setValue:@"change" forKeyPath:@"keyPath.testKeyPath"];
+    NSString *keypath3 = model.keyPath.testKeyPath;
+    NSString *keypath4 = [model valueForKeyPath:@"keyPath.testKeyPath"];
+    NSLog(@"keypath3 = %@",keypath3);
+    NSLog(@"keypath4 = %@",keypath4);
+}
+
+- (void)setNilValueTest {
+    
+    KVCSetNilValueModel *model = [[KVCSetNilValueModel alloc] init];
+    [model setValue:nil forKey:@"name"]; // 引用类型不会调用 - (void)setNilValueForKey:(NSString *)key
+//    [model setValue:nil forKey:@"age"]; // 值类型会调用  - (void)setNilValueForKey:(NSString *)key 因为值类型不可能为 nil 所以抛出异常 此时如果不重写 此方法则会发生崩溃
+    NSLog(@"name = %@",[model valueForKey:@"name"]);
+}
 
 
 - (void)didReceiveMemoryWarning {

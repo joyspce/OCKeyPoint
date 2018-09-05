@@ -27,6 +27,4 @@
 
 - (id)memberOfNum:(NSUInteger)index;
 
-
-
 @end
