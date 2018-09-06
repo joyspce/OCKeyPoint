@@ -14,6 +14,9 @@
 		045D6370213CD73400816723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045D636E213CD73400816723 /* LaunchScreen.storyboard */; };
 		045D6373213CD73400816723 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 045D6372213CD73400816723 /* main.m */; };
 		04B92F0D2140049700A76166 /* KVCContainerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B92F0C2140049700A76166 /* KVCContainerModel.m */; };
+		04B92F102140DCBF00A76166 /* KVCAndDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B92F0F2140DCBF00A76166 /* KVCAndDictionary.m */; };
+		04B92F162140E13400A76166 /* NSObject+CustomKVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B92F152140E13400A76166 /* NSObject+CustomKVC.m */; };
+		04B92F192141023E00A76166 /* CustomKVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B92F182141023E00A76166 /* CustomKVCModel.m */; };
 		04CE2EC8213E61E800063653 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE2EC7213E61E800063653 /* Person.m */; };
 		04CE2FD6213EB87D00063653 /* TimesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE2FD5213EB87D00063653 /* TimesModel.m */; };
 		04CE2FD9213FB04F00063653 /* KeyPathModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE2FD8213FB04F00063653 /* KeyPathModel.m */; };
@@ -33,6 +36,12 @@
 		045D6372213CD73400816723 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04B92F0B2140049700A76166 /* KVCContainerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVCContainerModel.h; sourceTree = "<group>"; };
 		04B92F0C2140049700A76166 /* KVCContainerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVCContainerModel.m; sourceTree = "<group>"; };
+		04B92F0E2140DCBF00A76166 /* KVCAndDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVCAndDictionary.h; sourceTree = "<group>"; };
+		04B92F0F2140DCBF00A76166 /* KVCAndDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVCAndDictionary.m; sourceTree = "<group>"; };
+		04B92F142140E13400A76166 /* NSObject+CustomKVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+CustomKVC.h"; sourceTree = "<group>"; };
+		04B92F152140E13400A76166 /* NSObject+CustomKVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CustomKVC.m"; sourceTree = "<group>"; };
+		04B92F172141023E00A76166 /* CustomKVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomKVCModel.h; sourceTree = "<group>"; };
+		04B92F182141023E00A76166 /* CustomKVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomKVCModel.m; sourceTree = "<group>"; };
 		04CE2EC6213E61E800063653 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		04CE2EC7213E61E800063653 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		04CE2FD4213EB87D00063653 /* TimesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimesModel.h; sourceTree = "<group>"; };
@@ -100,6 +109,12 @@
 				04CE2FDB213FB3A100063653 /* KVCSetNilValueModel.m */,
 				04B92F0B2140049700A76166 /* KVCContainerModel.h */,
 				04B92F0C2140049700A76166 /* KVCContainerModel.m */,
+				04B92F0E2140DCBF00A76166 /* KVCAndDictionary.h */,
+				04B92F0F2140DCBF00A76166 /* KVCAndDictionary.m */,
+				04B92F142140E13400A76166 /* NSObject+CustomKVC.h */,
+				04B92F152140E13400A76166 /* NSObject+CustomKVC.m */,
+				04B92F172141023E00A76166 /* CustomKVCModel.h */,
+				04B92F182141023E00A76166 /* CustomKVCModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,7 +196,10 @@
 				04CE2FD6213EB87D00063653 /* TimesModel.m in Sources */,
 				04B92F0D2140049700A76166 /* KVCContainerModel.m in Sources */,
 				04CE2EC8213E61E800063653 /* Person.m in Sources */,
+				04B92F162140E13400A76166 /* NSObject+CustomKVC.m in Sources */,
 				045D6365213CD73200816723 /* AppDelegate.m in Sources */,
+				04B92F102140DCBF00A76166 /* KVCAndDictionary.m in Sources */,
+				04B92F192141023E00A76166 /* CustomKVCModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

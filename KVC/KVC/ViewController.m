@@ -18,6 +18,12 @@
 
 #import "KVCContainerModel.h"
 
+#import "KVCAndDictionary.h"
+
+#import "NSObject+CustomKVC.h"
+
+#import "CustomKVCModel.h"
+
 @interface ViewController ()
 
 @end
@@ -36,7 +42,9 @@
 //    [self findKeyGetKey];
 //    [self keyPathTest];
 //    [self setNilValueTest];
-    [self kvcContainer];
+//    [self kvcContainer];
+//    [self kvcAndDictionary];
+    [self customKVC];
 }
 
 
@@ -163,7 +171,7 @@
     NSLog(@"name = %@",[model valueForKey:@"name"]);
 }
 
-
+// kvc 和容器
 - (void)kvcContainer {
     KVCContainerModel *model = [[KVCContainerModel alloc] init];
     NSArray *arr = @[@"1",@"2",@"3",@"4"];
@@ -190,5 +198,45 @@
     
     NSLog(@"error array = %@",model.errorArray);
 }
+
+// KVC 和字典
+
+/*
+    dictionaryWithValuesForKeys:是指输入一组key，返回这组key对应的值，再组成一个字典。
+ 
+    setValuesForKeysWithDictionary是用来修改Model中对应key的值。
+ 
+
+ */
+
+- (void)kvcAndDictionary {
+    KVCAndDictionary *model = [[KVCAndDictionary alloc] init];
+    model.key1 = @"k1";
+    model.key2 = @"k2";
+    model.key3 = @"k3";
+    NSArray *arr = @[@"key1",@"key2",@"key3"];
+    NSDictionary *dic = [model dictionaryWithValuesForKeys:arr];
+    NSLog(@"dic = %@",dic);
+    
+    
+    NSDictionary *changeModel = @{@"key1":@"kkk1",@"key2":@"kkk2",@"key3":@"kkk3"};
+    [model setValuesForKeysWithDictionary:changeModel];
+    
+    NSLog(@"after change key1 = %@ key2 = %@ key3 = %@",model.key1,model.key2,model.key3);
+    
+    
+}
+
+- (void)customKVC {
+    
+    CustomKVCModel *model = [[CustomKVCModel alloc] init];
+    model.name = @"hahah";
+    NSLog(@"1 name:%@",[model ctmValueforKey:@"name"]);
+    [model setCtmValue:@"newName" forKey:@"name"];
+    NSLog(@"2 name:%@",[model ctmValueforKey:@"name"]);
+    
+}
+
+
 
 @end
