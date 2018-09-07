@@ -486,10 +486,11 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
     }
 
     self.sessionConfiguration = configuration;
-
+    
     self.operationQueue = [[NSOperationQueue alloc] init];
+    //queue并发线程数设置为1
     self.operationQueue.maxConcurrentOperationCount = 1;
-
+    //注意代理，代理的继承，实际上NSURLSession去判断了，你实现了哪个方法会去调用，包括子代理的方法！
     self.session = [NSURLSession sessionWithConfiguration:self.sessionConfiguration delegate:self delegateQueue:self.operationQueue];
 
     self.responseSerializer = [AFJSONResponseSerializer serializer];
