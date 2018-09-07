@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
-    [manage GET:@"http://rankapi.longzhu.com/ranklist/GetWeekRoomIdItemId?bundleId=com.longzhu.tga&device=2&packageId=1&roomId=2100728&version=5.2.0" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manage GET:@"http://rankapi.longzhu.com/ranklist/GetWeekRoomIdItemId?bundleId=com.longzhu.tga&roomId=2100728" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"res = %@",responseObject);

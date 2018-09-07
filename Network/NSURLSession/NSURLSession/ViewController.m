@@ -10,13 +10,35 @@
 
 @interface ViewController ()
 
+
+@property (nonatomic,strong) NSURLSessionTask *task;
+// 继承自NSURLSessionTask
+@property(nonatomic,strong) NSURLSessionDataTask *dataTask;
+// 继承自NSURLSessionTask
+@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
+// 继承自NSURLSessionDataTask
+@property (nonatomic, strong) NSURLSessionUploadTask *uploadTask;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.timeoutIntervalForRequest = 6;
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    
+    NSURL *url = [NSURL URLWithString:@"http://rankapi.longzhu.com/ranklist/GetWeekRoomIdItemId?bundleId=com.longzhu.tga&roomId=2100728"];
+    self.dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        NSLog(@"res = %@",response);
+        NSLog(@"11----%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        //打印解析后的json数据
+       NSLog(@"22---%@", [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil]);
+
+    }];
+    [self.dataTask resume];
+    
 }
 
 
