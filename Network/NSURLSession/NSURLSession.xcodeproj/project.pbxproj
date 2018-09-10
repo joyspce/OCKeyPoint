@@ -13,6 +13,8 @@
 		041A52D321422BEC0086E940 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041A52D221422BEC0086E940 /* Assets.xcassets */; };
 		041A52D621422BEC0086E940 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041A52D421422BEC0086E940 /* LaunchScreen.storyboard */; };
 		041A52D921422BEC0086E940 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A52D821422BEC0086E940 /* main.m */; };
+		04AED14F2146443D0031AC67 /* NSURLSessionDelegate.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AED14E2146443D0031AC67 /* NSURLSessionDelegate.png */; };
+		04AED1512146446A0031AC67 /* NSURLSessionTask.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AED1502146446A0031AC67 /* NSURLSessionTask.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		041A52D521422BEC0086E940 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041A52D721422BEC0086E940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041A52D821422BEC0086E940 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04AED14E2146443D0031AC67 /* NSURLSessionDelegate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSURLSessionDelegate.png; sourceTree = "<group>"; };
+		04AED1502146446A0031AC67 /* NSURLSessionTask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSURLSessionTask.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		041A52C821422BEB0086E940 /* NSURLSession */ = {
 			isa = PBXGroup;
 			children = (
+				04AED1502146446A0031AC67 /* NSURLSessionTask.png */,
+				04AED14E2146443D0031AC67 /* NSURLSessionDelegate.png */,
 				041A52C921422BEB0086E940 /* AppDelegate.h */,
 				041A52CA21422BEB0086E940 /* AppDelegate.m */,
 				041A52CC21422BEB0086E940 /* ViewController.h */,
@@ -130,7 +136,9 @@
 			files = (
 				041A52D621422BEC0086E940 /* LaunchScreen.storyboard in Resources */,
 				041A52D321422BEC0086E940 /* Assets.xcassets in Resources */,
+				04AED14F2146443D0031AC67 /* NSURLSessionDelegate.png in Resources */,
 				041A52D121422BEB0086E940 /* Main.storyboard in Resources */,
+				04AED1512146446A0031AC67 /* NSURLSessionTask.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
