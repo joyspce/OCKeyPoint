@@ -9,6 +9,19 @@
 #import "DataTaskViewController.h"
 
 /*
+ 添加data任务
+ 
+ 
+ 1 - dataTaskWithURL: : 获取指定URL内容
+ 2 - dataTaskWithURL:completionHandler: : 获取指定URL内容, 在completionHandler中处理数据. 该方法会绕过代理方法(除了身份认证挑战的代理方法)
+ 3 - dataTaskWithRequest: : 获取指定URLRequest内容
+ 4 - dataTaskWithRequest:completionHandler: : 获取指定URLRequest内容, 在completionHandler中处理数据. 该方法会绕过代理方法(除了身份认证挑
+ 
+ 
+ */
+
+
+/*
  对于一个data task来说, session会调用代理的
  1 URLSession:dataTask:didReceiveResponse:completionHandler:
     方法, 决定是否将一个data dask转换成download task, 然后调用completion回调继续接收data或下载data.
@@ -54,10 +67,33 @@
 //    [session dataTaskWithURL:<#(nonnull NSURL *)#> completionHandler:<#^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)completionHandler#>];
     
     [dataTask resume];
+    
+    /*
+    //1、创建NSURLSession对象
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    //2、利用NSURLSession创建任务(task)
+    NSURL *url = [NSURL URLWithString:@"http://www.xxx.com/login"];
+    
+    //3 创建请求对象里面包含请求体
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [@"username=myName&pwd=myPsd" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        //打印解析后的json数据
+        //NSLog(@"%@", [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil]);
+        
+    }];
+
+    */
+    
 
 }
 
-#pragma mark - NSURLSessionDelegate
+#pragma mark - NSURLSessionDelegate : 作为所有代理的基类，定义了网络请求最基础的代理方法
 
 /* The last message a session receives.  A session will only become
  * invalid because of a systemic error or when it has been
@@ -81,7 +117,7 @@
      NSLog(@"%s",__func__);
 }
 
-#pragma mark - NSURLSessionTaskDelegate
+#pragma mark - NSURLSessionTaskDelegate:定义了网络请求任务相关的代理方法。
 
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
@@ -167,7 +203,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
 
 
 
-#pragma mark - NSURLSessionDataDelegate
+#pragma mark - NSURLSessionDataDelegate: 用于普通数据任务和上传任务。
 
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask

@@ -8,6 +8,7 @@
 
 #import "DownloadTaskViewController.h"
 
+
 @interface DownloadTaskViewController ()<NSURLSessionDelegate>
 
 @property (nonatomic, strong)NSURLSessionDownloadTask *download;
@@ -17,6 +18,21 @@
 @property (nonatomic, strong) NSURLSession *session;
 
 @end
+
+
+/*
+    添加download任务
+ 
+ 1 - downloadTaskWithURL: : 下载指定URL内容
+ 2 - downloadTaskWithURL:completionHandler: : 下载指定URL内容, 在completionHandler中处理数据. 该方法会绕过代理方法(除了身份认证挑战的代理方法)
+ 3 - downloadTaskWithRequest: : 下载指定URLRequest内容
+ 4 - downloadTaskWithRequest:completionHandler: : 下载指定URLRequest内容, 在completionHandler中处理数据. 该方法会绕过代理方法(除了身份认证挑战的代理方法)
+ 5 - downloadTaskWithResumeData: : 创建一个之前被取消/下载失败的download task
+ 6 - downloadTaskWithResumeData:completionHandler: : 创建一个之前被取消/下载失败的download task, 在completionHandler中处理数据. 该方法会绕过代理方法(除了身份认证挑战的代理方法)
+ 
+ 
+ */
+
 
 @implementation DownloadTaskViewController
 
@@ -68,7 +84,7 @@
 
 
 
-#pragma mark - NSURLSessionDelegate
+#pragma mark - NSURLSessionDelegate : 作为所有代理的基类，定义了网络请求最基础的代理方法
 
 /* The last message a session receives.  A session will only become
  * invalid because of a systemic error or when it has been
@@ -92,7 +108,7 @@
     NSLog(@"%s",__func__);
 }
 
-#pragma mark - NSURLSessionTaskDelegate
+#pragma mark - NSURLSessionTaskDelegate::定义了网络请求任务相关的代理方法。
 
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
@@ -175,7 +191,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
 
 
 
-#pragma mark - NSURLSessionDownloadDelegate
+#pragma mark - NSURLSessionDownloadDelegate: 用于下载任务相关的代理方法，比如下载进度等等
 
 /*
  1 对于一个通过downloadTaskWithResumeData:创建的下载任务, session会调用代理的URLSession:downloadTask:didResumeAtOffset:expectedTotalBytes:方法.
