@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9jn-gS-Ps9">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,133 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvq-pP-4DY">
+                                <rect key="frame" x="138" y="146" width="63" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="UkK-m4-jzN"/>
+                                    <constraint firstAttribute="width" constant="63" id="v5q-yE-HRx"/>
+                                </constraints>
+                                <state key="normal" title="DataTask"/>
+                                <connections>
+                                    <segue destination="YcN-6q-GOW" kind="push" id="43h-d5-Pwk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4L-Tt-Frw">
+                                <rect key="frame" x="119" y="243" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="MEB-2b-REb"/>
+                                    <constraint firstAttribute="height" constant="30" id="g8Q-kv-xyy"/>
+                                </constraints>
+                                <state key="normal" title="DownloadTask"/>
+                                <connections>
+                                    <segue destination="cey-c1-Boa" kind="push" id="u9L-SH-4OI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wcg-Uu-VKC">
+                                <rect key="frame" x="129" y="372" width="81" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CVf-CQ-yGC"/>
+                                    <constraint firstAttribute="width" constant="81" id="DhL-kT-e5f"/>
+                                </constraints>
+                                <state key="normal" title="UploadTask"/>
+                                <connections>
+                                    <segue destination="LrT-qP-q8M" kind="push" id="quR-Ek-vbS"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vvq-pP-4DY" secondAttribute="bottom" constant="491" id="9gs-9z-QXy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wcg-Uu-VKC" secondAttribute="bottom" constant="265" id="B9e-bO-CKl"/>
+                            <constraint firstItem="J4L-Tt-Frw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="119" id="M4q-jq-fiQ"/>
+                            <constraint firstItem="vvq-pP-4DY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="138" id="MN3-hn-L3P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vvq-pP-4DY" secondAttribute="trailing" constant="174" id="SdI-vd-vRn"/>
+                            <constraint firstItem="Wcg-Uu-VKC" firstAttribute="top" secondItem="J4L-Tt-Frw" secondAttribute="bottom" constant="99" id="WBF-P0-dE0"/>
+                            <constraint firstItem="vvq-pP-4DY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="82" id="Wdw-9W-FgF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J4L-Tt-Frw" secondAttribute="trailing" constant="156" id="Yac-eI-yBk"/>
+                            <constraint firstItem="Wcg-Uu-VKC" firstAttribute="top" secondItem="J4L-Tt-Frw" secondAttribute="bottom" constant="99" id="h6t-0w-3gj"/>
+                            <constraint firstItem="J4L-Tt-Frw" firstAttribute="top" secondItem="vvq-pP-4DY" secondAttribute="bottom" constant="67" id="hed-BL-pby"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wcg-Uu-VKC" secondAttribute="trailing" constant="165" id="jQu-3U-fAV"/>
+                            <constraint firstItem="Wcg-Uu-VKC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="jfl-jv-FKt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wWF-WD-45z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="590" y="-628"/>
+        </scene>
+        <!--DataTask-->
+        <scene sceneID="dFG-XY-lzl">
+            <objects>
+                <viewController title="DataTask" id="YcN-6q-GOW" customClass="DataTaskViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0cA-1L-cTn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5He-Rz-VUW"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="DataTask" id="Njd-0s-6ug"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PbB-UU-Tu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1026" y="-651"/>
+        </scene>
+        <!--DownloadTask-->
+        <scene sceneID="65k-7t-q4m">
+            <objects>
+                <viewController title="DownloadTask" id="cey-c1-Boa" customClass="DownloadTaskViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="se2-bB-ZW6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="al6-da-0Da"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="DownloadTask" id="U0F-4F-iN4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YWU-VH-iMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1502" y="-596"/>
+        </scene>
+        <!--UploadTask-->
+        <scene sceneID="aNQ-kA-rCU">
+            <objects>
+                <viewController title="UploadTask" id="LrT-qP-q8M" customClass="UploadTaskViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h2I-sw-9KP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="lfe-4D-rZW"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="UploadTask" id="4Tn-af-k3w"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BS7-cU-Ty1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1287" y="-585"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jPu-08-Efr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9jn-gS-Ps9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tgg-Eh-tfF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GiX-VE-Z5m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Mc-x7-LYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-449" y="-535"/>
         </scene>
     </scenes>
 </document>

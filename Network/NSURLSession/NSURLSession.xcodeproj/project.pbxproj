@@ -15,6 +15,9 @@
 		041A52D921422BEC0086E940 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A52D821422BEC0086E940 /* main.m */; };
 		04AED14F2146443D0031AC67 /* NSURLSessionDelegate.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AED14E2146443D0031AC67 /* NSURLSessionDelegate.png */; };
 		04AED1512146446A0031AC67 /* NSURLSessionTask.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AED1502146446A0031AC67 /* NSURLSessionTask.png */; };
+		04AED8572146971F0031AC67 /* DataTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AED8562146971F0031AC67 /* DataTaskViewController.m */; };
+		04AED85A214697300031AC67 /* DownloadTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AED859214697300031AC67 /* DownloadTaskViewController.m */; };
+		04AED85D214697410031AC67 /* UploadTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AED85C214697410031AC67 /* UploadTaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,12 @@
 		041A52D821422BEC0086E940 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04AED14E2146443D0031AC67 /* NSURLSessionDelegate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSURLSessionDelegate.png; sourceTree = "<group>"; };
 		04AED1502146446A0031AC67 /* NSURLSessionTask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSURLSessionTask.png; sourceTree = "<group>"; };
+		04AED8552146971F0031AC67 /* DataTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataTaskViewController.h; sourceTree = "<group>"; };
+		04AED8562146971F0031AC67 /* DataTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataTaskViewController.m; sourceTree = "<group>"; };
+		04AED858214697300031AC67 /* DownloadTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadTaskViewController.h; sourceTree = "<group>"; };
+		04AED859214697300031AC67 /* DownloadTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadTaskViewController.m; sourceTree = "<group>"; };
+		04AED85B214697410031AC67 /* UploadTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadTaskViewController.h; sourceTree = "<group>"; };
+		04AED85C214697410031AC67 /* UploadTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadTaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +77,12 @@
 				041A52CA21422BEB0086E940 /* AppDelegate.m */,
 				041A52CC21422BEB0086E940 /* ViewController.h */,
 				041A52CD21422BEB0086E940 /* ViewController.m */,
+				04AED8552146971F0031AC67 /* DataTaskViewController.h */,
+				04AED8562146971F0031AC67 /* DataTaskViewController.m */,
+				04AED858214697300031AC67 /* DownloadTaskViewController.h */,
+				04AED859214697300031AC67 /* DownloadTaskViewController.m */,
+				04AED85B214697410031AC67 /* UploadTaskViewController.h */,
+				04AED85C214697410031AC67 /* UploadTaskViewController.m */,
 				041A52CF21422BEB0086E940 /* Main.storyboard */,
 				041A52D221422BEC0086E940 /* Assets.xcassets */,
 				041A52D421422BEC0086E940 /* LaunchScreen.storyboard */,
@@ -149,9 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AED85D214697410031AC67 /* UploadTaskViewController.m in Sources */,
+				04AED85A214697300031AC67 /* DownloadTaskViewController.m in Sources */,
 				041A52CE21422BEB0086E940 /* ViewController.m in Sources */,
 				041A52D921422BEC0086E940 /* main.m in Sources */,
 				041A52CB21422BEB0086E940 /* AppDelegate.m in Sources */,
+				04AED8572146971F0031AC67 /* DataTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
