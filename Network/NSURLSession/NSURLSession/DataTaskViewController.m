@@ -51,7 +51,7 @@
     NSOperationQueue *queue = [NSOperationQueue mainQueue];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:queue];
     
-    NSURL *url = [NSURL URLWithString:@"http://rankapi.longzhu.com/ranklist/GetWeekRoomIdItemId?bundleId=com.longzhu.tga&roomId=2368600"];
+    NSURL *url = [NSURL URLWithString:@"http://jsonplaceholder.typicode.com/users"];
     
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
     //    self.dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
