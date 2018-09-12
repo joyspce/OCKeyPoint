@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSData *resumeData;
 
 @property (nonatomic, strong) NSURLSession *session;
+@property (weak, nonatomic) IBOutlet UIProgressView *progress;
 
 @end
 
@@ -45,7 +46,7 @@
 
     //    self.download = [session downloadTaskWithResumeData:<#(nonnull NSData *)#>];
 //    self.download = [session downloadTaskWithResumeData:<#(nonnull NSData *)#> completionHandler:<#^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error)completionHandler#>];
-    
+    self.progress.progress = 0;
 }
 
 
@@ -228,6 +229,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
       didWriteData:(int64_t)bytesWritten  totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     double progress = (double)totalBytesWritten / (double)totalBytesExpectedToWrite;
     NSLog(@"下载中 - %.0f%%", progress * 100);
+    self.progress.progress = progress;
 }
 
 /*
