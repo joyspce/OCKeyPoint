@@ -13,6 +13,8 @@
 		041A52D321422BEC0086E940 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041A52D221422BEC0086E940 /* Assets.xcassets */; };
 		041A52D621422BEC0086E940 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041A52D421422BEC0086E940 /* LaunchScreen.storyboard */; };
 		041A52D921422BEC0086E940 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A52D821422BEC0086E940 /* main.m */; };
+		047677D62148B424002448E2 /* UploadImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047677D52148B424002448E2 /* UploadImageViewController.m */; };
+		047677D92148B5C0002448E2 /* UploadTextDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047677D82148B5C0002448E2 /* UploadTextDataViewController.m */; };
 		04AED14F2146443D0031AC67 /* NSURLSessionDelegate.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AED14E2146443D0031AC67 /* NSURLSessionDelegate.png */; };
 		04AED1512146446A0031AC67 /* NSURLSessionTask.png in Resources */ = {isa = PBXBuildFile; fileRef = 04AED1502146446A0031AC67 /* NSURLSessionTask.png */; };
 		04AED8572146971F0031AC67 /* DataTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AED8562146971F0031AC67 /* DataTaskViewController.m */; };
@@ -31,6 +33,10 @@
 		041A52D521422BEC0086E940 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041A52D721422BEC0086E940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041A52D821422BEC0086E940 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		047677D42148B424002448E2 /* UploadImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadImageViewController.h; sourceTree = "<group>"; };
+		047677D52148B424002448E2 /* UploadImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadImageViewController.m; sourceTree = "<group>"; };
+		047677D72148B5C0002448E2 /* UploadTextDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadTextDataViewController.h; sourceTree = "<group>"; };
+		047677D82148B5C0002448E2 /* UploadTextDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadTextDataViewController.m; sourceTree = "<group>"; };
 		04AED14E2146443D0031AC67 /* NSURLSessionDelegate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSURLSessionDelegate.png; sourceTree = "<group>"; };
 		04AED1502146446A0031AC67 /* NSURLSessionTask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSURLSessionTask.png; sourceTree = "<group>"; };
 		04AED8552146971F0031AC67 /* DataTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataTaskViewController.h; sourceTree = "<group>"; };
@@ -71,6 +77,7 @@
 		041A52C821422BEB0086E940 /* NSURLSession */ = {
 			isa = PBXGroup;
 			children = (
+				047677D32148B3FE002448E2 /* Upload */,
 				04AED1502146446A0031AC67 /* NSURLSessionTask.png */,
 				04AED14E2146443D0031AC67 /* NSURLSessionDelegate.png */,
 				041A52C921422BEB0086E940 /* AppDelegate.h */,
@@ -81,8 +88,6 @@
 				04AED8562146971F0031AC67 /* DataTaskViewController.m */,
 				04AED858214697300031AC67 /* DownloadTaskViewController.h */,
 				04AED859214697300031AC67 /* DownloadTaskViewController.m */,
-				04AED85B214697410031AC67 /* UploadTaskViewController.h */,
-				04AED85C214697410031AC67 /* UploadTaskViewController.m */,
 				041A52CF21422BEB0086E940 /* Main.storyboard */,
 				041A52D221422BEC0086E940 /* Assets.xcassets */,
 				041A52D421422BEC0086E940 /* LaunchScreen.storyboard */,
@@ -90,6 +95,19 @@
 				041A52D821422BEC0086E940 /* main.m */,
 			);
 			path = NSURLSession;
+			sourceTree = "<group>";
+		};
+		047677D32148B3FE002448E2 /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				04AED85B214697410031AC67 /* UploadTaskViewController.h */,
+				04AED85C214697410031AC67 /* UploadTaskViewController.m */,
+				047677D42148B424002448E2 /* UploadImageViewController.h */,
+				047677D52148B424002448E2 /* UploadImageViewController.m */,
+				047677D72148B5C0002448E2 /* UploadTextDataViewController.h */,
+				047677D82148B5C0002448E2 /* UploadTextDataViewController.m */,
+			);
+			path = Upload;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,9 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047677D62148B424002448E2 /* UploadImageViewController.m in Sources */,
 				04AED85D214697410031AC67 /* UploadTaskViewController.m in Sources */,
 				04AED85A214697300031AC67 /* DownloadTaskViewController.m in Sources */,
 				041A52CE21422BEB0086E940 /* ViewController.m in Sources */,
+				047677D92148B5C0002448E2 /* UploadTextDataViewController.m in Sources */,
 				041A52D921422BEC0086E940 /* main.m in Sources */,
 				041A52CB21422BEB0086E940 /* AppDelegate.m in Sources */,
 				04AED8572146971F0031AC67 /* DataTaskViewController.m in Sources */,

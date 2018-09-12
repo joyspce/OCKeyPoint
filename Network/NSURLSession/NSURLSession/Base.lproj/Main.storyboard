@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -191,18 +192,48 @@
                                     <constraint firstAttribute="width" constant="99" id="Gpc-nz-SL3"/>
                                     <constraint firstAttribute="height" constant="37" id="P7H-Wh-Qvd"/>
                                 </constraints>
-                                <state key="normal" title="开始"/>
+                                <state key="normal" title="默认"/>
                                 <connections>
                                     <action selector="startAction:" destination="LrT-qP-q8M" eventType="touchUpInside" id="Ajs-FO-QCM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSm-Zk-WLi">
+                                <rect key="frame" x="117" y="268" width="117" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="7tI-bz-o2q"/>
+                                    <constraint firstAttribute="height" constant="48" id="bqG-i7-6CG"/>
+                                </constraints>
+                                <state key="normal" title="uploadImage"/>
+                                <connections>
+                                    <segue destination="cdj-1A-G3I" kind="push" id="Hu3-Vc-knE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOr-TO-DfN">
+                                <rect key="frame" x="117" y="394" width="114" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="Cp9-qT-lQf"/>
+                                    <constraint firstAttribute="width" constant="114" id="eZK-7Z-Q78"/>
+                                </constraints>
+                                <state key="normal" title="uploadTextData"/>
+                                <connections>
+                                    <segue destination="Rzi-QO-nfP" kind="push" id="F2b-WF-scT"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xSm-Zk-WLi" firstAttribute="leading" secondItem="lfe-4D-rZW" secondAttribute="leading" constant="117" id="1Py-08-NAt"/>
                             <constraint firstItem="pcy-oI-CxY" firstAttribute="top" secondItem="lfe-4D-rZW" secondAttribute="top" constant="63" id="2o4-jm-375"/>
+                            <constraint firstItem="HOr-TO-DfN" firstAttribute="top" secondItem="xSm-Zk-WLi" secondAttribute="bottom" constant="78" id="5dB-96-Jsl"/>
+                            <constraint firstItem="lfe-4D-rZW" firstAttribute="bottom" secondItem="HOr-TO-DfN" secondAttribute="bottom" constant="232" id="BWr-iv-qbU"/>
                             <constraint firstItem="lfe-4D-rZW" firstAttribute="trailing" secondItem="pcy-oI-CxY" secondAttribute="trailing" constant="150" id="BYk-99-LQ6"/>
                             <constraint firstItem="pcy-oI-CxY" firstAttribute="leading" secondItem="lfe-4D-rZW" secondAttribute="leading" constant="126" id="KxN-YH-QKl"/>
+                            <constraint firstItem="lfe-4D-rZW" firstAttribute="bottom" secondItem="xSm-Zk-WLi" secondAttribute="bottom" constant="351" id="XdK-OP-GkG"/>
+                            <constraint firstItem="HOr-TO-DfN" firstAttribute="leading" secondItem="lfe-4D-rZW" secondAttribute="leading" constant="117" id="b7W-Zn-KTU"/>
                             <constraint firstItem="lfe-4D-rZW" firstAttribute="bottom" secondItem="pcy-oI-CxY" secondAttribute="bottom" constant="503" id="hiL-ux-XJf"/>
+                            <constraint firstItem="lfe-4D-rZW" firstAttribute="trailing" secondItem="xSm-Zk-WLi" secondAttribute="trailing" constant="141" id="jcg-Dz-jNn"/>
+                            <constraint firstItem="xSm-Zk-WLi" firstAttribute="top" secondItem="pcy-oI-CxY" secondAttribute="bottom" constant="104" id="k2T-lm-8gg"/>
+                            <constraint firstItem="lfe-4D-rZW" firstAttribute="trailing" secondItem="HOr-TO-DfN" secondAttribute="trailing" constant="144" id="tEh-NZ-kpv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lfe-4D-rZW"/>
                     </view>
@@ -210,7 +241,107 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BS7-cU-Ty1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376.8" y="-41.829085457271368"/>
+            <point key="canvasLocation" x="1368.8" y="-362.06896551724139"/>
+        </scene>
+        <!--Upload Text Data View Controller-->
+        <scene sceneID="Yk5-p8-Svh">
+            <objects>
+                <viewController id="Rzi-QO-nfP" customClass="UploadTextDataViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rYA-Nl-IsH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3A-DP-ueT">
+                                <rect key="frame" x="135" y="224" width="74" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Wfb-0w-HI6"/>
+                                    <constraint firstAttribute="width" constant="74" id="wgA-Ea-vBH"/>
+                                </constraints>
+                                <state key="normal" title="开始上传"/>
+                                <connections>
+                                    <action selector="start:" destination="Rzi-QO-nfP" eventType="touchUpInside" id="PBy-eQ-kzq"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OVC-nT-tlM">
+                                <rect key="frame" x="97" y="161" width="150" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="xXI-eq-zhs"/>
+                                </constraints>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="e3A-DP-ueT" firstAttribute="leading" secondItem="t28-zQ-92l" secondAttribute="leading" constant="135" id="3hG-Ab-FEf"/>
+                            <constraint firstItem="e3A-DP-ueT" firstAttribute="top" secondItem="t28-zQ-92l" secondAttribute="top" constant="160" id="IEg-xa-2eW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OVC-nT-tlM" secondAttribute="trailing" constant="112" id="Jrl-zt-uwo"/>
+                            <constraint firstItem="OVC-nT-tlM" firstAttribute="top" secondItem="t28-zQ-92l" secondAttribute="top" constant="97" id="WTq-k7-TfK"/>
+                            <constraint firstItem="t28-zQ-92l" firstAttribute="trailing" secondItem="e3A-DP-ueT" secondAttribute="trailing" constant="166" id="aEF-ug-Nyg"/>
+                            <constraint firstItem="OVC-nT-tlM" firstAttribute="leading" secondItem="rYA-Nl-IsH" secondAttribute="leadingMargin" constant="81" id="urN-6M-Vcp"/>
+                            <constraint firstItem="t28-zQ-92l" firstAttribute="bottom" secondItem="e3A-DP-ueT" secondAttribute="bottom" constant="408" id="wLH-Pa-ysa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="t28-zQ-92l"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tfM-AG-tpD"/>
+                    <connections>
+                        <outlet property="progress" destination="OVC-nT-tlM" id="Ny1-Nn-cti"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="73Z-b9-WDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2812" y="-362"/>
+        </scene>
+        <!--Upload Image View Controller-->
+        <scene sceneID="yxE-Xh-TY2">
+            <objects>
+                <viewController id="cdj-1A-G3I" customClass="UploadImageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="myP-Sn-eY0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hFA-aW-4YD">
+                                <rect key="frame" x="0.0" y="74" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="BIR-V1-1Hr"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGB-KH-uLl">
+                                <rect key="frame" x="133" y="363" width="109" height="3"/>
+                                <state key="normal" title="upload"/>
+                                <connections>
+                                    <action selector="uploadImageAction:" destination="cdj-1A-G3I" eventType="touchUpInside" id="ie3-Kv-NMa"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ltP-4E-c7P">
+                                <rect key="frame" x="112" y="306" width="150" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="GV5-ce-XCR"/>
+                                </constraints>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pGB-KH-uLl" firstAttribute="top" secondItem="ltP-4E-c7P" secondAttribute="bottom" constant="55" id="034-Mz-Bpx"/>
+                            <constraint firstItem="pGB-KH-uLl" firstAttribute="leading" secondItem="3Vh-rl-fXj" secondAttribute="leading" constant="133" id="LVc-EH-8Bo"/>
+                            <constraint firstItem="hFA-aW-4YD" firstAttribute="leading" secondItem="3Vh-rl-fXj" secondAttribute="leading" id="Ofs-2z-v94"/>
+                            <constraint firstItem="3Vh-rl-fXj" firstAttribute="bottom" secondItem="pGB-KH-uLl" secondAttribute="bottom" constant="301" id="R53-yF-a6m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ltP-4E-c7P" secondAttribute="trailing" constant="97" id="UPD-uJ-R3c"/>
+                            <constraint firstItem="3Vh-rl-fXj" firstAttribute="trailing" secondItem="hFA-aW-4YD" secondAttribute="trailing" id="YcJ-rd-5mj"/>
+                            <constraint firstItem="3Vh-rl-fXj" firstAttribute="trailing" secondItem="pGB-KH-uLl" secondAttribute="trailing" constant="133" id="bet-dR-tZb"/>
+                            <constraint firstItem="hFA-aW-4YD" firstAttribute="top" secondItem="3Vh-rl-fXj" secondAttribute="top" constant="10" id="cIJ-vN-144"/>
+                            <constraint firstItem="ltP-4E-c7P" firstAttribute="top" secondItem="hFA-aW-4YD" secondAttribute="bottom" constant="32" id="sqA-ou-4Nu"/>
+                            <constraint firstItem="ltP-4E-c7P" firstAttribute="leading" secondItem="myP-Sn-eY0" secondAttribute="leadingMargin" constant="96" id="vuD-oG-Y7i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Vh-rl-fXj"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wVE-zc-xd8"/>
+                    <connections>
+                        <outlet property="progress" destination="ltP-4E-c7P" id="6hf-sv-XNf"/>
+                        <outlet property="uoloadimage" destination="hFA-aW-4YD" id="QSd-iW-WB6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GXa-r6-NtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2152.8000000000002" y="-618.44077961019491"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jPu-08-Efr">
