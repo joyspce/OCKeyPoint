@@ -11,11 +11,14 @@
 @interface UploadImageViewController ()<NSURLSessionDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *uoloadimage;
 @property (weak, nonatomic) IBOutlet UIProgressView *progress;
+@property (weak, nonatomic) IBOutlet UIImageView *secondImg;
+@property (weak, nonatomic) IBOutlet UIProgressView *secondProgress;
 
 @property (nonatomic, strong) NSURLSessionUploadTask *uploadTask;
 
 @property (nonatomic, strong) NSURLSession *session;
-
+@property (nonatomic, strong) NSURLSessionUploadTask *uploadSecTask;
+@property (nonatomic, strong) NSURLSession *sessionSec;
 
 @end
 
@@ -28,6 +31,10 @@
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     self.session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    
+    self.sessionSec = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    self.secondImg.image = [UIImage imageNamed:@"NSURLSessionDelegate.png"];
+    self.secondProgress.progress = 0;
     
 }
 - (IBAction)uploadImageAction:(id)sender {
@@ -42,8 +49,38 @@
     [self.uploadTask resume];
 }
 
-- (void)cancleTask {
-//    [self.session c]
+
+- (IBAction)uploadTow:(id)sender {
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.freeimagehosting.net/upload.php"]];
+    [request addValue:@"text/html" forHTTPHeaderField:@"Accept"];
+    [request setHTTPMethod:@"POST"];
+    [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+    [request setTimeoutInterval:10];
+    NSString *boundary = @"wfWiEWrgEFA9A78512weF7106A";
+    
+    request.allHTTPHeaderFields = @{
+                                    @"Content-Type":[NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary]
+                                    };
+    
+    NSMutableData *mutableData = [[NSMutableData alloc] init];
+    
+    NSString *pair = [NSString stringWithFormat:@"--%@\r\nContent-Disposition: form-data; name=\"%@\"\r\n\r\n",boundary,@"first"];//NSURLSessionTask.png
+
+    [mutableData appendData:[pair dataUsingEncoding:NSUTF8StringEncoding]];
+    NSString *value1 = @"NSURLSessionTask.png";
+    [mutableData appendData:[value1 dataUsingEncoding:NSUTF8StringEncoding]];
+    [mutableData appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSString *pair2 = [NSString stringWithFormat:@"--%@\r\nContent-Disposition: form-data; name=\"%@\"\r\n\r\n",boundary,@"second"];//NSURLSessionDelegate.png
+    [mutableData appendData:[pair2 dataUsingEncoding:NSUTF8StringEncoding]];
+    NSString *value2 = @"NSURLSessionDelegate.png";
+    [mutableData appendData:[value2 dataUsingEncoding:NSUTF8StringEncoding]];
+    [mutableData appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [request setValue:[NSString stringWithFormat:@"%lu",(unsigned long)mutableData.length] forHTTPHeaderField:@"Content-Length"];
+    self.uploadSecTask = [self.sessionSec uploadTaskWithRequest:request fromData:mutableData];
+    [self.uploadSecTask resume];
 }
 
 #pragma mark - NSURLSessionDelegate : 作为所有代理的基类，定义了网络请求最基础的代理方法
@@ -131,8 +168,13 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     //    NSLog(@"%s",__func__);
     double progress = (double)totalBytesSent / (double)totalBytesExpectedToSend;
-    NSLog(@"上传中 - %.0f%%", progress * 100);
-    self.progress.progress = progress;
+     NSLog(@"上传中 - %.0f%%", progress * 100);
+    if (task == self.uploadTask) {
+        self.progress.progress = progress;
+    } else {
+        self.secondProgress.progress = progress;
+    }
+    
 }
 
 /*

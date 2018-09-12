@@ -118,9 +118,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV2-ug-1vE">
-                                <rect key="frame" x="142" y="211" width="31" height="30"/>
+                                <rect key="frame" x="100" y="211" width="175" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="SgW-MQ-t1b"/>
                                     <constraint firstAttribute="height" constant="30" id="b3X-P5-u5i"/>
                                 </constraints>
                                 <state key="normal" title="暂停"/>
@@ -153,21 +152,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hV2-ug-1vE" firstAttribute="leading" secondItem="al6-da-0Da" secondAttribute="leading" constant="100" id="3pH-zL-FIe"/>
                             <constraint firstItem="196-fc-goM" firstAttribute="leading" secondItem="al6-da-0Da" secondAttribute="leading" constant="126" id="4dF-sP-ZdQ"/>
                             <constraint firstItem="al6-da-0Da" firstAttribute="bottom" secondItem="Rv4-1F-XmO" secondAttribute="bottom" constant="235" id="6oz-AO-IVy"/>
                             <constraint firstItem="5Dl-1l-hJn" firstAttribute="top" secondItem="al6-da-0Da" secondAttribute="top" constant="56" id="7Cs-JO-3Wk"/>
                             <constraint firstItem="al6-da-0Da" firstAttribute="trailing" secondItem="196-fc-goM" secondAttribute="trailing" constant="187" id="B9L-wz-mZi"/>
-                            <constraint firstItem="hV2-ug-1vE" firstAttribute="top" secondItem="5Dl-1l-hJn" secondAttribute="bottom" constant="61" id="Leb-qB-hh3"/>
+                            <constraint firstItem="hV2-ug-1vE" firstAttribute="centerX" secondItem="se2-bB-ZW6" secondAttribute="centerX" id="Cf8-jZ-dOK"/>
                             <constraint firstItem="5Dl-1l-hJn" firstAttribute="leading" secondItem="al6-da-0Da" secondAttribute="leading" constant="140" id="SKi-5b-wFY"/>
-                            <constraint firstItem="hV2-ug-1vE" firstAttribute="leading" secondItem="al6-da-0Da" secondAttribute="leading" constant="142" id="UEH-WJ-QR0"/>
                             <constraint firstItem="al6-da-0Da" firstAttribute="trailing" secondItem="Rv4-1F-XmO" secondAttribute="trailing" constant="202" id="VUt-5X-Abt"/>
-                            <constraint firstItem="al6-da-0Da" firstAttribute="trailing" secondItem="hV2-ug-1vE" secondAttribute="trailing" constant="202" id="ZBh-KA-lKl"/>
                             <constraint firstItem="al6-da-0Da" firstAttribute="bottom" secondItem="196-fc-goM" secondAttribute="bottom" constant="319" id="Zwt-Pp-sWp"/>
-                            <constraint firstItem="196-fc-goM" firstAttribute="top" secondItem="hV2-ug-1vE" secondAttribute="bottom" constant="77" id="cis-HY-mxU"/>
                             <constraint firstItem="al6-da-0Da" firstAttribute="trailing" secondItem="5Dl-1l-hJn" secondAttribute="trailing" constant="201" id="kfF-fI-jh1"/>
                             <constraint firstItem="Rv4-1F-XmO" firstAttribute="leading" secondItem="al6-da-0Da" secondAttribute="leading" constant="142" id="mfR-6r-OHV"/>
-                            <constraint firstItem="196-fc-goM" firstAttribute="top" secondItem="hV2-ug-1vE" secondAttribute="bottom" constant="77" id="oom-cn-2Yq"/>
                             <constraint firstItem="Rv4-1F-XmO" firstAttribute="top" secondItem="196-fc-goM" secondAttribute="bottom" constant="54" id="rP5-bd-wqL"/>
+                            <constraint firstItem="196-fc-goM" firstAttribute="top" secondItem="hV2-ug-1vE" secondAttribute="bottom" constant="77" id="vd4-Se-5Om"/>
                             <constraint firstItem="hV2-ug-1vE" firstAttribute="top" secondItem="5Dl-1l-hJn" secondAttribute="bottom" constant="61" id="zuQ-he-ErS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="al6-da-0Da"/>
@@ -176,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWU-VH-iMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="550" y="-604"/>
+            <point key="canvasLocation" x="549.60000000000002" y="-604.04797601199402"/>
         </scene>
         <!--UploadTask-->
         <scene sceneID="aNQ-kA-rCU">
@@ -189,7 +186,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcy-oI-CxY">
                                 <rect key="frame" x="126" y="127" width="99" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="99" id="Gpc-nz-SL3"/>
                                     <constraint firstAttribute="height" constant="37" id="P7H-Wh-Qvd"/>
                                 </constraints>
                                 <state key="normal" title="默认"/>
@@ -200,7 +196,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSm-Zk-WLi">
                                 <rect key="frame" x="117" y="268" width="117" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="117" id="7tI-bz-o2q"/>
                                     <constraint firstAttribute="height" constant="48" id="bqG-i7-6CG"/>
                                 </constraints>
                                 <state key="normal" title="uploadImage"/>
@@ -212,7 +207,6 @@
                                 <rect key="frame" x="117" y="394" width="114" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="Cp9-qT-lQf"/>
-                                    <constraint firstAttribute="width" constant="114" id="eZK-7Z-Q78"/>
                                 </constraints>
                                 <state key="normal" title="uploadTextData"/>
                                 <connections>
@@ -305,8 +299,8 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGB-KH-uLl">
-                                <rect key="frame" x="133" y="363" width="109" height="3"/>
-                                <state key="normal" title="upload"/>
+                                <rect key="frame" x="80" y="363" width="162" height="3"/>
+                                <state key="normal" title="uploadOne"/>
                                 <connections>
                                     <action selector="uploadImageAction:" destination="cdj-1A-G3I" eventType="touchUpInside" id="ie3-Kv-NMa"/>
                                 </connections>
@@ -317,25 +311,58 @@
                                     <constraint firstAttribute="height" constant="2" id="GV5-ce-XCR"/>
                                 </constraints>
                             </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fqc-NV-vd1">
+                                <rect key="frame" x="0.0" y="393" width="359" height="135"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="135" id="aMj-5u-YFT"/>
+                                </constraints>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oG6-zP-PCc">
+                                <rect key="frame" x="104" y="536" width="150" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="jLD-ax-RI2"/>
+                                </constraints>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdd-WI-Zeq">
+                                <rect key="frame" x="80" y="568" width="162" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="wUs-8f-9vv"/>
+                                </constraints>
+                                <state key="normal" title="UploadTow"/>
+                                <connections>
+                                    <action selector="uploadTow:" destination="cdj-1A-G3I" eventType="touchUpInside" id="eFB-54-757"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pGB-KH-uLl" firstAttribute="top" secondItem="ltP-4E-c7P" secondAttribute="bottom" constant="55" id="034-Mz-Bpx"/>
-                            <constraint firstItem="pGB-KH-uLl" firstAttribute="leading" secondItem="3Vh-rl-fXj" secondAttribute="leading" constant="133" id="LVc-EH-8Bo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oG6-zP-PCc" secondAttribute="trailing" constant="105" id="3te-sV-Qp3"/>
+                            <constraint firstItem="fqc-NV-vd1" firstAttribute="top" secondItem="pGB-KH-uLl" secondAttribute="bottom" constant="27" id="6nI-TC-pe4"/>
+                            <constraint firstItem="Sdd-WI-Zeq" firstAttribute="leading" secondItem="3Vh-rl-fXj" secondAttribute="leading" constant="80" id="KYo-Zm-AI6"/>
+                            <constraint firstItem="pGB-KH-uLl" firstAttribute="leading" secondItem="3Vh-rl-fXj" secondAttribute="leading" constant="80" id="LVc-EH-8Bo"/>
                             <constraint firstItem="hFA-aW-4YD" firstAttribute="leading" secondItem="3Vh-rl-fXj" secondAttribute="leading" id="Ofs-2z-v94"/>
+                            <constraint firstItem="oG6-zP-PCc" firstAttribute="leading" secondItem="myP-Sn-eY0" secondAttribute="leadingMargin" constant="88" id="Oxk-aV-rr2"/>
                             <constraint firstItem="3Vh-rl-fXj" firstAttribute="bottom" secondItem="pGB-KH-uLl" secondAttribute="bottom" constant="301" id="R53-yF-a6m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ltP-4E-c7P" secondAttribute="trailing" constant="97" id="UPD-uJ-R3c"/>
                             <constraint firstItem="3Vh-rl-fXj" firstAttribute="trailing" secondItem="hFA-aW-4YD" secondAttribute="trailing" id="YcJ-rd-5mj"/>
                             <constraint firstItem="3Vh-rl-fXj" firstAttribute="trailing" secondItem="pGB-KH-uLl" secondAttribute="trailing" constant="133" id="bet-dR-tZb"/>
                             <constraint firstItem="hFA-aW-4YD" firstAttribute="top" secondItem="3Vh-rl-fXj" secondAttribute="top" constant="10" id="cIJ-vN-144"/>
+                            <constraint firstItem="3Vh-rl-fXj" firstAttribute="trailing" secondItem="Sdd-WI-Zeq" secondAttribute="trailing" constant="133" id="gLW-fn-qnL"/>
+                            <constraint firstItem="Sdd-WI-Zeq" firstAttribute="top" secondItem="oG6-zP-PCc" secondAttribute="bottom" constant="30" id="lZa-2o-Xg1"/>
+                            <constraint firstItem="oG6-zP-PCc" firstAttribute="top" secondItem="fqc-NV-vd1" secondAttribute="bottom" constant="8" id="oUt-Ue-qbf"/>
                             <constraint firstItem="ltP-4E-c7P" firstAttribute="top" secondItem="hFA-aW-4YD" secondAttribute="bottom" constant="32" id="sqA-ou-4Nu"/>
                             <constraint firstItem="ltP-4E-c7P" firstAttribute="leading" secondItem="myP-Sn-eY0" secondAttribute="leadingMargin" constant="96" id="vuD-oG-Y7i"/>
+                            <constraint firstItem="3Vh-rl-fXj" firstAttribute="trailing" secondItem="fqc-NV-vd1" secondAttribute="trailing" constant="16" id="vzP-o5-zpH"/>
+                            <constraint firstItem="fqc-NV-vd1" firstAttribute="leading" secondItem="3Vh-rl-fXj" secondAttribute="leading" id="zEG-J0-KrZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Vh-rl-fXj"/>
                     </view>
                     <navigationItem key="navigationItem" id="wVE-zc-xd8"/>
                     <connections>
                         <outlet property="progress" destination="ltP-4E-c7P" id="6hf-sv-XNf"/>
+                        <outlet property="secondImg" destination="fqc-NV-vd1" id="VeA-gz-RHg"/>
+                        <outlet property="secondProgress" destination="oG6-zP-PCc" id="4EQ-xq-sW0"/>
                         <outlet property="uoloadimage" destination="hFA-aW-4YD" id="QSd-iW-WB6"/>
                     </connections>
                 </viewController>
