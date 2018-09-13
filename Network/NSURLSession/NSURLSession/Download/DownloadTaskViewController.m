@@ -157,6 +157,9 @@
     NSLog(@"%s",__func__);
 }
 
+
+
+
 #pragma mark - NSURLSessionTaskDelegate::定义了网络请求任务相关的代理方法。
 
 
@@ -246,8 +249,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     NSLog(@"NSURLSessionDownloadTaskResumeData = %@",[error.userInfo valueForKey:NSURLSessionDownloadTaskResumeData]);
 }
 
-
-
+ 
 
 #pragma mark - NSURLSessionDownloadDelegate: 用于下载任务相关的代理方法，比如下载进度等等
 

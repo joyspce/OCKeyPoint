@@ -219,6 +219,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
 didReceiveResponse:(NSURLResponse *)response
  completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
     NSLog(@"1-->%@",response);
+    NSLog(@"开始接收数据");
 }
 
 /*
@@ -259,7 +260,8 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
  */
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
     didReceiveData:(NSData *)data {
-    NSLog(@"4-->%@",data);
+//    NSLog(@"4-->%@",data);
+    NSLog(@"正在接收数据");
 }
 
 /* Invoke the completion routine with a valid NSCachedURLResponse to

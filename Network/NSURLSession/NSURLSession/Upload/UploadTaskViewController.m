@@ -138,6 +138,20 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
     NSLog(@"%s",__func__);
 }
 
+#pragma mark - NSURLSessionDataDelegate
+
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
+didReceiveResponse:(NSURLResponse *)response
+ completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
+    NSLog(@"开始下载");
+}
+
+-(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
+{
+    NSLog(@"接收数据");
+}
+
+
 #pragma mark - 上传数据去服务器期间, 代理会周期性收到URLSession:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:回调并获得上传进度的报告.
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
