@@ -48,6 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.timeoutIntervalForRequest = 30;
     NSOperationQueue *queue = [NSOperationQueue mainQueue];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:queue];
     
