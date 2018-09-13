@@ -61,6 +61,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040F14D6214A4B0000D67E53 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				04AED858214697300031AC67 /* DownloadTaskViewController.h */,
+				04AED859214697300031AC67 /* DownloadTaskViewController.m */,
+				040F14D3214A3EE800D67E53 /* BgDownloadManager.h */,
+				040F14D4214A3EE800D67E53 /* BgDownloadManager.m */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
 		041A52BD21422BEA0086E940 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +91,7 @@
 		041A52C821422BEB0086E940 /* NSURLSession */ = {
 			isa = PBXGroup;
 			children = (
+				040F14D6214A4B0000D67E53 /* Download */,
 				047677D32148B3FE002448E2 /* Upload */,
 				04AED1502146446A0031AC67 /* NSURLSessionTask.png */,
 				04AED14E2146443D0031AC67 /* NSURLSessionDelegate.png */,
@@ -89,8 +101,6 @@
 				041A52CD21422BEB0086E940 /* ViewController.m */,
 				04AED8552146971F0031AC67 /* DataTaskViewController.h */,
 				04AED8562146971F0031AC67 /* DataTaskViewController.m */,
-				04AED858214697300031AC67 /* DownloadTaskViewController.h */,
-				04AED859214697300031AC67 /* DownloadTaskViewController.m */,
 				041A52CF21422BEB0086E940 /* Main.storyboard */,
 				041A52D221422BEC0086E940 /* Assets.xcassets */,
 				041A52D421422BEC0086E940 /* LaunchScreen.storyboard */,
@@ -109,8 +119,6 @@
 				047677D52148B424002448E2 /* UploadImageViewController.m */,
 				047677D72148B5C0002448E2 /* UploadTextDataViewController.h */,
 				047677D82148B5C0002448E2 /* UploadTextDataViewController.m */,
-				040F14D3214A3EE800D67E53 /* BgDownloadManager.h */,
-				040F14D4214A3EE800D67E53 /* BgDownloadManager.m */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
