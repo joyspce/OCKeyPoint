@@ -8,6 +8,7 @@
 
 #import "DownloadTaskViewController.h"
 
+#import "BgDownloadManager.h"
 
 @interface DownloadTaskViewController ()<NSURLSessionDelegate>
 
@@ -17,7 +18,15 @@
 
 @property (nonatomic, strong) NSURLSession *session;
 @property (weak, nonatomic) IBOutlet UIProgressView *progress;
+
+
+
+ //MAEK:后台下载相关
+
 @property (weak, nonatomic) IBOutlet UIProgressView *backgroundProgress;
+
+@property (nonatomic, strong) NSURLSessionDownloadTask *bgdownloadTask;
+
 
 @end
 
@@ -64,9 +73,32 @@
     return _download;
 }
 
+- (NSURLSessionDownloadTask *)bgdownloadTask {
+    if (!_bgdownloadTask) {
+        _bgdownloadTask = [[self backgroundURLSession] downloadTaskWithURL:[NSURL URLWithString:@"http://he.yinyuetai.com/uploads/videos/common/8AE4015CA6F6B544282B29F4C1DC0C0A.mp4"]];
+    }
+    return _bgdownloadTask;
+}
+
+
+
+- (NSURLSession *)backgroundURLSession {
+    static NSURLSession *session = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *identifier = @"com.jwc.appId.BackgroundSession";
+        NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:identifier];
+        session = [NSURLSession sessionWithConfiguration:sessionConfig
+                                                delegate:self
+                                           delegateQueue:[NSOperationQueue mainQueue]];
+    });
+    return session;
+}
+
 
 - (IBAction)start:(id)sender {
     [self.download resume];
+    
 }
 
 - (IBAction)pause:(id)sender {
@@ -94,7 +126,7 @@
 }
 
 - (IBAction)backgroundDownloadAction:(id)sender {
-    
+    [[BgDownloadManager shared] startWithAds:@"http://he.yinyuetai.com/uploads/videos/common/8AE4015CA6F6B544282B29F4C1DC0C0A.mp4"];
 }
 
 

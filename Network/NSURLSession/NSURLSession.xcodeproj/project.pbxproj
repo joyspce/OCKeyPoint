@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040F14D5214A3EE800D67E53 /* BgDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F14D4214A3EE800D67E53 /* BgDownloadManager.m */; };
 		041A52CB21422BEB0086E940 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A52CA21422BEB0086E940 /* AppDelegate.m */; };
 		041A52CE21422BEB0086E940 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041A52CD21422BEB0086E940 /* ViewController.m */; };
 		041A52D121422BEB0086E940 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041A52CF21422BEB0086E940 /* Main.storyboard */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040F14D3214A3EE800D67E53 /* BgDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BgDownloadManager.h; sourceTree = "<group>"; };
+		040F14D4214A3EE800D67E53 /* BgDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BgDownloadManager.m; sourceTree = "<group>"; };
 		041A52C621422BEB0086E940 /* NSURLSession.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSURLSession.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041A52C921422BEB0086E940 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		041A52CA21422BEB0086E940 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				047677D52148B424002448E2 /* UploadImageViewController.m */,
 				047677D72148B5C0002448E2 /* UploadTextDataViewController.h */,
 				047677D82148B5C0002448E2 /* UploadTextDataViewController.m */,
+				040F14D3214A3EE800D67E53 /* BgDownloadManager.h */,
+				040F14D4214A3EE800D67E53 /* BgDownloadManager.m */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				04AED85A214697300031AC67 /* DownloadTaskViewController.m in Sources */,
 				041A52CE21422BEB0086E940 /* ViewController.m in Sources */,
 				047677D92148B5C0002448E2 /* UploadTextDataViewController.m in Sources */,
+				040F14D5214A3EE800D67E53 /* BgDownloadManager.m in Sources */,
 				041A52D921422BEC0086E940 /* main.m in Sources */,
 				041A52CB21422BEB0086E940 /* AppDelegate.m in Sources */,
 				04AED8572146971F0031AC67 /* DataTaskViewController.m in Sources */,
