@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) NSURLSession *session;
 @property (weak, nonatomic) IBOutlet UIProgressView *progress;
+@property (weak, nonatomic) IBOutlet UIProgressView *backgroundProgress;
 
 @end
 
@@ -40,8 +41,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.download = [self.session downloadTaskWithURL:[NSURL URLWithString:@"http://he.yinyuetai.com/uploads/videos/common/8AE4015CA6F6B544282B29F4C1DC0C0A.mp4"]];
-    
     //对于一个通过downloadTaskWithResumeData:创建的下载任务, session会调用代理的URLSession:downloadTask:didResumeAtOffset:expectedTotalBytes:方法.
 
     //    self.download = [session downloadTaskWithResumeData:<#(nonnull NSData *)#>];
@@ -58,20 +57,31 @@
     return _session;
 }
 
+- (NSURLSessionDownloadTask *)download {
+    if (!_download) {
+        _download = [self.session downloadTaskWithURL:[NSURL URLWithString:@"http://he.yinyuetai.com/uploads/videos/common/8AE4015CA6F6B544282B29F4C1DC0C0A.mp4"]];
+    }
+    return _download;
+}
+
 
 - (IBAction)start:(id)sender {
     [self.download resume];
 }
 
 - (IBAction)pause:(id)sender {
-    [self.download suspend];
-//    [self.download cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
-//        self.resumeData = resumeData;
-//    }];
+//    [self.download suspend];
+    [self.download cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
+        self.resumeData = resumeData;
+    }];
 }
 
 - (IBAction)restart:(id)sender {
     self.download = nil;
+    if (self.resumeData.length == 0) {
+        [self start:nil];
+        return;
+    }
     self.download = [self.session downloadTaskWithResumeData:self.resumeData];
     [self.download resume];
 }
@@ -81,6 +91,10 @@
     [self.download cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
         self.resumeData = resumeData;
     }];
+}
+
+- (IBAction)backgroundDownloadAction:(id)sender {
+    
 }
 
 
@@ -104,7 +118,9 @@
     NSLog(@"%s",__func__);
 }
 
-
+/*
+ //在应用处于后台，且后台任务下载完成时回调
+ */
 - (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session {
     NSLog(@"%s",__func__);
 }
@@ -195,6 +211,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(nullable NSError *)error {
     NSLog(@"downloadTask 结束 --- error:%@",error);
+    NSLog(@"NSURLSessionDownloadTaskResumeData = %@",[error.userInfo valueForKey:NSURLSessionDownloadTaskResumeData]);
 }
 
 
