@@ -76,7 +76,7 @@ NSString * AFPercentEscapedStringFromString(NSString *string) {
 	return escaped;
 }
 
-#pragma mark -
+#pragma mark - AFQueryStringPair start
 
 @interface AFQueryStringPair : NSObject
 @property (readwrite, nonatomic, strong) id field;
@@ -110,12 +110,50 @@ NSString * AFPercentEscapedStringFromString(NSString *string) {
 }
 
 @end
+#pragma mark - AFQueryStringPair end
 
-#pragma mark -
+
+
+
+#pragma mark - parameters 转码 开始
+
+
+/*
+ 
+ 转码主要是以下三个函数，配合着注释应该也很好理解：主要是在递归调用AFQueryStringPairsFromKeyAndValue。
+ 判断vaLue是什么类型的，然后去递归调用自己，直到解析的是除了array dic set以外的元素，然后把得到的参数数组返回。
+ 
+ 第一步
+ @{
+     @"name" : @"bang",
+     @"phone": @{@"mobile": @"xx", @"home": @"xx"},
+     @"families": @[@"father", @"mother"],
+     @"nums": [NSSet setWithObjects:@"1", @"2", nil]
+ }
+  第二步
+ @[
+     field: @"name", value: @"bang",
+     field: @"phone[mobile]", value: @"xx",
+     field: @"phone[home]", value: @"xx",
+     field: @"families[]", value: @"father",
+     field: @"families[]", value: @"mother",
+     field: @"nums", value: @"1",
+     field: @"nums", value: @"2",
+ ]
+ 第三步
+ name=bang&phone[mobile]=xx&phone[home]=xx&families[]=father&families[]=mother&nums=1&num=2
+ 
+ 
+ */
+
 
 FOUNDATION_EXPORT NSArray * AFQueryStringPairsFromDictionary(NSDictionary *dictionary);
 FOUNDATION_EXPORT NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value);
 
+/**
+ 从array dic set这些容器类型转换为字符串，具体转码方式，我们可以使用自定义的方式，也可以用AF默认的转码方式
+ 以下是默认转码方式：
+ */
 NSString * AFQueryStringFromParameters(NSDictionary *parameters) {
     NSMutableArray *mutablePairs = [NSMutableArray array];
     for (AFQueryStringPair *pair in AFQueryStringPairsFromDictionary(parameters)) {
@@ -159,7 +197,7 @@ NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
 
     return mutableQueryStringComponents;
 }
-
+#pragma mark - parameters 转码 结束
 #pragma mark -
 
 @interface AFStreamingMultipartFormData : NSObject <AFMultipartFormData>
@@ -171,13 +209,18 @@ NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
 
 #pragma mark -
 
+/**
+ 这个函数就是封装了一些属性的名字，这些都是NSUrlRequest的属性。
+ */
 static NSArray * AFHTTPRequestSerializerObservedKeyPaths() {
     static NSArray *_AFHTTPRequestSerializerObservedKeyPaths = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        // 此处需要observer的keypath为allowsCellularAccess、cachePolicy、HTTPShouldHandleCookies
+        // HTTPShouldUsePipelining、networkServiceType、timeoutInterval
         _AFHTTPRequestSerializerObservedKeyPaths = @[NSStringFromSelector(@selector(allowsCellularAccess)), NSStringFromSelector(@selector(cachePolicy)), NSStringFromSelector(@selector(HTTPShouldHandleCookies)), NSStringFromSelector(@selector(HTTPShouldUsePipelining)), NSStringFromSelector(@selector(networkServiceType)), NSStringFromSelector(@selector(timeoutInterval))];
     });
-
+     //就是一个数组里装了很多方法的名字,
     return _AFHTTPRequestSerializerObservedKeyPaths;
 }
 
@@ -239,8 +282,9 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
 
     // HTTP Method Definitions; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
     self.HTTPMethodsEncodingParametersInURI = [NSSet setWithObjects:@"GET", @"HEAD", @"DELETE", nil];
-
+     //每次都会重置变化
     self.mutableObservedChangedKeyPaths = [NSMutableSet set];
+    //给这自己些方法添加观察者为自己，就是request的各种属性，set方法
     for (NSString *keyPath in AFHTTPRequestSerializerObservedKeyPaths()) {
         if ([self respondsToSelector:NSSelectorFromString(keyPath)]) {
             [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:AFHTTPRequestSerializerObserverContext];
@@ -352,27 +396,39 @@ forHTTPHeaderField:(NSString *)field
 
 #pragma mark -
 
+
+
+
+/**
+ 讲一下这个方法，这个方法做了3件事：
+ 1）设置request的请求类型，get,post,put...等
+ 2）往request里添加一些参数设置，其中AFHTTPRequestSerializerObservedKeyPaths()是一个c函数，返回一个数组，我们来看看这个函数:
+ */
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                  URLString:(NSString *)URLString
                                 parameters:(id)parameters
                                      error:(NSError *__autoreleasing *)error
 {
+    //断言，debug模式下，如果缺少改参数，crash
     NSParameterAssert(method);
     NSParameterAssert(URLString);
 
     NSURL *url = [NSURL URLWithString:URLString];
 
     NSParameterAssert(url);
-
+    
     NSMutableURLRequest *mutableRequest = [[NSMutableURLRequest alloc] initWithURL:url];
     mutableRequest.HTTPMethod = method;
-
+    //将request的各种属性循环遍历
     for (NSString *keyPath in AFHTTPRequestSerializerObservedKeyPaths()) {
+        //如果自己观察到的发生变化的属性，在这些方法里
         if ([self.mutableObservedChangedKeyPaths containsObject:keyPath]) {
+             //把给自己设置的属性给request设置
             [mutableRequest setValue:[self valueForKeyPath:keyPath] forKey:keyPath];
         }
     }
-
+    
+    //将传入的parameters进行编码，并添加到request中
     mutableRequest = [[self requestBySerializingRequest:mutableRequest withParameters:parameters error:error] mutableCopy];
 
 	return mutableRequest;
@@ -471,19 +527,31 @@ forHTTPHeaderField:(NSString *)field
 
 #pragma mark - AFURLRequestSerialization
 
+
+
+
+/**
+ 这个方法做了3件事：
+ 1 从self.HTTPRequestHeaders中拿到设置的参数，赋值要请求的request里去
+ 2.把请求网络的参数，从array dic set这些容器类型转换为字符串，具体转码方式，我们可以使用自定义的方式，
+ 也可以用AF默认的转码方式。自定义的方式没什么好说的，想怎么去解析由你自己来决定
+ 
+ */
 - (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
                                withParameters:(id)parameters
                                         error:(NSError *__autoreleasing *)error
 {
     NSParameterAssert(request);
+    
 
     NSMutableURLRequest *mutableRequest = [request mutableCopy];
-
+    //从自己的head里去遍历，如果有值则设置给request的head
     [self.HTTPRequestHeaders enumerateKeysAndObjectsUsingBlock:^(id field, id value, BOOL * __unused stop) {
         if (![request valueForHTTPHeaderField:field]) {
             [mutableRequest setValue:value forHTTPHeaderField:field];
         }
     }];
+    //来把各种类型的参数，array dic set转化成字符串，给request
 
     NSString *query = nil;
     if (parameters) {
@@ -499,6 +567,7 @@ forHTTPHeaderField:(NSString *)field
                 return nil;
             }
         } else {
+            //默认解析方式
             switch (self.queryStringSerializationStyle) {
                 case AFHTTPRequestQueryStringDefaultStyle:
                     query = AFQueryStringFromParameters(parameters);
@@ -506,12 +575,13 @@ forHTTPHeaderField:(NSString *)field
             }
         }
     }
-
+    //最后判断该request中是否包含了GET、HEAD、DELETE（都包含在HTTPMethodsEncodingParametersInURI）。因为这几个method的quey是拼接到url后面的。而POST、PUT是把query拼接到http body中的。
     if ([self.HTTPMethodsEncodingParametersInURI containsObject:[[request HTTPMethod] uppercaseString]]) {
         if (query && query.length > 0) {
             mutableRequest.URL = [NSURL URLWithString:[[mutableRequest.URL absoluteString] stringByAppendingFormat:mutableRequest.URL.query ? @"&%@" : @"?%@", query]];
         }
     } else {
+        //post put请求
         // #2864: an empty string is a valid x-www-form-urlencoded payload
         if (!query) {
             query = @"";
@@ -519,6 +589,7 @@ forHTTPHeaderField:(NSString *)field
         if (![mutableRequest valueForHTTPHeaderField:@"Content-Type"]) {
             [mutableRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         }
+        //设置请求体
         [mutableRequest setHTTPBody:[query dataUsingEncoding:self.stringEncoding]];
     }
 
@@ -540,6 +611,7 @@ forHTTPHeaderField:(NSString *)field
                         change:(NSDictionary *)change
                        context:(void *)context
 {
+    //当观察到这些set方法被调用了，而且不为Null就会添加到集合里，否则移除
     if (context == AFHTTPRequestSerializerObserverContext) {
         if ([change[NSKeyValueChangeNewKey] isEqual:[NSNull null]]) {
             [self.mutableObservedChangedKeyPaths removeObject:keyPath];

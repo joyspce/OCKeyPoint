@@ -264,6 +264,13 @@
     return dataTask;
 }
 
+/**
+ 这个方法做了两件事：
+ 1.用self.requestSerializer和各种参数去获取了一个我们最终请求网络需要的NSMutableURLRequest实例。
+ 2.调用另外一个方法dataTaskWithRequest去拿到我们最终需要的NSURLSessionDataTask实例，并且在完成的回调里，
+   调用我们传过来的成功和失败的回调。
+ 
+ */
 - (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
                                        URLString:(NSString *)URLString
                                       parameters:(id)parameters
@@ -273,14 +280,14 @@
                                          failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
 {
     NSError *serializationError = nil;
+    //把参数，还有各种东西转化为一个request
     NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:&serializationError];
-    if (serializationError) {
+    if (serializationError) {//如果解析错误，直接返回
         if (failure) {
             dispatch_async(self.completionQueue ?: dispatch_get_main_queue(), ^{
                 failure(nil, serializationError);
             });
         }
-
         return nil;
     }
 
