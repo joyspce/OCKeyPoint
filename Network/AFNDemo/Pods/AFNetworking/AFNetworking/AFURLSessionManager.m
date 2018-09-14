@@ -210,62 +210,91 @@ typedef void (^AFURLSessionTaskCompletionHandler)(NSURLResponse *response, id re
     }
 }
 
-#pragma mark - NSURLSessionTaskDelegate
+#pragma mark - -------------------- 被转发的 NSURLSessionTaskDelegate ------
 
+#pragma mark - AFURLSessionManagerTaskDelegate NSURLSessionTaskDelegate
+
+
+/**
+ AF代理1：AF实现的代理！被从urlsession那转发到这
+    1 生成了一个存储这个task相关信息的字典：userInfo，这个字典是用来作为发送任务完成的通知的参数。
+    2 判断了参数error的值，来区分请求成功还是失败。
+    3 如果成功则在一个AF的并行queue中，去做数据解析等后续操作：
+ 
+     static dispatch_queue_t url_session_manager_processing_queue() {
+     static dispatch_queue_t af_url_session_manager_processing_queue;
+     static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            af_url_session_manager_processing_queue = dispatch_queue_create("com.alamofire.networking.session.manager.processing", DISPATCH_QUEUE_CONCURRENT);
+        });
+ 
+        return af_url_session_manager_processing_queue;
+    }
+ 
+ 作者：涂耀辉
+ 链接：https://www.jianshu.com/p/f32bd79233da
+ 來源：简书
+ 简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+ */
 - (void)URLSession:(__unused NSURLSession *)session
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error
 {
+    //1）强引用self.manager，防止被提前释放；因为self.manager声明为weak,类似Block
     __strong AFURLSessionManager *manager = self.manager;
 
     __block id responseObject = nil;
-
+       //用来存储一些相关信息，来发送通知用的
     __block NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    //存储responseSerializer响应解析对象
     userInfo[AFNetworkingTaskDidCompleteResponseSerializerKey] = manager.responseSerializer;
 
     //Performance Improvement from #2672
+    //注意这行代码的用法，感觉写的很Nice...把请求到的数据data传出去，然后就不要这个值了释放内存
     NSData *data = nil;
     if (self.mutableData) {
         data = [self.mutableData copy];
         //We no longer need the reference, so nil it out to gain back some memory.
         self.mutableData = nil;
     }
-
+    //继续给userinfo填数据
     if (self.downloadFileURL) {
         userInfo[AFNetworkingTaskDidCompleteAssetPathKey] = self.downloadFileURL;
     } else if (data) {
         userInfo[AFNetworkingTaskDidCompleteResponseDataKey] = data;
     }
-
+    //错误处理
     if (error) {
         userInfo[AFNetworkingTaskDidCompleteErrorKey] = error;
-
+         //可以自己自定义完成组 和自定义完成queue,完成回调
         dispatch_group_async(manager.completionGroup ?: url_session_manager_completion_group(), manager.completionQueue ?: dispatch_get_main_queue(), ^{
             if (self.completionHandler) {
                 self.completionHandler(task.response, responseObject, error);
             }
-
+              //主线程中发送完成通知
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:AFNetworkingTaskDidCompleteNotification object:task userInfo:userInfo];
             });
         });
     } else {
+        //url_session_manager_processing_queue AF的并行队列
         dispatch_async(url_session_manager_processing_queue(), ^{
             NSError *serializationError = nil;
+            //解析数据
             responseObject = [manager.responseSerializer responseObjectForResponse:task.response data:data error:&serializationError];
-
+             //如果是下载文件，那么responseObject为下载的路径
             if (self.downloadFileURL) {
                 responseObject = self.downloadFileURL;
             }
-
+            //写入userInfo
             if (responseObject) {
                 userInfo[AFNetworkingTaskDidCompleteSerializedResponseKey] = responseObject;
             }
-
+            //如果解析错误
             if (serializationError) {
                 userInfo[AFNetworkingTaskDidCompleteErrorKey] = serializationError;
             }
-
+            //回调结果
             dispatch_group_async(manager.completionGroup ?: url_session_manager_completion_group(), manager.completionQueue ?: dispatch_get_main_queue(), ^{
                 if (self.completionHandler) {
                     self.completionHandler(task.response, responseObject, serializationError);
@@ -279,7 +308,7 @@ didCompleteWithError:(NSError *)error
     }
 }
 
-#pragma mark - NSURLSessionDataDelegate
+#pragma mark - AFURLSessionManagerTaskDelegate NSURLSessionDataDelegate
 
 - (void)URLSession:(__unused NSURLSession *)session
           dataTask:(__unused NSURLSessionDataTask *)dataTask
@@ -300,7 +329,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend{
     self.uploadProgress.completedUnitCount = task.countOfBytesSent;
 }
 
-#pragma mark - NSURLSessionDownloadDelegate
+#pragma mark - AFURLSessionManagerTaskDelegate NSURLSessionDownloadDelegate
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask
       didWriteData:(int64_t)bytesWritten
@@ -1002,9 +1031,14 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
     return [[self class] instancesRespondToSelector:selector];
 }
 
-#pragma mark - NSURLSessionDelegate
+#pragma mark - ------代理讲解------
 
+/*
+ 1 每个代理方法对应一个我们自定义的Block,如果Block被赋值了，那么就调用它。
+ 2 在这些代理方法里，我们做的处理都是相对于这个sessionManager所有的request的。是公用的处理。
+ */
 
+#pragma mark - --------------------NSURLSessionDelegate
 
 /**
  代理 1 当前这个session已经失效时，该代理方法被调用。
@@ -1123,7 +1157,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 #endif
 
 
-#pragma mark - NSURLSessionTaskDelegate
+#pragma mark - --------------------NSURLSessionTaskDelegate
 // 代理 4 被服务器重定向的时候调用
 
 /*
@@ -1281,7 +1315,7 @@ didCompleteWithError:(NSError *)error
     }
 }
 
-#pragma mark - NSURLSessionDataDelegate
+#pragma mark - --------------------NSURLSessionDataDelegate
 /*
  代理9：收到服务器响应后调用
  
@@ -1489,6 +1523,34 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
 
 #pragma mark - 转发到自己的代理 6
 
+
+
+/**
+ 代理 15
+  当下载被取消或者失败后重新恢复下载时调用
+
+ 函数作用：
+    告诉代理，下载任务重新开始下载了。
+ 
+ 函数讨论：
+ 
+ 如果一个正在下载任务被取消或者失败了，你可以请求一个resumeData对象（比如在userInfo字典中通过NSURLSessionDownloadTaskResumeData这个键来获取到resumeData）并使用它来提供足够的信息以重新开始下载任务。
+ 随后，你可以使用resumeData作为
+       downloadTaskWithResumeData: 或
+       downloadTaskWithResumeData:completionHandler:的参数。
+     当你调用这些方法时，你将开始一个新的下载任务。一旦你继续下载任务，session会调用它的代理方法
+     URLSession:downloadTask:didResumeAtOffset:expectedTotalBytes:
+     其中的downloadTask参数表示的就是新的下载任务，这也意味着下载重新开始了。
+ 
+ 总结一下：
+ 
+ 其实这个就是用来做断点续传的代理方法。可以在下载失败的时候，拿到我们失败的拼接的部分resumeData，然后用去调用downloadTaskWithResumeData：就会调用到这个代理方法来了。
+ 其中注意：fileOffset这个参数，如果文件缓存策略或者最后文件更新日期阻止重用已经存在的文件内容，那么该值为0。否则，该值表示当前已经下载data的偏移量。
+ 方法中仅仅调用了downloadTaskDidResume自定义Block。
+ 
+ 
+ 
+ */
 - (void)URLSession:(NSURLSession *)session
       downloadTask:(NSURLSessionDownloadTask *)downloadTask
  didResumeAtOffset:(int64_t)fileOffset
