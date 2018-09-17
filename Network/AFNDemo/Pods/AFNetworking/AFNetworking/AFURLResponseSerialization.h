@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-#pragma mark -
+#pragma mark - AFHTTPResponseSerializer
 
 /**
  `AFHTTPResponseSerializer` conforms to the `AFURLRequestSerialization` & `AFURLResponseSerialization` protocols, offering a concrete base implementation of query string / URL form-encoded parameter serialization and default request headers, as well as response status code and content type validation.
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-#pragma mark -
+#pragma mark - AFJSONResponseSerializer
 
 
 /**
@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-#pragma mark -
+#pragma mark - AFXMLParserResponseSerializer
 
 /**
  `AFXMLParserResponseSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes XML responses as an `NSXMLParser` objects.
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-#pragma mark -
+#pragma mark - AFXMLDocumentResponseSerializer
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 
@@ -180,7 +180,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #endif
 
-#pragma mark -
+#pragma mark - AFPropertyListResponseSerializer
 
 /**
  `AFPropertyListResponseSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes XML responses as an `NSXMLDocument` objects.
@@ -214,7 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-#pragma mark -
+#pragma mark - AFImageResponseSerializer
 
 /**
  `AFImageResponseSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes image responses.
@@ -248,7 +248,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-#pragma mark -
+#pragma mark - AFCompoundResponseSerializer
 
 /**
  `AFCompoundSerializer` is a subclass of `AFHTTPResponseSerializer` that delegates the response serialization to the first `AFHTTPResponseSerializer` object that returns an object for `responseObjectForResponse:data:error:`, falling back on the default behavior of `AFHTTPResponseSerializer`. This is useful for supporting multiple potential types and structures of server responses with a single serializer.

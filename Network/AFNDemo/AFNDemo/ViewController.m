@@ -6,6 +6,8 @@
 //  Copyright © 2018年 JiWuChao. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 #import "ViewController.h"
 
 #import <AFNetworking/AFNetworking.h>
@@ -13,6 +15,9 @@
 #import <AFNetworking/AFHTTPSessionManager.h>
 
 @interface ViewController ()
+
+
+@property (nonatomic,strong) NSURLSessionDownloadTask *download;
 
 @end
 
@@ -28,6 +33,28 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error = %@",error);
     }];
+    
+    NSURLRequest *request = [[NSURLRequest alloc ] initWithURL:[NSURL URLWithString:@"http://he.yinyuetai.com/uploads/videos/common/8AE4015CA6F6B544282B29F4C1DC0C0A.mp4"]];
+    
+
+   self.download = [manage downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        
+        NSLog(@"targetPath - >%@",targetPath);
+        NSLog(@"response - >%@",response);
+        NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+        //拼接文件全路径
+        NSString *fullpath = [caches stringByAppendingPathComponent:response.suggestedFilename];
+        NSURL *filePathUrl = [NSURL fileURLWithPath:fullpath];
+        
+        return filePathUrl;
+ 
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        NSLog(@"error = %@",error);
+    }];
+    [self.download resume];
+    
 }
 
 
