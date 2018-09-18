@@ -25,10 +25,10 @@
 #import "AFURLSessionManager.h"
 
 typedef NS_ENUM(NSInteger, AFNetworkActivityManagerState) {
-    AFNetworkActivityManagerStateNotActive,
-    AFNetworkActivityManagerStateDelayingStart,
-    AFNetworkActivityManagerStateActive,
-    AFNetworkActivityManagerStateDelayingEnd
+    AFNetworkActivityManagerStateNotActive,//没有请求
+    AFNetworkActivityManagerStateDelayingStart, //请求延迟开始
+    AFNetworkActivityManagerStateActive, //请求延迟开始
+    AFNetworkActivityManagerStateDelayingEnd//请求延迟结束
 };
 
 static NSTimeInterval const kDefaultAFNetworkActivityManagerActivationDelay = 1.0;
@@ -73,11 +73,14 @@ typedef void (^AFNetworkActivityActionBlock)(BOOL networkActivityIndicatorVisibl
     if (!self) {
         return nil;
     }
+    //设置状态为没有request活跃
     self.currentState = AFNetworkActivityManagerStateNotActive;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidStart:) name:AFNetworkingTaskDidResumeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidFinish:) name:AFNetworkingTaskDidSuspendNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkRequestDidFinish:) name:AFNetworkingTaskDidCompleteNotification object:nil];
+    //开始延迟
     self.activationDelay = kDefaultAFNetworkActivityManagerActivationDelay;
+    //结束延迟
     self.completionDelay = kDefaultAFNetworkActivityManagerCompletionDelay;
 
     return self;
@@ -100,7 +103,7 @@ typedef void (^AFNetworkActivityActionBlock)(BOOL networkActivityIndicatorVisibl
 - (void)setNetworkingActivityActionWithBlock:(void (^)(BOOL networkActivityIndicatorVisible))block {
     self.networkActivityActionBlock = block;
 }
-
+//判断是否活跃
 - (BOOL)isNetworkActivityOccurring {
     @synchronized(self) {
         return self.activityCount > 0;
@@ -133,12 +136,13 @@ typedef void (^AFNetworkActivityActionBlock)(BOOL networkActivityIndicatorVisibl
 }
 
 - (void)incrementActivityCount {
+     //活跃的网络数+1，并手动发送KVO
     [self willChangeValueForKey:@"activityCount"];
 	@synchronized(self) {
 		_activityCount++;
 	}
     [self didChangeValueForKey:@"activityCount"];
-
+    //主线程去做
     dispatch_async(dispatch_get_main_queue(), ^{
         [self updateCurrentStateForNetworkActivityChange];
     });
@@ -155,15 +159,17 @@ typedef void (^AFNetworkActivityActionBlock)(BOOL networkActivityIndicatorVisibl
         [self updateCurrentStateForNetworkActivityChange];
     });
 }
-
+//请求开始
 - (void)networkRequestDidStart:(NSNotification *)notification {
     if ([AFNetworkRequestFromNotification(notification) URL]) {
+        //增加请求活跃数
         [self incrementActivityCount];
     }
 }
-
+//请求结束
 - (void)networkRequestDidFinish:(NSNotification *)notification {
     if ([AFNetworkRequestFromNotification(notification) URL]) {
+        //减少请求活跃数
         [self decrementActivityCount];
     }
 }
@@ -198,10 +204,14 @@ typedef void (^AFNetworkActivityActionBlock)(BOOL networkActivityIndicatorVisibl
 }
 
 - (void)updateCurrentStateForNetworkActivityChange {
+    //如果是允许小菊花
     if (self.enabled) {
         switch (self.currentState) {
+                //不活跃
             case AFNetworkActivityManagerStateNotActive:
+                 //判断活跃数，大于0为YES
                 if (self.isNetworkActivityOccurring) {
+                     //设置状态为延迟开始
                     [self setCurrentState:AFNetworkActivityManagerStateDelayingStart];
                 }
                 break;

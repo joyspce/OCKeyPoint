@@ -14,6 +14,8 @@
 
 #import <AFNetworking/AFHTTPSessionManager.h>
 
+#import "AFNetworkActivityIndicatorManager.h"
+
 @interface ViewController ()
 
 
@@ -35,7 +37,7 @@
     }];
     
     NSURLRequest *request = [[NSURLRequest alloc ] initWithURL:[NSURL URLWithString:@"http://he.yinyuetai.com/uploads/videos/common/8AE4015CA6F6B544282B29F4C1DC0C0A.mp4"]];
-    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
 
    self.download = [manage downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -54,6 +56,7 @@
         NSLog(@"error = %@",error);
     }];
     [self.download resume];
+    
     
 }
 
