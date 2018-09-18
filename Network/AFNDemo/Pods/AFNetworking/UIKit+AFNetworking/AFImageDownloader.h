@@ -29,9 +29,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 这个枚举值代表着，一堆图片下载，执行任务的顺序。
+ */
 typedef NS_ENUM(NSInteger, AFImageDownloadPrioritization) {
-    AFImageDownloadPrioritizationFIFO,
-    AFImageDownloadPrioritizationLIFO
+    AFImageDownloadPrioritizationFIFO,//先进先出
+    AFImageDownloadPrioritizationLIFO //后进先出
+
 };
 
 /**
