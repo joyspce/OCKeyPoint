@@ -530,23 +530,32 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
             7) If the current class implementation of `resume` is not equal to the super class implementation of `resume` AND the current implementation of `resume` is not equal to the original implementation of `af_resume`, THEN swizzle the methods
             8) Set the current class to the super class, and repeat steps 3-8
          */
+        // 1) 首先构建一个NSURLSession对象session，再通过session构建出一个_NSCFLocalDataTask变量
+
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
         NSURLSession * session = [NSURLSession sessionWithConfiguration:configuration];
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wnonnull"
         NSURLSessionDataTask *localDataTask = [session dataTaskWithURL:nil];
 #pragma clang diagnostic pop
+         // 2) 获取到af_resume实现的指针
         IMP originalAFResumeIMP = method_getImplementation(class_getInstanceMethod([self class], @selector(af_resume)));
         Class currentClass = [localDataTask class];
-        
+        // 3) 检查当前class是否实现了resume。如果实现了，继续第4步。
         while (class_getInstanceMethod(currentClass, @selector(resume))) {
+            // 4) 获取到当前class的父类（superClass）
             Class superClass = [currentClass superclass];
+            // 5) 获取到当前class对于resume实现的指针
             IMP classResumeIMP = method_getImplementation(class_getInstanceMethod(currentClass, @selector(resume)));
+            //  6) 获取到父类对于resume实现的指针
             IMP superclassResumeIMP = method_getImplementation(class_getInstanceMethod(superClass, @selector(resume)));
+            // 7) 如果当前class对于resume的实现和父类不一样（类似iOS7上的情况），并且当前class的resume实现和af_resume不一样，才进行method swizzling。
             if (classResumeIMP != superclassResumeIMP &&
                 originalAFResumeIMP != classResumeIMP) {
+                //执行交换的函数
                 [self swizzleResumeAndSuspendMethodForClass:currentClass];
             }
+            // 8) 设置当前操作的class为其父类class，重复步骤3~8
             currentClass = [currentClass superclass];
         }
         
@@ -656,6 +665,12 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
     
     self.operationQueue = [[NSOperationQueue alloc] init];
     //queue并发线程数设置为1
+    
+    /*
+        这里的并发数仅仅是回调代理的线程并发数。而不是请求网络的线程并发数。请求网络是由NSUrlSession来做的，
+     它内部维护了一个线程池，用来做网络请求。它调度线程,基于底层的CFSocket去发送请求和接收数据。这些线程是并发的。
+     */
+    
     self.operationQueue.maxConcurrentOperationCount = 1;
     //注意代理，代理的继承，实际上NSURLSession去判断了，你实现了哪个方法会去调用，包括子代理的方法！
     self.session = [NSURLSession sessionWithConfiguration:self.sessionConfiguration delegate:self delegateQueue:self.operationQueue];
