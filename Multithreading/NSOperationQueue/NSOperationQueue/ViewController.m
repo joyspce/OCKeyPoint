@@ -17,7 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self addOperationToQueue];
-    [self addTaskToQueue];
+//    [self addTaskToQueue];
+    [self concurrentOperation];
 }
 /**
  * 使用 addOperation: 将操作加入到操作队列中
@@ -37,14 +38,14 @@
     // 使用 NSBlockOperation 创建操作3
     NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
         for (int i = 0; i < 2; i++) {
-            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
-            NSLog(@"3---%@", [NSThread currentThread]); // 打印当前线程
+            [NSThread sleepForTimeInterval:2];
+            NSLog(@"3---%@", [NSThread currentThread]);
         }
     }];
     [op3 addExecutionBlock:^{
         for (int i = 0; i < 2; i++) {
-            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
-             NSLog(@"4---%@", [NSThread currentThread]); // 打印当前线程
+            [NSThread sleepForTimeInterval:2];
+             NSLog(@"4---%@", [NSThread currentThread]);
         }
     }];
     
@@ -56,14 +57,14 @@
 
 - (void)taskAction {
     for (int i = 0; i < 2; i++) {
-        [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
-        NSLog(@"1---%@", [NSThread currentThread]); // 打印当前线程
+        [NSThread sleepForTimeInterval:2];
+        NSLog(@"1---%@", [NSThread currentThread]);
     }
 }
 - (void)taskAction2 {
     for (int i = 0; i < 2; i++) {
-        [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
-        NSLog(@"2---%@", [NSThread currentThread]); // 打印当前线程
+        [NSThread sleepForTimeInterval:2];
+        NSLog(@"2---%@", [NSThread currentThread]);
     }
 }
 
@@ -71,30 +72,60 @@
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         for (int i = 0; i < 2; i++) {
-            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
-            NSLog(@"1---%@", [NSThread currentThread]); // 打印当前线程
+            [NSThread sleepForTimeInterval:2];
+            NSLog(@"1---%@", [NSThread currentThread]);
         }
     }];
     [queue addOperationWithBlock:^{
         for (int i = 0; i < 2; i++) {
-            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
-            NSLog(@"2---%@", [NSThread currentThread]); // 打印当前线程
+            [NSThread sleepForTimeInterval:2];
+            NSLog(@"2---%@", [NSThread currentThread]);
         }
     }];
     [queue addOperationWithBlock:^{
         for (int i = 0; i < 2; i++) {
-            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
-            NSLog(@"3---%@", [NSThread currentThread]); // 打印当前线程
+            [NSThread sleepForTimeInterval:2];
+            NSLog(@"3---%@", [NSThread currentThread]);
         }
     }];
     [queue addOperationWithBlock:^{
         for (int i = 0; i < 2; i++) {
-            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
-            NSLog(@"4---%@", [NSThread currentThread]); // 打印当前线程
+            [NSThread sleepForTimeInterval:2];
+            NSLog(@"4---%@", [NSThread currentThread]);
         }
     }];
     
    
+}
+
+- (void)concurrentOperation {
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    queue.maxConcurrentOperationCount = 2;
+    [queue addOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2];
+            NSLog(@"1---%@", [NSThread currentThread]);
+        }
+    }];
+    [queue addOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2];
+            NSLog(@"2---%@", [NSThread currentThread]);
+        }
+    }];
+    [queue addOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2];
+            NSLog(@"3---%@", [NSThread currentThread]);
+        }
+    }];
+    [queue addOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2];
+            NSLog(@"4---%@", [NSThread currentThread]);
+        }
+    }];
+
 }
 
 
