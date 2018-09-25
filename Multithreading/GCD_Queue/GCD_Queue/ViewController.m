@@ -23,8 +23,10 @@
         dispatch_queue_create 生成队列 无论是并发队列还是串行队列 其都是默认优先级
      
      */
-    
+    // 并发队列
     dispatch_queue_t customQueue = dispatch_queue_create("com.jiwuchao.GCD_Queue", DISPATCH_QUEUE_CONCURRENT);
+    // 串行队列
+    dispatch_queue_t customSerial = dispatch_queue_create("com.jiwuchao.gcd_queue.serial", DISPATCH_QUEUE_SERIAL);
     
     //指定
     
