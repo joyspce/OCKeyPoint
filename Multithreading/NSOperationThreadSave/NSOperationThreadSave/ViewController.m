@@ -47,21 +47,43 @@
 }
 
 - (void)buyTicket {
-    [self.lock lock];
-    while (self.count != 0) {
-        if (self.count > 0) {
-            self.count --;
-            NSLog(@"%@", [NSString stringWithFormat:@"剩余票数:%ld 窗口:%@", (long)self.count, [NSThread currentThread]]);
-            [NSThread sleepForTimeInterval:0.5];
-        }
-        [self.lock unlock];
-        
-        if (self.count <= 0) {
-            NSLog(@"所有火车票均已售完");
-            break;
+    
+    /*
+     线程安全方法 1
+     */
+    @synchronized (self) {
+        while (self.count != 0) {
+            if (self.count > 0) {
+                self.count --;
+                NSLog(@"%@", [NSString stringWithFormat:@"剩余票数:%ld 窗口:%@", (long)self.count, [NSThread currentThread]]);
+                [NSThread sleepForTimeInterval:0.5];
+            }
+//            [self.lock unlock];
+            
+            if (self.count <= 0) {
+                NSLog(@"所有火车票均已售完");
+                break;
+            }
         }
     }
-    
+    /*
+        线程安全方法 2
+     
+      [self.lock lock];
+        while (self.count != 0) {
+            if (self.count > 0) {
+                self.count --;
+                NSLog(@"%@", [NSString stringWithFormat:@"剩余票数:%ld 窗口:%@", (long)self.count, [NSThread currentThread]]);
+                [NSThread sleepForTimeInterval:0.5];
+            }
+                        [self.lock unlock];
+            
+            if (self.count <= 0) {
+                NSLog(@"所有火车票均已售完");
+                break;
+            }
+        }
+*/
 }
 
 
