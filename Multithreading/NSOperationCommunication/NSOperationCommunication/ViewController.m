@@ -13,7 +13,7 @@
 @end
 
 @implementation ViewController
-
+//通过线程间的通信，先在其他线程中执行操作，等操作执行完了之后再回到主线程执行主线程的相应操作。
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
