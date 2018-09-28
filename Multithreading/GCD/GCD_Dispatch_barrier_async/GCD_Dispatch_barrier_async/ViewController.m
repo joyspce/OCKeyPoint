@@ -22,6 +22,9 @@
 //    [self barrierSync];
 //    [NSThread detachNewThreadSelector:@selector(barrierSync) toTarget:self withObject:nil];
     [self barrierAsynQuestion];
+    
+     
+    
 }
 
 /*
@@ -217,6 +220,7 @@
         });
     
 }
+
 
 
 

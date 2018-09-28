@@ -10,6 +10,8 @@
 
 @interface Download : NSObject
 
++ (instancetype)shared;
+
 + (void)downloadData:(void (^)(BOOL success))complate;
 
 @end

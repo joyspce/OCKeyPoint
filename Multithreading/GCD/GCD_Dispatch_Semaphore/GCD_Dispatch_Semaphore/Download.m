@@ -10,6 +10,15 @@
 
 @implementation Download
 
++ (instancetype)shared {
+    static Download *download = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        download = [[Download alloc] init];
+    });
+    return download;
+}
+
 
 + (void)downloadData:(void (^)(BOOL))complate {
     [[[self alloc]init ] downloadData:complate];
