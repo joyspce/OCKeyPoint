@@ -13,6 +13,7 @@
 		04883DE7215D01FE00C46D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04883DE6215D01FE00C46D94 /* Assets.xcassets */; };
 		04883DEA215D01FE00C46D94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04883DE8215D01FE00C46D94 /* LaunchScreen.storyboard */; };
 		04883DED215D01FE00C46D94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04883DEC215D01FE00C46D94 /* main.m */; };
+		04883E1A215DCB0000C46D94 /* Download.m in Sources */ = {isa = PBXBuildFile; fileRef = 04883E19215DCB0000C46D94 /* Download.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		04883DE9215D01FE00C46D94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04883DEB215D01FE00C46D94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04883DEC215D01FE00C46D94 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04883E18215DCB0000C46D94 /* Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Download.h; path = ../../GCD_Dispatch_Semaphore/GCD_Dispatch_Semaphore/Download.h; sourceTree = "<group>"; };
+		04883E19215DCB0000C46D94 /* Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Download.m; path = ../../GCD_Dispatch_Semaphore/GCD_Dispatch_Semaphore/Download.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 		04883DDC215D01FA00C46D94 /* GCD_Dispatch_barrier_async */ = {
 			isa = PBXGroup;
 			children = (
+				04883E18215DCB0000C46D94 /* Download.h */,
+				04883E19215DCB0000C46D94 /* Download.m */,
 				04883DDD215D01FA00C46D94 /* AppDelegate.h */,
 				04883DDE215D01FA00C46D94 /* AppDelegate.m */,
 				04883DE0215D01FA00C46D94 /* ViewController.h */,
@@ -142,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04883DE2215D01FA00C46D94 /* ViewController.m in Sources */,
+				04883E1A215DCB0000C46D94 /* Download.m in Sources */,
 				04883DED215D01FE00C46D94 /* main.m in Sources */,
 				04883DDF215D01FA00C46D94 /* AppDelegate.m in Sources */,
 			);

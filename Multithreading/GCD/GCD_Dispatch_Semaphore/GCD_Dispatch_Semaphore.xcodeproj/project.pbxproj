@@ -13,6 +13,7 @@
 		04883E09215D1A4C00C46D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04883E08215D1A4C00C46D94 /* Assets.xcassets */; };
 		04883E0C215D1A4C00C46D94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04883E0A215D1A4C00C46D94 /* LaunchScreen.storyboard */; };
 		04883E0F215D1A4C00C46D94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04883E0E215D1A4C00C46D94 /* main.m */; };
+		04883E17215DCA3C00C46D94 /* Download.m in Sources */ = {isa = PBXBuildFile; fileRef = 04883E16215DCA3C00C46D94 /* Download.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		04883E0B215D1A4C00C46D94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04883E0D215D1A4C00C46D94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04883E0E215D1A4C00C46D94 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04883E15215DCA3C00C46D94 /* Download.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Download.h; sourceTree = "<group>"; };
+		04883E16215DCA3C00C46D94 /* Download.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Download.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 		04883DFE215D1A4A00C46D94 /* GCD_Dispatch_Semaphore */ = {
 			isa = PBXGroup;
 			children = (
+				04883E15215DCA3C00C46D94 /* Download.h */,
+				04883E16215DCA3C00C46D94 /* Download.m */,
 				04883DFF215D1A4A00C46D94 /* AppDelegate.h */,
 				04883E00215D1A4A00C46D94 /* AppDelegate.m */,
 				04883E02215D1A4A00C46D94 /* ViewController.h */,
@@ -142,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04883E04215D1A4A00C46D94 /* ViewController.m in Sources */,
+				04883E17215DCA3C00C46D94 /* Download.m in Sources */,
 				04883E0F215D1A4C00C46D94 /* main.m in Sources */,
 				04883E01215D1A4A00C46D94 /* AppDelegate.m in Sources */,
 			);
