@@ -21,9 +21,9 @@
 //    [self barrierAsync];
 //    [self barrierSync];
 //    [NSThread detachNewThreadSelector:@selector(barrierSync) toTarget:self withObject:nil];
-    [self barrierAsynQuestion];
+//    [self barrierAsynQuestion];
+    [self barrierAsynAnswer];
     
-     
     
 }
 
@@ -183,18 +183,15 @@
                 // 子任务2
                 for (NSInteger i = 0; i < 2; i++) {
                     [NSThread sleepForTimeInterval:1];
-                    NSLog(@"子任务1 - %@",[NSThread currentThread]);
+                    NSLog(@"子任务2 - %@",[NSThread currentThread]);
                 }
                 // 子任务3
                 for (NSInteger i = 0; i < 2; i++) {
                     [NSThread sleepForTimeInterval:1];
-                    NSLog(@"子任务1 - %@",[NSThread currentThread]);
+                    NSLog(@"子任务3 - %@",[NSThread currentThread]);
                 }
-                
             });
-            
-            
-            
+     
         });
     
         dispatch_barrier_async(queue, ^{
@@ -221,7 +218,87 @@
     
 }
 
-
+- (void)barrierAsynAnswer {
+    NSLog(@"1 current thread -%@",[NSThread currentThread]);
+    // 创建一个并发队列
+    dispatch_queue_t queue = dispatch_queue_create("com.jiwuchao.barrierAsync", DISPATCH_QUEUE_CONCURRENT);
+    
+    //任务1
+    dispatch_async(queue, ^{
+        for (NSInteger i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:1];
+            NSLog(@"任务1 - %@",[NSThread currentThread]);
+        }
+    });
+    //任务2
+    dispatch_async(queue, ^{
+        NSLog(@"任务2 current thread -%@",[NSThread currentThread]);
+        /*
+         第一种情况 会开启新线程
+         */
+        //            // 1 和 dispatch_async(queue, ^{} 是不是同一个线程 重新开启一个线程 异步 执行完之后回调
+        //            [Download downloadData:^(BOOL success) {
+        //                NSLog(@"正在执行下载完成之后的任务");
+        //                [NSThread sleepForTimeInterval:3];
+        //                NSLog(@"下载完成之后的任务完成");
+        //            }];
+        
+        /*
+         第二种情况 如果是单个任务 不会开启新线程 如果是多个子任务则会开启线程
+         */
+        
+        dispatch_queue_t queue2 = dispatch_queue_create("com.wuchaoji.http", DISPATCH_QUEUE_CONCURRENT);
+        
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+        
+        dispatch_async(queue2, ^{
+            NSLog(@"3 current thread -%@",[NSThread currentThread]);
+            // 子任务1
+            for (NSInteger i = 0; i < 2; i++) {
+                [NSThread sleepForTimeInterval:1];
+                NSLog(@"子任务1 - %@",[NSThread currentThread]);
+            }
+            // 子任务2
+            for (NSInteger i = 0; i < 2; i++) {
+                [NSThread sleepForTimeInterval:1];
+                NSLog(@"子任务2 - %@",[NSThread currentThread]);
+            }
+            // 子任务3
+            for (NSInteger i = 0; i < 2; i++) {
+                [NSThread sleepForTimeInterval:1];
+                NSLog(@"子任务3 - %@",[NSThread currentThread]);
+            }
+            
+            dispatch_semaphore_signal(semaphore);
+        });
+        // 信号量 等待 最多等待15秒
+        dispatch_semaphore_wait(semaphore,dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15 * NSEC_PER_SEC)));
+        
+    });
+    
+    dispatch_barrier_async(queue, ^{
+        for (NSInteger i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:1];
+            NSLog(@"i %ld dispatch_barrier_async 任务",i);
+        }
+        [NSThread sleepForTimeInterval:5];
+    });
+    // 任务3
+    dispatch_async(queue, ^{
+        for (NSInteger i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:1];
+            NSLog(@"任务3 - %@",[NSThread currentThread]);
+        }
+    });
+    // 任务4
+    dispatch_async(queue, ^{
+        for (NSInteger i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:1];
+            NSLog(@"任务4 - %@",[NSThread currentThread]);
+        }
+    });
+    
+}
 
 
 @end
