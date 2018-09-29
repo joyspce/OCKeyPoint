@@ -1037,7 +1037,7 @@ group---end
 - [x] 注意看这片文章
 
 
-[dispatch_group_async，dispatch_group_enter 和 dispatch_group_leave 可以对group进行更细致的处理](https://www.cnblogs.com/breezemist/p/5667776.html)
+[线程同步方法,问题以及解决方案](http://www.wuchao.net.cn/2018/09/29/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95%E5%92%8C%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/)
 
 
 ### 7.2  dispatch_barrier_async 和 dispatch_barrier_sync
