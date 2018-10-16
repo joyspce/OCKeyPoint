@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  Http
+//  HttpCookie
 //
 //  Created by JiWuChao on 2018/10/16.
 //  Copyright © 2018年 JiWuChao. All rights reserved.
