@@ -40,6 +40,9 @@
     
     NSURL *url = [NSURL URLWithString:@"http://rankapi.longzhu.com/ranklist/GetWeekRoomIdItemId?bundleId=com.longzhu.tga&roomId=2368600"];
     
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setValue:@"" forHTTPHeaderField:@""];
+    
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
 //    self.dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 //        //        NSLog(@"res = %@",response);

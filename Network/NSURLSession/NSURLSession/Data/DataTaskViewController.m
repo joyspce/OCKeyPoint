@@ -54,6 +54,8 @@
     
     NSURL *url = [NSURL URLWithString:@"http://jsonplaceholder.typicode.com/users"];
     
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
     //    self.dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
     //        //        NSLog(@"res = %@",response);
