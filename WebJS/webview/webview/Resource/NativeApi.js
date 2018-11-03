@@ -28,7 +28,11 @@ var DANativeApi = (function() {
 			//具体是否需要判断
 			//调用native端
 			_nativeChoosePhoneContact(param);
-		}
+		},
+       // pop 出去
+        pop:function(success) {
+       
+       },
 	}
 
 	//下面是一些私有函数

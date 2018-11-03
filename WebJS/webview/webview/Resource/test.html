@@ -16,6 +16,9 @@
         <div>
             <a href="darkangel://smsLogin?username=12323123&code=892845">短信验证登录</a>
         </div>
+        <div>
+            <a onclick="pop()" >pop</a>
+        </div>
         </div>
             <a href="javascript:void(0);" class="sharebtn" onclick="share('分享标题', 'http://cc.cocimg.com/api/uploads/170425/b2d6e7ea5b3172e6c39120b7bfd662fb.jpg', location.href)">分享活动，领30元红包</a>
         </div>
@@ -81,6 +84,9 @@
                 });
             }
         
+        function pop {
+            
+        }
         function chooseContact() {
             DANativeApi.choosePhoneContact({
                                            completion: function(res) {
