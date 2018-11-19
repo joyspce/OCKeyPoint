@@ -18,6 +18,8 @@
 		041574862188956200D54D00 /* NativeApi.js in Resources */ = {isa = PBXBuildFile; fileRef = 041574832188956200D54D00 /* NativeApi.js */; };
 		041574872188956200D54D00 /* ImgAddClickEvent.js in Resources */ = {isa = PBXBuildFile; fileRef = 041574842188956200D54D00 /* ImgAddClickEvent.js */; };
 		041574882188956200D54D00 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 041574852188956200D54D00 /* test.html */; };
+		04ACC94B21A2672300A18E3F /* DKProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACC94921A2672300A18E3F /* DKProgressLayer.m */; };
+		04ACC94E21A2900300A18E3F /* LZWebLoadProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACC94D21A2900300A18E3F /* LZWebLoadProgress.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,10 @@
 		041574842188956200D54D00 /* ImgAddClickEvent.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ImgAddClickEvent.js; sourceTree = "<group>"; };
 		041574852188956200D54D00 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		041574892188958E00D54D00 /* WebViewDemoDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewDemoDefine.h; sourceTree = "<group>"; };
+		04ACC94921A2672300A18E3F /* DKProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKProgressLayer.m; sourceTree = "<group>"; };
+		04ACC94A21A2672300A18E3F /* DKProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKProgressLayer.h; sourceTree = "<group>"; };
+		04ACC94C21A2900300A18E3F /* LZWebLoadProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZWebLoadProgress.h; sourceTree = "<group>"; };
+		04ACC94D21A2900300A18E3F /* LZWebLoadProgress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZWebLoadProgress.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +98,14 @@
 		041574812188954800D54D00 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				04ACC94A21A2672300A18E3F /* DKProgressLayer.h */,
+				04ACC94921A2672300A18E3F /* DKProgressLayer.m */,
 				041574842188956200D54D00 /* ImgAddClickEvent.js */,
 				041574832188956200D54D00 /* NativeApi.js */,
 				041574852188956200D54D00 /* test.html */,
 				041574892188958E00D54D00 /* WebViewDemoDefine.h */,
+				04ACC94C21A2900300A18E3F /* LZWebLoadProgress.h */,
+				04ACC94D21A2900300A18E3F /* LZWebLoadProgress.m */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -176,6 +186,8 @@
 				0415747D21888DAA00D54D00 /* WKWebViewVC.m in Sources */,
 				0415746A21888C6600D54D00 /* ViewController.m in Sources */,
 				0415747521888C6800D54D00 /* main.m in Sources */,
+				04ACC94E21A2900300A18E3F /* LZWebLoadProgress.m in Sources */,
+				04ACC94B21A2672300A18E3F /* DKProgressLayer.m in Sources */,
 				0415746721888C6600D54D00 /* AppDelegate.m in Sources */,
 				0415748021888DC400D54D00 /* UIWebViewVC.m in Sources */,
 			);

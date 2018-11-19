@@ -12,11 +12,19 @@
 
 #import <JavaScriptCore/JavaScriptCore.h>
 
+#import "DKProgressLayer.h"
+
+#import "LZWebLoadProgress.h"
+
 @interface UIWebViewVC ()<UIWebViewDelegate>
 
 @property (nonatomic,strong) UIWebView *webView;
 
 @property (nonatomic, strong) JSContext *jsContext ;
+
+@property (nonatomic, strong) DKProgressLayer *progress;
+
+@property (nonatomic, strong) LZWebLoadProgress *webload;
 
 @end
 
@@ -25,14 +33,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://wuchao.net.cn"]];
-//    [self.webView loadRequest:request];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.hao123.com/"]];
+    [self.webView loadRequest:request];
     
     
-     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"html"]]]];
+//     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"html"]]]];
     //点击返回，逐级返回
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self.webView action:@selector(goBack)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self.webView action:@selector(goBack)];
     self.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+   [self.navigationController.navigationBar.layer addSublayer:self.progress];
+//    [self.navigationController.navigationBar.layer addSublayer:self.webload];
 }
 
 
@@ -51,6 +61,22 @@
         _jsContext = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];;
     }
     return _jsContext;
+}
+
+- (DKProgressLayer *)progress {
+    if (!_progress) {
+        _progress = [[DKProgressLayer alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.navigationController.navigationBar.frame)-2, self.view.bounds.size.width, 2)];
+        _progress.progressColor = [UIColor redColor];
+        _progress.progressStyle = DKProgressStyle_Gradual;
+    }
+    return _progress;
+}
+
+- (LZWebLoadProgress *)webload {
+    if (!_webload) {
+        _webload = [[LZWebLoadProgress alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.navigationController.navigationBar.frame)-2, self.view.bounds.size.width, 2) withColor:[UIColor blueColor]];
+    }
+    return _webload;
 }
 
 
@@ -85,9 +111,13 @@
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     NSLog(@"start");
+    [self.progress progressAnimationStart];
+//    [self.webload startLoad];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"over");
+//    [self.progress progressAnimationCompletion];
+    [self.webload endLoad];
     //更新标题，这是上面的讲过的方法
 //    self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 
@@ -100,9 +130,12 @@
     self.navigationItem.title = value.toString;
     
     [self convertJSFunctionsToOCMethods];
+    
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"error - %@",error);
+    [self.progress progressAnimationCompletion];
+//    [self.webload endLoad];
 }
 
 
@@ -128,6 +161,8 @@
     };
 }
 
-
+- (void)dealloc {
+    NSLog(@"dealloc ");
+}
 
 @end
