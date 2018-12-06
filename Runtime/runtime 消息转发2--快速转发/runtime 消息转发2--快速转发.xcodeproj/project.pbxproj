@@ -16,6 +16,7 @@
 		043991B121202A2900B812CB /* Grandfather.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991B021202A2900B812CB /* Grandfather.m */; };
 		043991B721202CA600B812CB /* Mother.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991B621202CA600B812CB /* Mother.m */; };
 		043991E521203D2300B812CB /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 043991E321203D2300B812CB /* Father.m */; };
+		044FBD2B21B97BC2000E4AC8 /* ForwardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 044FBD2A21B97BC2000E4AC8 /* ForwardMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		043991B621202CA600B812CB /* Mother.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mother.m; sourceTree = "<group>"; };
 		043991E321203D2300B812CB /* Father.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
 		043991E421203D2300B812CB /* Father.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Father.h; sourceTree = "<group>"; };
+		044FBD2921B97BC2000E4AC8 /* ForwardMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForwardMessage.h; sourceTree = "<group>"; };
+		044FBD2A21B97BC2000E4AC8 /* ForwardMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForwardMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				043991E321203D2300B812CB /* Father.m */,
 				043991B521202CA600B812CB /* Mother.h */,
 				043991B621202CA600B812CB /* Mother.m */,
+				044FBD2921B97BC2000E4AC8 /* ForwardMessage.h */,
+				044FBD2A21B97BC2000E4AC8 /* ForwardMessage.m */,
 				04399196212028EE00B812CB /* AppDelegate.h */,
 				04399197212028EE00B812CB /* AppDelegate.m */,
 				04399199212028EE00B812CB /* ViewController.h */,
@@ -162,6 +167,7 @@
 				043991B121202A2900B812CB /* Grandfather.m in Sources */,
 				04399198212028EE00B812CB /* AppDelegate.m in Sources */,
 				043991B721202CA600B812CB /* Mother.m in Sources */,
+				044FBD2B21B97BC2000E4AC8 /* ForwardMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

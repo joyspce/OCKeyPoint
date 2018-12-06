@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Father.h"
+#import "ForwardMessage.h"
 @interface ViewController ()
 
 @end
@@ -17,8 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     Father *f = [[Father alloc]init];
-    [f gotoWork];
-    [f goHomeToCook];
+//    [f gotoWork];
+//    [f goHomeToCook];
+    ForwardMessage *m = [[ForwardMessage alloc]init];
+    [m forward];
+    
 }
 
 
