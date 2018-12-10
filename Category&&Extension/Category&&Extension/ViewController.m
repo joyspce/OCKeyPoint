@@ -170,13 +170,14 @@
         for (NSInteger i = 0; i < count ; i++) {
             Method method = methodList[i];
             NSString *methodName = [NSString stringWithCString:sel_getName(method_getName(method)) encoding:NSUTF8StringEncoding];
+            NSLog(@"methodName = %@",methodName);
             if ([methodName isEqualToString:@"goShoping"]) {
                 lastImp = method_getImplementation(method);//方法的实现
                 lastSel = method_getName(method);//方法的名称
                 NSLog(@"type:== %@",[NSString stringWithCString:method_getTypeEncoding(method) encoding:NSUTF8StringEncoding]);
             }
         }
-        typedef void (*fn)(id,SEL);
+        typedef void (*fn)(id,SEL);// 定义一个函数指针
         
         if (lastImp != NULL) {
             fn f = (fn)lastImp;
