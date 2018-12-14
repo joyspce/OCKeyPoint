@@ -15,6 +15,11 @@
 		043EC04F21C40C0700268953 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EC04E21C40C0700268953 /* main.m */; };
 		043EC05821C40C3A00268953 /* TouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EC05721C40C3A00268953 /* TouchView.m */; };
 		043EC05B21C4110600268953 /* EVentDelivery.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EC05A21C4110600268953 /* EVentDelivery.m */; };
+		043EC05F21C4144700268953 /* BlackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EC05E21C4144700268953 /* BlackView.m */; };
+		043EC06221C4145400268953 /* BlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EC06121C4145400268953 /* BlueView.m */; };
+		043EC06521C4145D00268953 /* RedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EC06421C4145D00268953 /* RedView.m */; };
+		043EC06821C4148000268953 /* YellowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EC06721C4148000268953 /* YellowView.m */; };
+		043EC06B21C4263200268953 /* BigThanSuper.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EC06A21C4263200268953 /* BigThanSuper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,16 @@
 		043EC05721C40C3A00268953 /* TouchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchView.m; sourceTree = "<group>"; };
 		043EC05921C4110600268953 /* EVentDelivery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVentDelivery.h; sourceTree = "<group>"; };
 		043EC05A21C4110600268953 /* EVentDelivery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EVentDelivery.m; sourceTree = "<group>"; };
+		043EC05D21C4144700268953 /* BlackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlackView.h; sourceTree = "<group>"; };
+		043EC05E21C4144700268953 /* BlackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackView.m; sourceTree = "<group>"; };
+		043EC06021C4145400268953 /* BlueView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueView.h; sourceTree = "<group>"; };
+		043EC06121C4145400268953 /* BlueView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueView.m; sourceTree = "<group>"; };
+		043EC06321C4145D00268953 /* RedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedView.h; sourceTree = "<group>"; };
+		043EC06421C4145D00268953 /* RedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedView.m; sourceTree = "<group>"; };
+		043EC06621C4148000268953 /* YellowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YellowView.h; sourceTree = "<group>"; };
+		043EC06721C4148000268953 /* YellowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YellowView.m; sourceTree = "<group>"; };
+		043EC06921C4263200268953 /* BigThanSuper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BigThanSuper.h; sourceTree = "<group>"; };
+		043EC06A21C4263200268953 /* BigThanSuper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigThanSuper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +96,30 @@
 		043EC05521C40C1100268953 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				043EC05C21C4142700268953 /* Delievery */,
 				043EC05621C40C3A00268953 /* TouchView.h */,
 				043EC05721C40C3A00268953 /* TouchView.m */,
-				043EC05921C4110600268953 /* EVentDelivery.h */,
-				043EC05A21C4110600268953 /* EVentDelivery.m */,
+				043EC06921C4263200268953 /* BigThanSuper.h */,
+				043EC06A21C4263200268953 /* BigThanSuper.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		043EC05C21C4142700268953 /* Delievery */ = {
+			isa = PBXGroup;
+			children = (
+				043EC05921C4110600268953 /* EVentDelivery.h */,
+				043EC05A21C4110600268953 /* EVentDelivery.m */,
+				043EC05D21C4144700268953 /* BlackView.h */,
+				043EC05E21C4144700268953 /* BlackView.m */,
+				043EC06021C4145400268953 /* BlueView.h */,
+				043EC06121C4145400268953 /* BlueView.m */,
+				043EC06321C4145D00268953 /* RedView.h */,
+				043EC06421C4145D00268953 /* RedView.m */,
+				043EC06621C4148000268953 /* YellowView.h */,
+				043EC06721C4148000268953 /* YellowView.m */,
+			);
+			path = Delievery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,9 +193,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				043EC05821C40C3A00268953 /* TouchView.m in Sources */,
+				043EC06821C4148000268953 /* YellowView.m in Sources */,
 				043EC04421C40C0500268953 /* ViewController.m in Sources */,
+				043EC06521C4145D00268953 /* RedView.m in Sources */,
+				043EC05F21C4144700268953 /* BlackView.m in Sources */,
+				043EC06B21C4263200268953 /* BigThanSuper.m in Sources */,
 				043EC04F21C40C0700268953 /* main.m in Sources */,
 				043EC04121C40C0500268953 /* AppDelegate.m in Sources */,
+				043EC06221C4145400268953 /* BlueView.m in Sources */,
 				043EC05B21C4110600268953 /* EVentDelivery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
