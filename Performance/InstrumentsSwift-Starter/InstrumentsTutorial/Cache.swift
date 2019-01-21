@@ -41,8 +41,17 @@ class ImageCache {
   }
   
   func loadThumbnail(for photo: FlickrPhoto, completion: @escaping FlickrAPI.FetchImageCompletion) {
-    FlickrAPI.loadImage(for: photo, withSize: "m") { result in
-      completion(result)
+    // 如果有缓存则从缓存c中去
+    if let image = ImageCache.shared.image(forKey: photo.id) {
+        completion(Result.success(image))
+    } else {
+        // 如果没有缓存则 则从FlickrAPI 加载成功之后然后加入缓存
+        FlickrAPI.loadImage(for: photo, withSize: "m") { result in
+            if case .success(let image) = result {
+                ImageCache.shared.set(image, forKey: photo.id)
+            }
+            completion(result)
+        }
     }
   }
 }
