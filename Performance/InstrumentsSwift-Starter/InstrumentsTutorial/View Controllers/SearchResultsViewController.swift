@@ -52,37 +52,51 @@ extension SearchResultsViewController: UICollectionViewDataSource {
     return searchResults!.searchResults.count
   }
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! SearchResultsCollectionViewCell
-    
-    if let flickrPhoto = searchResults?.searchResults[indexPath.item] {
-      cell.flickrPhoto = flickrPhoto
-      
-      cell.heartToggleHandler = { isStarred in
-        self.collectionView.reloadItems(at: [ indexPath ])
-      }
-      
-      ImageCache.shared.loadThumbnail(for: flickrPhoto) { result in
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! SearchResultsCollectionViewCell
         
-        switch result {
-          
-        case .success(let image):
-          
-          if cell.flickrPhoto == flickrPhoto {
-            if flickrPhoto.isFavourite {
-              cell.imageView.image = image
-            } else if let filteredImage = image.applyTonalFilter() {
-              cell.imageView.image = filteredImage
+        if let flickrPhoto = searchResults?.searchResults[indexPath.item] {
+            cell.flickrPhoto = flickrPhoto
+            
+            cell.heartToggleHandler = { isStarred in
+                self.collectionView.reloadItems(at: [ indexPath ])
             }
-          }
-          
-        case .failure(let error):
-          print("Error: \(error)")
+            
+            ImageCache.shared.loadThumbnail(for: flickrPhoto)  { result in
+                
+                switch result {
+                    
+                case .success(let image):
+                    
+                    if cell.flickrPhoto == flickrPhoto {
+                        if flickrPhoto.isFavourite {
+                            cell.imageView.image = image
+                        } else {
+                            if let cachedImage = ImageCache.shared.image(forKey: "\(flickrPhoto.id)-filtered") {
+                                cell.imageView.image = cachedImage
+                            }
+                            else {
+                                DispatchQueue.global().async {
+                                    if let filteredImage = image.applyTonalFilter() {
+                                        ImageCache.shared.set(filteredImage, forKey: "\(flickrPhoto.id)-filtered")
+                                        
+                                        DispatchQueue.main.async {
+                                            cell.imageView.image = filteredImage
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+            
         }
-      }
+        return cell
     }
-    return cell
-  }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
